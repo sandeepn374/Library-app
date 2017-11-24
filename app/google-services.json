@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1014812942197",
+    "firebase_url": "https://laundry-e160d.firebaseio.com",
+    "project_id": "laundry-e160d",
+    "storage_bucket": "laundry-e160d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1014812942197:android:70ff987205cba1ae",
+        "android_client_info": {
+          "package_name": "com.myapp.warest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1014812942197-gs05horid17lddljurpva1l9gduvm7td.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7rflTNz2hZHsEhxgQo-G2CIIAsmTzFmw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
