@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "1014812942197",
-    "firebase_url": "https://laundry-e160d.firebaseio.com",
-    "project_id": "laundry-e160d",
-    "storage_bucket": "laundry-e160d.appspot.com"
+    "project_number": "388847636520",
+    "firebase_url": "https://warest-77e4b.firebaseio.com",
+    "project_id": "warest-77e4b",
+    "storage_bucket": "warest-77e4b.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1014812942197:android:70ff987205cba1ae",
+        "mobilesdk_app_id": "1:388847636520:android:70ff987205cba1ae",
         "android_client_info": {
           "package_name": "com.myapp.warest"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1014812942197-gs05horid17lddljurpva1l9gduvm7td.apps.googleusercontent.com",
+          "client_id": "388847636520-62pbfr6ijr3nhr407ceq6f5m52sqqm4a.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyB7rflTNz2hZHsEhxgQo-G2CIIAsmTzFmw"
+          "current_key": "AIzaSyAggKdvcR0w1-M7KI-GkWiqPQv-zZphv6s"
         }
       ],
       "services": {
