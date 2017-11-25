@@ -13,9 +13,10 @@
     <string name="title_activity_login">Sign Up</string>
     <string name="hint_email">Enter your Email</string>
     <string name="hint_password">Enter your Password</string>
+    <string name="hint_password1">Confirm your Password</string>
     <string name="hint_name">Fullname</string>
     <string name="btn_login">LOGIN</string>
-    <string name="btn_link_to_register">Not a member? Get registered now!</string>
+    <string name="btn_link_to_register">New User?Sign up now</string>
     <string name="btn_link_to_login">Already registered. Login Me!</string>
     <string name="title_activity_reset_password">Reset Password Activity</string>
     <string name="btn_forgot_password">Forgot your password?</string>
@@ -29,5 +30,16 @@
     <string name="lbl_forgot_password">Forgot password?</string>
     <string name="forgot_password_msg">We just need your registered Email Id to send your password reset instructions.</string>
     <string name="fullname">Fullname</string>
+    <string name="phone">Phone</string>
+
+
+
+    <string-array name="spinnerItems">
+        <item>Select Community</item>
+        <item>Student</item>
+        <item>Faculty</item>
+        <item>Organisation</item>
+
+    </string-array>
 	
 </resources>

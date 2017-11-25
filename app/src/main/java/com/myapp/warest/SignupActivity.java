@@ -7,9 +7,12 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -17,17 +20,28 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class SignupActivity extends AppCompatActivity {
 
     private EditText inputEmail, inputPassword;
     private Button btnSignIn, btnSignUp, btnResetPassword;
     private ProgressBar progressBar;
     private FirebaseAuth auth;
+    private Spinner community,sub;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
+
+        /*
+
+
+         */
 
         //Get Firebase auth instance
         auth = FirebaseAuth.getInstance();
@@ -38,6 +52,53 @@ public class SignupActivity extends AppCompatActivity {
         inputPassword = (EditText) findViewById(R.id.password);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         btnResetPassword = (Button) findViewById(R.id.btn_reset_password);
+        community=(Spinner)findViewById(R.id.community);
+        sub=(Spinner)findViewById(R.id.sub);
+        sub.setVisibility(View.GONE);
+
+
+        final Map<String, List<String>> data = new HashMap<>();
+        data.put("Student", Arrays.asList("1","2","3","4"));
+        data.put("Faculty", Arrays.asList("4", "5"));
+        data.put("Organisation", Arrays.asList("College/University", "Training Institute", "Corporate"));
+
+        // obtaining a string array containing keys(data of spinner1) of above hashmap
+        final String[] dataSpinner1 = new String[data.keySet().size()];
+        data.keySet().toArray(dataSpinner1);
+
+        // initializing an string type, ArrayAdapter for spinner1
+        // you will need to pass activity context, layout for the spinner item and
+        // spinner content(as string array) as arguments to create an array adapter
+        final ArrayAdapter<String> spinner1Adapter = new ArrayAdapter<String>(SignupActivity.this, android.R.layout.simple_spinner_item, dataSpinner1);
+        community.setAdapter(spinner1Adapter);
+
+        // setting listner for spinner1 to trigger when an spinner item is being
+        // clicked by the user
+        community.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                // obtaining relevant data for spinner2
+                if(dataSpinner1[position].equals("Organisation")) {
+                    List<String> dataSpinner2 = data.get(dataSpinner1[position]);
+
+                    // crating an setting array adapter for spinner2
+                    ArrayAdapter<String> spinner2Adapter = new ArrayAdapter<String>(SignupActivity.this, android.R.layout.simple_spinner_item, dataSpinner2);
+                    sub.setAdapter(spinner2Adapter);
+                    sub.setVisibility(View.VISIBLE);
+                }
+                else{
+
+                    sub.setVisibility(View.GONE);
+
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
 
         btnResetPassword.setOnClickListener(new View.OnClickListener() {
 				@Override
