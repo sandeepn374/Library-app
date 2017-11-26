@@ -58,7 +58,7 @@ public class ViewStudentProfile extends AppCompatActivity {
 
                         gender.setText("Gender : "+child.child("gender").getValue().toString());
 
-                        course.setText("Ongoing Course"+child.child("course").getValue().toString());
+                        course.setText("Ongoing Course   : "+child.child("course").getValue().toString());
 
                      city.setText("City  :  "+   child.child("city").getValue());
                         college.setText("College : "+child.child("colName").getValue());
