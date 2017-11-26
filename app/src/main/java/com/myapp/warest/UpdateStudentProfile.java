@@ -54,6 +54,7 @@ public class UpdateStudentProfile extends AppCompatActivity {
         university=(EditText)findViewById(R.id.university);
         state=(EditText)findViewById(R.id.state);
         city=(EditText)findViewById(R.id.city);
+        reTrain=(EditText)findViewById(R.id.reqdtraining);
 
         auth = FirebaseAuth.getInstance();
         final FirebaseUser u=auth.getCurrentUser();
