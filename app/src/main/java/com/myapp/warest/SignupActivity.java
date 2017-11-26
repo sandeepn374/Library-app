@@ -27,7 +27,7 @@ import java.util.Map;
 
 public class SignupActivity extends AppCompatActivity {
 
-    private EditText inputEmail, inputPassword;
+    private EditText inputEmail, inputPassword,fullname,phone;
     private Button btnSignIn, btnSignUp, btnResetPassword;
     private ProgressBar progressBar;
     private FirebaseAuth auth;
@@ -38,12 +38,6 @@ public class SignupActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
-        /*
-
-
-         */
-
-        //Get Firebase auth instance
         auth = FirebaseAuth.getInstance();
 
         btnSignIn = (Button) findViewById(R.id.sign_in_button);
@@ -54,6 +48,8 @@ public class SignupActivity extends AppCompatActivity {
         btnResetPassword = (Button) findViewById(R.id.btn_reset_password);
         community=(Spinner)findViewById(R.id.community);
         sub=(Spinner)findViewById(R.id.sub);
+		fullname=(EditText)findViewById(R.id.fullname);
+		phone=(EditText)findViewById(R.id.phone);
         sub.setVisibility(View.GONE);
 
 
