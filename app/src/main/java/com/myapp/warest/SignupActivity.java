@@ -61,7 +61,7 @@ public class SignupActivity extends AppCompatActivity {
         final Map<String, List<String>> data = new LinkedHashMap<>();
         data.put("Select Your Community",Arrays.asList("1"));
         data.put("Student", Arrays.asList("1","2","3","4"));
-        data.put("Faculty", Arrays.asList("4", "5"));
+        data.put("Faculty", Arrays.asList("Select Faculty Type", "Freelance","Trainee"));
         data.put("Organisation", Arrays.asList("Select Organisation","College/University", "Training Institute", "Corporate"));
 
         // obtaining a string array containing keys(data of spinner1) of above hashmap
@@ -80,7 +80,7 @@ public class SignupActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 // obtaining relevant data for spinner2
-                if(dataSpinner1[position].equals("Organisation")) {
+                if(dataSpinner1[position].equals("Organisation") || dataSpinner1[position].equals("Faculty")) {
                     List<String> dataSpinner2 = data.get(dataSpinner1[position]);
 
                     // crating an setting array adapter for spinner2
@@ -151,21 +151,46 @@ public class SignupActivity extends AppCompatActivity {
                                     String email=inputEmail.getText().toString();
                                     String comm=community.getSelectedItem().toString();
                                     String commSub="";
-                                    if(comm.equals("Organisation"))
+                                    if(comm.equals("Organisation") || comm.equals("Faculty"))
                                         commSub=sub.getSelectedItem().toString();
 
 
+                                    User user = new User(name, email,ph,comm,commSub);
 
-                                    DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("users");
+                                    User send=null;
+
+String type="";
+if(comm.equals("Student")) {
+    send=new Student(user);
+    type = "students";
+}
+                                    else if(comm.equals("Faculty")) {
+    if(commSub.equals("Trainee")) {
+     send=new FacultyTrainee(user);
+        type = "facultyTraineeGroup";
+    }
+    else {
+
+        send=new FacultyFreelance(user);
+        type = "facultyFreelancegroup";
+    }
+}
+
+                                    else {
+    send=new User(name, email,ph,comm,commSub);
+    type = "OrganisationGroup";
+}
+
+
+                                    DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference(type);
                                     mDatabase.keepSynced(true);
                                     String userId = mDatabase.push().getKey();
 
 
 
-                                    User user = new User(name, email,ph,comm,commSub);
 
-                                    mDatabase.child(userId).setValue(user);
-                                    startActivity(new Intent(SignupActivity.this, MainActivity.class));
+                                    mDatabase.child(userId).setValue(send);
+                                    startActivity(new Intent(SignupActivity.this, LoginActivity.class));
                                     finish();
                                 }
                             }

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -24,8 +25,9 @@ import java.util.ArrayList;
 
 public class UpdateStudentProfile extends AppCompatActivity {
 
-    EditText name;
-    private FirebaseAuth auth;
+    EditText name,age,course,college,branch,country,university,state,city,reTrain;
+     FirebaseAuth auth;
+    Spinner gender;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
