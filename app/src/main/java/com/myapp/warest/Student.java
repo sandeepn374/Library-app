@@ -5,7 +5,7 @@ package com.myapp.warest;
  */
 
 public class Student extends User {
-    User user;
+    User user=null;
 
 
       public String age="";
@@ -20,9 +20,6 @@ public class Student extends User {
     public String requiredTrain="";
 
 public Student(){}
-    public Student(User user) {
 
-        this.user=user;
 
-    }
 }

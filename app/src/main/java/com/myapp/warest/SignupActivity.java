@@ -157,39 +157,53 @@ public class SignupActivity extends AppCompatActivity {
 
                                     User user = new User(name, email,ph,comm,commSub);
 
-                                    User send=null;
 
 String type="";
 if(comm.equals("Student")) {
-    send=new Student(user);
+    Student send=new Student();
+    send.user=user;
     type = "students";
+    DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference(type);
+    mDatabase.keepSynced(true);
+    String userId = mDatabase.push().getKey();
+    mDatabase.child(userId).setValue(send);
+
 }
                                     else if(comm.equals("Faculty")) {
     if(commSub.equals("Trainee")) {
-     send=new FacultyTrainee(user);
+     FacultyTrainee send=new FacultyTrainee();
+        send.user=user;
+
         type = "facultyTraineeGroup";
+
+        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference(type);
+        String userId = mDatabase.push().getKey();
+        mDatabase.child(userId).setValue(send);
     }
     else {
 
-        send=new FacultyFreelance(user);
+        FacultyFreelance send=new FacultyFreelance();
+        send.user=user;
         type = "facultyFreelancegroup";
+        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference(type);
+        String userId = mDatabase.push().getKey();
+        mDatabase.child(userId).setValue(send);
     }
 }
 
                                     else {
-    send=new User(name, email,ph,comm,commSub);
+
+    User send=new User(name, email,ph,comm,commSub);
     type = "OrganisationGroup";
+
+    DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference(type);
+    String userId = mDatabase.push().getKey();
+    mDatabase.child(userId).setValue(send);
+
+
 }
 
 
-                                    DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference(type);
-                                    mDatabase.keepSynced(true);
-                                    String userId = mDatabase.push().getKey();
-
-
-
-
-                                    mDatabase.child(userId).setValue(send);
                                     startActivity(new Intent(SignupActivity.this, LoginActivity.class));
                                     finish();
                                 }

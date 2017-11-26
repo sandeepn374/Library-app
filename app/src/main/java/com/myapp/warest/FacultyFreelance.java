@@ -15,13 +15,6 @@ public class FacultyFreelance extends User{
 
 
 
-public FacultyFreelance(User user){
-    this.user=user;
-
-
-
-
-}
 
 
 

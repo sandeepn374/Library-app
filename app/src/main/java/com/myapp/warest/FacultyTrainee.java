@@ -17,12 +17,6 @@ public User user;
 
 
 
-    public FacultyTrainee(User user){
-
-        this.user=user;
-
-
-    }
 
 
 }
