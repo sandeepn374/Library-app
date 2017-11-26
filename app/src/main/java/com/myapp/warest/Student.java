@@ -8,7 +8,7 @@ public class Student extends User {
     User user;
 
 
-      public int age;
+      public String age="";
       public String gender="";
     public String course="";
     public String colName="";

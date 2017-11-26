@@ -8,6 +8,9 @@ public class FacultyFreelance extends User{
 
     public User user;
 
+
+
+
     public FacultyFreelance(){}
 
 

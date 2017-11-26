@@ -8,11 +8,18 @@ public class FacultyTrainee extends User{
 
 public User user;
 
+    int age;
+    String gender="";
+    String qualification="";
+    String desgnation="";
+
     public FacultyTrainee(){}
 
 
 
-    public FacultyTrainee(User user){this.user=user;
+    public FacultyTrainee(User user){
+
+        this.user=user;
 
 
     }
