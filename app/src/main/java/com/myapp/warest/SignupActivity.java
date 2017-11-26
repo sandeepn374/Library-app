@@ -161,7 +161,8 @@ public class SignupActivity extends AppCompatActivity {
 String type="";
 if(comm.equals("Student")) {
     Student send=new Student();
-    send.user=user;
+send.setEmail(email);
+    send.setName(name);
     type = "students";
     DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference(type);
     mDatabase.keepSynced(true);

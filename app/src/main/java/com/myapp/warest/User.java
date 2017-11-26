@@ -29,19 +29,4 @@ public class User {
 
     }
 
-
-    public User(User user) {
-
-
-        this.name=user.name;
-        this.email=user.email;
-        this.ph=user.ph;
-        this.community=user.community;
-        this.communitySub=user.communitySub;
-
-
-
-
-
-    }
 }
