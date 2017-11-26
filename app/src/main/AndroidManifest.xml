@@ -47,6 +47,11 @@
             android:name=".UpdateStudentProfile"
             android:label="@string/app_name"
             />
+
+        <activity
+            android:name=".StudentActivity"
+            android:label="@string/app_name"
+            />
     </application>
 
 </manifest>
