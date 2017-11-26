@@ -13,7 +13,7 @@ import android.widget.Button;
  */
 
 public class StartScreenActivity extends AppCompatActivity{
-    private Button btnSignup, btnLogin;
+    private Button btnSignup, btnLogin,admin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +22,7 @@ public class StartScreenActivity extends AppCompatActivity{
 
         btnSignup = (Button) findViewById(R.id.btn_signup);
         btnLogin = (Button) findViewById(R.id.btn_login);
+        admin=(Button)findViewById(R.id.admin);
 
         btnSignup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,6 +36,13 @@ public class StartScreenActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(StartScreenActivity.this, LoginActivity.class));
+            }
+        });
+
+        admin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(StartScreenActivity.this, UpdateStudentProfile.class));
             }
         });
     }

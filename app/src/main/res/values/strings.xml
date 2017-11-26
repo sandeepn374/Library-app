@@ -31,7 +31,15 @@
     <string name="forgot_password_msg">We just need your registered Email Id to send your password reset instructions.</string>
     <string name="fullname">Fullname</string>
     <string name="phone">Phone</string>
-
+    <string name="age">Age</string>
+    <string name="ongoingcourse">Ongoing Course</string>
+    <string name="College">College Name</string>
+    <string name="University">University</string>
+    <string name="Branch">Branch</string>
+    <string name="Country">Country</string>
+    <string name="State">State</string>
+    <string name="City">City</string>
+    <string name="Requiredtraining">Required Training</string>
 
 
     <string-array name="spinnerItems">
@@ -39,6 +47,14 @@
         <item>Student</item>
         <item>Faculty</item>
         <item>Organisation</item>
+
+    </string-array>
+
+    <string-array name="Gender">
+        <item>Select Gender</item>
+        <item>Male</item>
+        <item>Female</item>
+
 
     </string-array>
 	

@@ -11,7 +11,6 @@ public class User {
     public String name;
     public String email;
     public String ph;
-    //public String password;
     public String community;
     public String communitySub;
 
@@ -29,4 +28,8 @@ public class User {
 
 
     }
+
+
+
+
 }

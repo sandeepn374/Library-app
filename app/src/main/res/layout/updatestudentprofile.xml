@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="com.myapp.warest.UpdateStudentProfile">
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/colorPrimaryDark"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/activity_horizontal_margin"
+        android:weightSum="1">
+
+
+        <EditText
+            android:id="@+id/fullname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Name"
+            android:inputType="textPersonName"
+            android:maxLines="1"
+            android:textColor="@android:color/white" />
+
+        <EditText
+            android:id="@+id/age"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/age"
+            android:inputType="number"
+            android:maxLines="1"
+            android:textColor="@android:color/white"
+            />
+
+
+
+
+        <Spinner
+            android:id="@+id/gender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.15"
+            android:entries="@array/Gender"
+            android:spinnerMode="dropdown">
+
+        </Spinner>
+
+
+                <EditText
+                    android:id="@+id/ongoingcourse"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusableInTouchMode="true"
+                    android:hint="@string/ongoingcourse"
+                    android:maxLines="1"
+                    android:textColor="@android:color/white" />
+
+
+            <EditText
+                android:id="@+id/college"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="true"
+                android:hint="@string/College"
+                android:textColor="@android:color/white" />
+
+
+
+
+
+        <EditText
+            android:id="@+id/university"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="true"
+            android:hint="@string/University"
+            android:maxLines="1"
+            android:textColor="@android:color/white" />
+
+        <EditText
+            android:id="@+id/branch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="true"
+            android:hint="@string/Branch"
+            android:maxLines="1"
+            android:textColor="@android:color/white" />
+
+        <EditText
+            android:id="@+id/country"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="true"
+            android:hint="@string/Country"
+            android:maxLines="1"
+            android:textColor="@android:color/white" />
+
+        <EditText
+            android:id="@+id/state"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="true"
+            android:hint="@string/State"
+            android:maxLines="1"
+            android:textColor="@android:color/white" />
+
+        <EditText
+            android:id="@+id/city"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="true"
+            android:hint="@string/City"
+            android:maxLines="1"
+            android:textColor="@android:color/white" />
+
+        <EditText
+            android:id="@+id/reqdtraining"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="true"
+            android:hint="@string/Requiredtraining"
+            android:maxLines="1"
+            android:textColor="@android:color/white" />
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+
+        <Button
+            android:id="@+id/update"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:text="Update" />
+
+        <Button
+            android:id="@+id/viewprofile"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:text="View Profile"
+            />
+</LinearLayout>
+
+
+    </LinearLayout>
+
+
+</ScrollView>
+

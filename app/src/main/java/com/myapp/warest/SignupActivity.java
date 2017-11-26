@@ -58,6 +58,7 @@ public class SignupActivity extends AppCompatActivity {
 
 
         final Map<String, List<String>> data = new HashMap<>();
+        data.put("Select Your Community",Arrays.asList("1"));
         data.put("Student", Arrays.asList("1","2","3","4"));
         data.put("Faculty", Arrays.asList("4", "5"));
         data.put("Organisation", Arrays.asList("College/University", "Training Institute", "Corporate"));
