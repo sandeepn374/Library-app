@@ -26,6 +26,7 @@ import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -57,11 +58,11 @@ public class SignupActivity extends AppCompatActivity {
         sub.setVisibility(View.GONE);
 
 
-        final Map<String, List<String>> data = new HashMap<>();
+        final Map<String, List<String>> data = new LinkedHashMap<>();
         data.put("Select Your Community",Arrays.asList("1"));
         data.put("Student", Arrays.asList("1","2","3","4"));
         data.put("Faculty", Arrays.asList("4", "5"));
-        data.put("Organisation", Arrays.asList("College/University", "Training Institute", "Corporate"));
+        data.put("Organisation", Arrays.asList("Select Organisation","College/University", "Training Institute", "Corporate"));
 
         // obtaining a string array containing keys(data of spinner1) of above hashmap
         final String[] dataSpinner1 = new String[data.keySet().size()];
