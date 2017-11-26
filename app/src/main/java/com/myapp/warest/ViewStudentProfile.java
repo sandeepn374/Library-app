@@ -36,6 +36,7 @@ public class ViewStudentProfile extends AppCompatActivity {
         gender=(TextView)findViewById(R.id.gender);
         reTrain=(TextView)findViewById(R.id.reqdtraining);
 
+
         auth = FirebaseAuth.getInstance();
         final FirebaseUser u=auth.getCurrentUser();
 
@@ -68,6 +69,8 @@ public class ViewStudentProfile extends AppCompatActivity {
                        university.setText( "University : "+child.child("university").getValue());
 
                        reTrain.setText( "Required Training : "+child.child("requiredTrain").getValue());
+
+                        branch.setText( "Branch : "+child.child("branch").getValue());
 
 
 

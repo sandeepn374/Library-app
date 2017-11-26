@@ -55,6 +55,7 @@ public class UpdateStudentProfile extends AppCompatActivity {
         state=(EditText)findViewById(R.id.state);
         city=(EditText)findViewById(R.id.city);
         reTrain=(EditText)findViewById(R.id.reqdtraining);
+        gender=(Spinner) findViewById(R.id.gender);
 
         auth = FirebaseAuth.getInstance();
         final FirebaseUser u=auth.getCurrentUser();
@@ -88,6 +89,8 @@ public class UpdateStudentProfile extends AppCompatActivity {
                             if (child.child("email").getValue().equals(auth.getCurrentUser().getEmail())){
 
                                 child.getRef().child("age").setValue(age.getText().toString());
+
+                                child.getRef().child("gender").setValue(gender.getSelectedItem().toString());
 
                                 child.getRef().child("course").setValue(course.getText().toString());
 
