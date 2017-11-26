@@ -2,6 +2,7 @@ package com.myapp.warest;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -57,32 +58,17 @@ public class UpdateStudentProfile extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         final FirebaseUser u=auth.getCurrentUser();
 
-        FirebaseDatabase.getInstance().getReference().child("students")
-                .addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-
-                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                            final Student student = snapshot.getValue(Student.class);
-
-
-   /* if (student.email.equals(auth.getCurrentUser().getEmail()))
-        name.setText(student.name);*/ 
-
-
-                        }
-
-
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-
-                    }
-
-
-                });
         update=(Button)findViewById(R.id.update);
+        view=(Button) findViewById(R.id.viewprofile);
+
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                startActivity(new Intent(UpdateStudentProfile.this, ViewStudentProfile.class));
+
+            }
+                                  });
         update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -104,7 +90,7 @@ public class UpdateStudentProfile extends AppCompatActivity {
 
                                 child.getRef().child("course").setValue(course.getText().toString());
 
-                                child.getRef().child("college").setValue(college.getText().toString());
+                                child.getRef().child("colName").setValue(college.getText().toString());
 
                                 child.getRef().child("country").setValue(country.getText().toString());
 
@@ -115,7 +101,8 @@ public class UpdateStudentProfile extends AppCompatActivity {
                                 child.getRef().child("state").setValue(state.getText().toString());
 
                                 child.getRef().child("city").setValue(city.getText().toString());
-                                Toastmsg(UpdateStudentProfile.this,"Updated Profile");
+                                child.getRef().child("requiredTrain").setValue(reTrain.getText().toString());
+                                Toastmsg(UpdateStudentProfile.this,"Profile Updated ");
 
 
 
@@ -141,6 +128,10 @@ public class UpdateStudentProfile extends AppCompatActivity {
 
 
             }
+
+
+
+
         });
 
 
