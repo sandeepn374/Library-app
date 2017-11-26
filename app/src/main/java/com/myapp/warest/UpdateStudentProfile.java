@@ -66,8 +66,8 @@ public class UpdateStudentProfile extends AppCompatActivity {
                             final Student student = snapshot.getValue(Student.class);
 
 
-    if (student.user.email.equals(auth.getCurrentUser().getEmail()))
-        name.setText(student.user.name);
+    if (student.email.equals(auth.getCurrentUser().getEmail()))
+        name.setText(student.name);
 
 
                         }
