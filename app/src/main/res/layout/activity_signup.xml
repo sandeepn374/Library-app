@@ -95,7 +95,7 @@
 				android:imeActionId="@+id/login"
 				android:imeOptions="actionUnspecified"
 				android:inputType="number"
-				android:maxLines="1"
+				android:maxLength="10"
 
 				android:textColor="@android:color/white" />
 

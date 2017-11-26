@@ -10,7 +10,7 @@ public class User {
 
     public String name;
     public String email;
-    public int ph;
+    public String ph;
     //public String password;
     public String community;
     public String communitySub;
@@ -19,7 +19,7 @@ public class User {
     public User() {
     }
 
-    public User(String name, String email,int ph,String community,String communitySub) {
+    public User(String name, String email,String ph,String community,String communitySub) {
 
         this.name=name;
         this.email=email;

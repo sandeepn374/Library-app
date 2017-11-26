@@ -19,8 +19,12 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -139,6 +143,26 @@ public class SignupActivity extends AppCompatActivity {
                                     Toast.makeText(SignupActivity.this, "Authentication failed." + task.getException(),
 												   Toast.LENGTH_SHORT).show();
                                 } else {
+
+                                 String name=fullname.getText().toString();
+                                    String ph=phone.getText().toString();
+                                    String email=inputEmail.getText().toString();
+                                    String comm=community.getSelectedItem().toString();
+                                    String commSub="";
+                                    if(comm.equals("Organisation"))
+                                        commSub=sub.getSelectedItem().toString();
+
+
+
+                                    DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("users");
+                                    mDatabase.keepSynced(true);
+                                    String userId = mDatabase.push().getKey();
+
+
+
+                                    User user = new User(name, email,ph,comm,commSub);
+
+                                    mDatabase.child(userId).setValue(user);
                                     startActivity(new Intent(SignupActivity.this, MainActivity.class));
                                     finish();
                                 }
