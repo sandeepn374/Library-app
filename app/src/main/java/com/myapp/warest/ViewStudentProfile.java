@@ -34,6 +34,7 @@ public class ViewStudentProfile extends AppCompatActivity {
         state=(TextView)findViewById(R.id.state);
         city=(TextView)findViewById(R.id.city);
         gender=(TextView)findViewById(R.id.gender);
+        reTrain=(TextView)findViewById(R.id.reqdtraining);
 
         auth = FirebaseAuth.getInstance();
         final FirebaseUser u=auth.getCurrentUser();
