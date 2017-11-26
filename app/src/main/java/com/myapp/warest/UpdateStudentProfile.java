@@ -66,8 +66,8 @@ public class UpdateStudentProfile extends AppCompatActivity {
                             final Student student = snapshot.getValue(Student.class);
 
 
-    if (student.email.equals(auth.getCurrentUser().getEmail()))
-        name.setText(student.name);
+   /* if (student.email.equals(auth.getCurrentUser().getEmail()))
+        name.setText(student.name);*/ 
 
 
                         }
@@ -97,8 +97,8 @@ public class UpdateStudentProfile extends AppCompatActivity {
 
                         for (final DataSnapshot child : dataSnapshot.getChildren()) {
 
-                            HashMap<String,String> userMap= (HashMap<String, String>) child.child("user").getValue();
-                            if (userMap.get("email").equals(auth.getCurrentUser().getEmail())){
+                         //   String email= () child.child("email").getValue();
+                            if (child.child("email").getValue().equals(auth.getCurrentUser().getEmail())){
 
                                 child.getRef().child("age").setValue(age.getText().toString());
 
