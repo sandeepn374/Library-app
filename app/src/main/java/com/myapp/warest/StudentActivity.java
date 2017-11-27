@@ -57,7 +57,11 @@ public class StudentActivity extends AppCompatActivity {
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
 				@Override
 				public boolean onNavigationItemSelected(MenuItem menuItem) {
-					selectDrawerItem(menuItem);
+					//selectDrawerItem(menuItem);
+					if(menuItem.getItemId()==R.id.contactus)
+					startActivity(new Intent(StudentActivity.this, ContactusActivity.class));
+					
+					
 					return true;
 				}
 			});
