@@ -45,8 +45,14 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
-    <string name="comments">Comments</string>
 
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+
+
+    <string name="action_show">Show</string>
+
+    <string name="snackbar_text">Snackbar Text</string>
 
     <string-array name="spinnerItems">
         <item>Select Community</item>
@@ -63,5 +69,5 @@
 
 
     </string-array>
-	
+
 </resources>
