@@ -58,6 +58,11 @@
             android:name=".ViewStudentProfile"
             android:label="@string/app_name"
             />
+
+        <activity
+            android:name=".ContactusActivity"
+            android:label="@string/app_name"
+            />
     </application>
 
 </manifest>

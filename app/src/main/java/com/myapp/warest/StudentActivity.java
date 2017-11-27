@@ -1,5 +1,6 @@
 package com.myapp.warest;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -51,11 +52,16 @@ public class StudentActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-       /* if (id == R.id.nav_camera) {
+       /* if (id == R.id.logout) {
+            Intent i = new Intent(this, StartScreenActivity.class);
+            startActivity(i);
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } */
+        if (id == R.id.contactus) {
+            Intent i = new Intent(this, ContactusActivity.class);
+            startActivity(i);
 
-        } else if (id == R.id.nav_slideshow) {
+        }/* else if (id == R.id.nav_slideshow) {
 
         }*/
 
