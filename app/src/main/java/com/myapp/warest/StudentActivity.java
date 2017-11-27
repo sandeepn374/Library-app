@@ -39,7 +39,7 @@ public class StudentActivity extends AppCompatActivity {
         fragmentManager = getSupportFragmentManager();
 
         setupView();
-        if (savedInstanceState == null) showHome();
+       // if (savedInstanceState == null) showHome();
     }
 
     private void setupView() {
