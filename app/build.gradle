@@ -20,6 +20,9 @@ android {
 }
 
 dependencies {
+	compile 'com.google.firebase:firebase-auth:+'
+	compile 'com.google.firebase:firebase-storage-common:+'
+	compile 'com.google.firebase:firebase-storage:+'
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:+'
      

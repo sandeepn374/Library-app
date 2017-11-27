@@ -127,7 +127,15 @@
             android:focusableInTouchMode="true"
             android:hint="@string/Requiredtraining"
             android:maxLines="1"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white" /> 
+	
+	
+		<Button
+		android:id="@+id/upload"
+		android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+		android:text="Choose Photo" />
+		
 
 
         <LinearLayout
