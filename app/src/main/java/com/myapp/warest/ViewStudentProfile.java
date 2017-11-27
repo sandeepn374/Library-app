@@ -60,10 +60,12 @@ public class ViewStudentProfile extends AppCompatActivity {
 
                         course.setText("Ongoing Course   : "+child.child("course").getValue().toString());
 
-                     city.setText("City  :  "+   child.child("city").getValue());
+                        city.setText("City  :  "+   child.child("city").getValue());
+
                         college.setText("College : "+child.child("colName").getValue());
 
                        country.setText( "Country : "+child.child("country").getValue().toString());
+
                        state.setText( "State : "+child.child("state").getValue().toString());
 
                        university.setText( "University : "+child.child("university").getValue());
@@ -71,12 +73,6 @@ public class ViewStudentProfile extends AppCompatActivity {
                        reTrain.setText( "Required Training : "+child.child("requiredTrain").getValue());
 
                         branch.setText( "Branch : "+child.child("branch").getValue());
-
-
-
-
-
-
 
 
 

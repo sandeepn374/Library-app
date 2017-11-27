@@ -74,6 +74,7 @@ public class LoginActivity extends AppCompatActivity {
 				public void onClick(View v) {
 					String email = inputEmail.getText().toString();
 					final String password = inputPassword.getText().toString();
+                    community=(Spinner)findViewById(R.id.community);
 
 					if (TextUtils.isEmpty(email)) {
 						Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
@@ -84,6 +85,11 @@ public class LoginActivity extends AppCompatActivity {
 						Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
 						return;
 					}
+
+					if (community.getSelectedItem()=="Select Community"){
+                        Toast.makeText(getApplicationContext(), "Please Select Community", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
 
 					progressBar.setVisibility(View.VISIBLE);
 
@@ -103,6 +109,11 @@ public class LoginActivity extends AppCompatActivity {
                                     } else {
                                         Toast.makeText(LoginActivity.this, getString(R.string.auth_failed), Toast.LENGTH_LONG).show();
                                     }
+                                    if (community.getSelectedItem()=="Select Community"){
+                                        Toast.makeText(getApplicationContext(), "Please Select Community", Toast.LENGTH_SHORT).show();
+
+                                    }
+
                                 } else {
                                     Intent intent = new Intent(LoginActivity.this, StudentActivity.class);
                                     startActivity(intent);
