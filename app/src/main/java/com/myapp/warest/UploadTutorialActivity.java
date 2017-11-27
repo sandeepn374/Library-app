@@ -17,10 +17,16 @@ import android.widget.EditText;
 
 public class UploadTutorialActivity extends AppCompatActivity {
 
+    EditText subject, instructor,description;
+    Button upload;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.uploadtutorial);
+        subject=(EditText)findViewById(R.id.subject);
+        instructor=(EditText)findViewById(R.id.instructor);
+        description=(EditText)findViewById(R.id.description);
+        upload=(Button) findViewById(R.id.upload);
 
     }
 
