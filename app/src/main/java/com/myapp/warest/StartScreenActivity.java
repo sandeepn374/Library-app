@@ -42,7 +42,7 @@ public class StartScreenActivity extends AppCompatActivity{
         admin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(StartScreenActivity.this, StudentActivity.class));
+                startActivity(new Intent(StartScreenActivity.this, UpdateTraineeProfile.class));
             }
         });
     }

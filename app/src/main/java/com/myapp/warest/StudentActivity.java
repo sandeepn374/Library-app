@@ -1,6 +1,7 @@
 package com.myapp.warest;
 
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
@@ -69,11 +70,15 @@ public class StudentActivity extends AppCompatActivity {
 
     private void selectDrawerItem(MenuItem menuItem) {
         boolean specialToolbarBehaviour = false;
-        Class fragmentClass;
+        Class fragmentClass = null;
 
         switch (menuItem.getItemId()) {
             case R.id.aboutus:
                 fragmentClass = HomeFragment.class;
+                break;
+
+            case R.id.contactus:
+                startActivity(new Intent(StudentActivity.this, ContactusActivity.class));
                 break;
 
             default:
