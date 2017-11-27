@@ -5,5 +5,7 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="logo_w_h">100dp</dimen>
     <dimen name="size">0dp</dimen>
-	
+
+    <dimen name="elevation_toolbar">4dp</dimen>
+
 </resources>
