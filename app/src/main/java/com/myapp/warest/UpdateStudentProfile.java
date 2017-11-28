@@ -169,19 +169,19 @@ public class UpdateStudentProfile extends AppCompatActivity {
 					@Override
 					public void onFailure(@NonNull Exception exception) {
 						// Handle unsuccessful uploads
-
 						Toast.makeText(UpdateStudentProfile.this, "Upload Failed", Toast.LENGTH_SHORT).show();
+						pd.dismiss();
 					}
 				}).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
 					@Override
 					public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 						// taskSnapshot.getMetadata() contains file metadata such as size, content-type, and download URL.
-
 						Toast.makeText(UpdateStudentProfile.this, "Upload Success", Toast.LENGTH_SHORT).show();
+						pd.dismiss();
 					}
 				});
-			pd.dismiss();
 		}
+		
 	}	
 		
 			
