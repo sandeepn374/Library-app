@@ -7,15 +7,30 @@
     android:fitsSystemWindows="true"
     tools:context=".MainActivity">
 
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
 
         <FrameLayout
             android:id="@+id/content_frame"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="?attr/actionBarSize" />
+            android:layout_marginTop="?attr/actionBarSize" >
+
+            <Button
+                android:id="@+id/Updatestudentprofile"
+                android:layout_width="108dp"
+                android:layout_height="wrap_content"
+                android:text="Update Profile"
+                android:layout_gravity="top|right"/>
+
+
+
+
+
+        </FrameLayout>
 
         <include layout="@layout/toolbar" />
     </RelativeLayout>

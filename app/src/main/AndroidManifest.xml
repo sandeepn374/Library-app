@@ -74,6 +74,12 @@
             />
 
 
+        <activity
+            android:name=".AboutusActivity"
+            android:label="@string/app_name"
+            />
+
+
 
 
 
