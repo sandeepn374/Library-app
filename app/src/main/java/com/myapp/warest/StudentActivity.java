@@ -73,6 +73,11 @@ public class StudentActivity extends AppCompatActivity {
 					startActivity(new Intent(StudentActivity.this, ContactusActivity.class));
 					
 					
+					if(menuItem.getItemId()==R.id.aboutus)
+						startActivity(new Intent(StudentActivity.this, AboutusActivity.class));
+					
+					
+					
 					return true;
 				}
 			});
@@ -89,11 +94,11 @@ public class StudentActivity extends AppCompatActivity {
 
         switch (menuItem.getItemId()) {
             case R.id.aboutus:
-                startActivity(new Intent(StudentActivity.this, AboutusActivity.class));
+             //   startActivity(new Intent(StudentActivity.this, AboutusActivity.class));
                 break;
 
             case R.id.contactus:
-                startActivity(new Intent(StudentActivity.this, ContactusActivity.class));
+               // startActivity(new Intent(StudentActivity.this, AboutusActivity.class));
                 break;
 
             default:
