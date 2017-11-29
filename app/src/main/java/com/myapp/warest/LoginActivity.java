@@ -115,7 +115,7 @@ public class LoginActivity extends AppCompatActivity {
                                     }
 
                                 } else {
-                                    Intent intent = new Intent(LoginActivity.this, StudentActivity.class);
+                                    Intent intent = new Intent(LoginActivity.this, UpdateStudentProfile.class);
                                     startActivity(intent);
                                     finish();
                                 }

@@ -19,7 +19,12 @@
         android:padding="@dimen/activity_horizontal_margin"
         android:weightSum="1">
 
-
+        <ImageView
+			android:id="@+id/profileImage"
+			android:layout_width="126dp"
+			android:layout_height="112dp"
+        />
+	
         <TextView
             android:id="@+id/fullname"
             android:layout_width="match_parent"
@@ -141,11 +146,6 @@
             android:maxLines="1"
             android:textColor="@color/white"
             android:textSize="25dp" />
-
-
-
-
-
 
     </LinearLayout>
 

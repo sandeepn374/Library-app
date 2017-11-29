@@ -20,10 +20,12 @@ import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import com.google.firebase.auth.*;
 
 
 
-public class StudentActivity extends AppCompatActivity {
+public class StudentActivity extends AppCompatActivity
+{
     ActionBarDrawerToggle drawerToggle;
     DrawerLayout drawerLayout;
     Toolbar toolbar;
@@ -33,17 +35,19 @@ public class StudentActivity extends AppCompatActivity {
     FrameLayout frameLayout;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+	{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_student);
 
         fragmentManager = getSupportFragmentManager();
 
         setupView();
-       // if (savedInstanceState == null) showHome();
+		// if (savedInstanceState == null) showHome();
     }
 
-    private void setupView() {
+    private void setupView()
+	{
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -56,27 +60,39 @@ public class StudentActivity extends AppCompatActivity {
         navigationView = (NavigationView) findViewById(R.id.navigation_view);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
 				@Override
-				public boolean onNavigationItemSelected(MenuItem menuItem) {
+				public boolean onNavigationItemSelected(MenuItem menuItem)
+				{
 					//selectDrawerItem(menuItem);
-					if(menuItem.getItemId()==R.id.contactus)
-					startActivity(new Intent(StudentActivity.this, ContactusActivity.class));
-					
-					
+					if (menuItem.getItemId() == R.id.contactus)
+					{
+						startActivity(new Intent(StudentActivity.this, ContactusActivity.class));
+						return true;
+					}
+
+					else if (menuItem.getItemId() == R.id.logout)
+					{
+						FirebaseAuth.getInstance().signOut();
+						startActivity(new Intent(StudentActivity.this, StartScreenActivity.class));
+						return true;
+					}
 					return true;
 				}
 			});
     }
 
-    private void showHome() {
+    private void showHome()
+	{
         selectDrawerItem(navigationView.getMenu().getItem(0));
         drawerLayout.openDrawer(GravityCompat.START);
     }
 
-    private void selectDrawerItem(MenuItem menuItem) {
+    private void selectDrawerItem(MenuItem menuItem)
+	{
         boolean specialToolbarBehaviour = false;
         Class fragmentClass = null;
 
-        switch (menuItem.getItemId()) {
+        switch (menuItem.getItemId())
+		{
             case R.id.aboutus:
                 fragmentClass = HomeFragment.class;
                 break;
@@ -90,10 +106,13 @@ public class StudentActivity extends AppCompatActivity {
                 break;
         }
 
-        try {
+        try
+		{
             Fragment fragment = (Fragment) fragmentClass.newInstance();
             fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
-        } catch (Exception e) {
+        }
+		catch (Exception e)
+		{
             e.printStackTrace();
         }
 
@@ -104,17 +123,22 @@ public class StudentActivity extends AppCompatActivity {
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    private void setToolbarElevation(boolean specialToolbarBehaviour) {
-        if (specialToolbarBehaviour) {
+    private void setToolbarElevation(boolean specialToolbarBehaviour)
+	{
+        if (specialToolbarBehaviour)
+		{
             toolbar.setElevation(0.0f);
             frameLayout.setElevation(getResources().getDimension(R.dimen.elevation_toolbar));
-        } else {
+        }
+		else
+		{
             toolbar.setElevation(getResources().getDimension(R.dimen.elevation_toolbar));
             frameLayout.setElevation(0.0f);
         }
     }
 
-    public void showSnackbarMessage(View v) {/*
+    public void showSnackbarMessage(View v)
+	{/*
 		 EditText et_snackbar = (EditText) findViewById(R.id.et_snackbar);
 		 TextInputLayout textInputLayout = (TextInputLayout) findViewById(R.id.textInputLayout);
 		 View view = findViewById(R.id.coordinator_layout);
@@ -135,18 +159,21 @@ public class StudentActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item)
+	{
         return drawerToggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
     }
 
     @Override
-    protected void onPostCreate(Bundle savedInstanceState) {
+    protected void onPostCreate(Bundle savedInstanceState)
+	{
         drawerToggle.syncState();
         super.onPostCreate(savedInstanceState);
     }
 
     @Override
-    public void onConfigurationChanged(Configuration newConfig) {
+    public void onConfigurationChanged(Configuration newConfig)
+	{
         super.onConfigurationChanged(newConfig);
         drawerToggle.onConfigurationChanged(newConfig);
     }

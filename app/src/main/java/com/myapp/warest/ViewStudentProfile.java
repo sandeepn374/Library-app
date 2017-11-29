@@ -14,12 +14,29 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import android.widget.*;
+import com.google.firebase.storage.*;
+import com.google.android.gms.tasks.*;
+import android.support.annotation.*;
+import com.bumptech.glide.*;
+import android.net.*;
+import android.util.*;
+import com.bumptech.glide.request.target.*;
+import android.app.*;
 
 public class ViewStudentProfile extends AppCompatActivity {
 
     TextView name,age,course,college,branch,country,university,state,city,reTrain,gender;
     Button update,view;
-    FirebaseAuth auth;
+	ImageView profileImage;
+    FirebaseAuth auth; 
+	FirebaseStorage storage = FirebaseStorage.getInstance();
+    StorageReference storageRef = storage.getReferenceFromUrl("gs://warest-77e4b.appspot.com/");
+	
+
+	ProgressDialog pd;
+
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,10 +52,30 @@ public class ViewStudentProfile extends AppCompatActivity {
         city=(TextView)findViewById(R.id.city);
         gender=(TextView)findViewById(R.id.gender);
         reTrain=(TextView)findViewById(R.id.reqdtraining);
+		profileImage=(ImageView)findViewById(R.id.profileImage);
 
-
+		pd=new ProgressDialog(this);
+		pd.setMessage("loading...");
+		
         auth = FirebaseAuth.getInstance();
         final FirebaseUser u=auth.getCurrentUser();
+		pd.show();
+	
+		final StorageReference imgRef = storageRef.child(u.getEmail());
+		
+		imgRef.getDownloadUrl().addOnSuccessListener(this, new OnSuccessListener<Uri>() {
+				@Override
+				public void onSuccess(Uri uri) {
+					//Log.i(TAG, "Download URL : " + uri); // https://firebasestorage.googleapis.com/v0/b/questionpaper-ce229.appspot.com/o/qimgs%2F-KiTpzP5t-xJOO5nSK0A%2F1493896460324-ch1pg2.jpg?alt=media&token=ca2a3f6e-3eb5-4088-a48d-069ac8ad640b
+					Glide.with(ViewStudentProfile.this)
+						.load(uri)
+						.override(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL)
+						.into(profileImage);
+						pd.dismiss();
+				}
+			});
+		
+		
 
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
         mDatabase.keepSynced(true);
@@ -73,16 +110,8 @@ public class ViewStudentProfile extends AppCompatActivity {
                        reTrain.setText( "Required Training : "+child.child("requiredTrain").getValue());
 
                         branch.setText( "Branch : "+child.child("branch").getValue());
-
-
-
-
                     }
-
-
                 }
-
-
             }
 
             @Override
@@ -90,10 +119,5 @@ public class ViewStudentProfile extends AppCompatActivity {
 
             }
         });
-        ;
-
-
-
-
     }
 }
