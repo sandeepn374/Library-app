@@ -78,7 +78,7 @@ public class StudentActivity extends AppCompatActivity {
 
         switch (menuItem.getItemId()) {
             case R.id.aboutus:
-                fragmentClass = HomeFragment.class;
+                startActivity(new Intent(StudentActivity.this, AboutusActivity.class));
                 break;
 
             case R.id.contactus:
