@@ -10,7 +10,27 @@
     android:weightSum="1">
 
 
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Objective"
+    android:id="@+id/objective"
+    android:gravity="center_horizontal"/>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mission"
+        android:id="@+id/mission"
+        android:gravity="center_horizontal"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Vision"
+        android:id="@+id/vision"
+        android:gravity="center_horizontal"/>
 
 
 

@@ -18,6 +18,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 
@@ -27,6 +28,7 @@ public class StudentActivity extends AppCompatActivity {
     ActionBarDrawerToggle drawerToggle;
     DrawerLayout drawerLayout;
     Toolbar toolbar;
+    Button updateprofile;
 
     FragmentManager fragmentManager;
     NavigationView navigationView;
@@ -48,6 +50,15 @@ public class StudentActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         frameLayout = (FrameLayout) findViewById(R.id.content_frame);
+        updateprofile=(Button) findViewById(R.id.Updatestudentprofile);
+
+        updateprofile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(StudentActivity.this, UpdateStudentProfile.class));
+            }
+        });
+
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawer_open, R.string.drawer_close);
