@@ -82,7 +82,8 @@ public class StudentActivity extends AppCompatActivity
 					 if (menuItem.getItemId() == R.id.logout)
 					{
 						FirebaseAuth.getInstance().signOut();
-						startActivity(new Intent(StudentActivity.this, StartScreenActivity.class));
+						startActivity(new Intent(StudentActivity.this, StartScreenActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP ));
+						finish();
 					}
 					if(menuItem.getItemId()==R.id.aboutus) {
 						startActivity(new Intent(StudentActivity.this, AboutusActivity.class));
