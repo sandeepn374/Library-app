@@ -22,6 +22,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import com.google.firebase.auth.*;
+import android.net.*;
+import android.app.*;
+import com.google.firebase.storage.*;
+import com.google.android.gms.tasks.*;
+import android.support.annotation.*;
+import android.widget.*;
 
 
 
@@ -30,11 +36,22 @@ public class StudentActivity extends AppCompatActivity
     ActionBarDrawerToggle drawerToggle;
     DrawerLayout drawerLayout;
     Toolbar toolbar;
-    Button updateprofile;
+    Button updateprofile,videoProfile;
 
     FragmentManager fragmentManager;
     NavigationView navigationView;
     FrameLayout frameLayout;
+
+
+
+	Uri filePath;
+    ProgressDialog pd;
+
+    //creating reference to firebase storage
+    FirebaseStorage storage = FirebaseStorage.getInstance();
+    StorageReference storageRef = storage.getReferenceFromUrl("gs://warest-77e4b.appspot.com/");
+	
+	
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -55,6 +72,21 @@ public class StudentActivity extends AppCompatActivity
 
         frameLayout = (FrameLayout) findViewById(R.id.content_frame);
         updateprofile=(Button) findViewById(R.id.Updatestudentprofile);
+		videoProfile=(Button)findViewById(R.id.videoProfile);
+	
+		pd = new ProgressDialog(this);
+        pd.setMessage("Uploading....");
+	
+		videoProfile.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					Intent intent = new Intent();
+					intent.setType("video/mp4");
+					intent.setAction(Intent.ACTION_PICK);
+					startActivityForResult(Intent.createChooser(intent, "Select a file"), 101);
+				}
+			});
+		
 
         updateprofile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,7 +123,43 @@ public class StudentActivity extends AppCompatActivity
 					return true;
 				}
 			});
-    }
+    } 
+
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data)
+	{
+		if(resultCode==RESULT_CANCELED)
+		{
+			// action cancelled
+		}
+		if(resultCode==RESULT_OK)
+		{
+			// Create a storage reference 
+			Uri uri = data.getData();
+			pd.show();
+			StorageReference riversRef = storageRef.child("profilevideos/"+FirebaseAuth.getInstance().getCurrentUser().getEmail());
+			UploadTask uploadTask = riversRef.putFile(uri);
+
+			// Register observers to listen for when the download is done or if it fails
+			uploadTask.addOnFailureListener(new OnFailureListener() {
+					@Override
+					public void onFailure(@NonNull Exception exception) {
+						// Handle unsuccessful uploads
+							pd.dismiss();
+						Toast.makeText(StudentActivity.this, "Upload Failed", Toast.LENGTH_SHORT).show();
+					}
+				}).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+					@Override
+					public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+						// taskSnapshot.getMetadata() contains file metadata such as size, content-type, and download URL.
+						pd.dismiss();
+						Toast.makeText(StudentActivity.this, "Upload Success", Toast.LENGTH_SHORT).show();
+					}
+				});
+		}
+		}
+	
 
     private void showHome()
 	{
