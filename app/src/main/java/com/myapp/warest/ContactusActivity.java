@@ -10,6 +10,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
+import android.util.*;
+import android.net.*;
+import android.widget.*;
+import android.view.*;
 
 
 /**
@@ -29,7 +33,38 @@ public class ContactusActivity extends AppCompatActivity{
         emailid=(EditText)findViewById(R.id.Emailid);
         comments=(EditText)findViewById(R.id.comments);
         send=(Button) findViewById(R.id.send);
+	
+		send.setOnClickListener(new View.OnClickListener() {
+				public void onClick(View view) {
+					sendEmail();
+				}
+			});
+		
     }
+
+
+
+	protected void sendEmail() {
+		Log.i("Send email", "");
+		String[] TO = {"kshravi86@gmail.com"};
+		String[] CC = {"suni9636@gmail.com"};
+		Intent emailIntent = new Intent(Intent.ACTION_SEND);
+
+		emailIntent.setData(Uri.parse("mailto:"));
+		emailIntent.setType("text/plain");
+		emailIntent.putExtra(Intent.EXTRA_EMAIL, TO);
+		emailIntent.putExtra(Intent.EXTRA_CC, CC);
+		emailIntent.putExtra(Intent.EXTRA_SUBJECT,"Mail from Warest" );
+		emailIntent.putExtra(Intent.EXTRA_TEXT, comments.getText().toString());
+
+		try {
+			startActivity(Intent.createChooser(emailIntent, "Send mail..."));
+			finish();
+			Log.i("Finished sending email...", "");
+		} catch (android.content.ActivityNotFoundException ex) {
+			Toast.makeText(ContactusActivity.this, "There is no email client installed.", Toast.LENGTH_SHORT).show();
+		}
+	}
 
 
 
