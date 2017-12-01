@@ -75,7 +75,7 @@ public class StartScreenActivity extends AppCompatActivity
 				@Override
 				public void onClick(View v)
 				{
-					startActivity(new Intent(StartScreenActivity.this, UploadTutorialActivity.class));
+					startActivity(new Intent(StartScreenActivity.this, FacultyActivity.class));
 				}
 			});
     }
