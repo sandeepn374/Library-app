@@ -53,6 +53,7 @@
     <string name="action_show">Show</string>
 
     <string name="snackbar_text">Snackbar Text</string>
+    <string name="subject">Subject</string>
 
     <string-array name="spinnerItems">
         <item>Select Community</item>

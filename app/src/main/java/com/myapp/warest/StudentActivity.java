@@ -117,6 +117,14 @@ public class StudentActivity extends AppCompatActivity
 					if(menuItem.getItemId()==R.id.aboutus) {
 						startActivity(new Intent(StudentActivity.this, AboutusActivity.class));
 						}
+
+                    if(menuItem.getItemId()==R.id.tutorials) {
+                        startActivity(new Intent(StudentActivity.this, TutorialNotesActivity.class));
+                    }
+
+                    if(menuItem.getItemId()==R.id.notes) {
+                        startActivity(new Intent(StudentActivity.this, TutorialNotesActivity.class));
+                    }
 					return true;
 				}
 			});

@@ -34,7 +34,7 @@ public class ViewStudentProfile extends AppCompatActivity {
     StorageReference storageRef = storage.getReferenceFromUrl("gs://warest-77e4b.appspot.com/");
 	
 	boolean imagef,dataf;
-	ProgressDialog pd;
+	//ProgressDialog pd;
 
 	
     @Override
@@ -57,12 +57,11 @@ public class ViewStudentProfile extends AppCompatActivity {
 	
 	
 
-		pd=new ProgressDialog(this);
-		pd.setMessage("loading...");
+
 		
         auth = FirebaseAuth.getInstance();
         final FirebaseUser u=auth.getCurrentUser();
-		pd.show();
+		//pd.show();
 	
 		final StorageReference imgRef = storageRef.child(u.getEmail());
 		
@@ -79,7 +78,7 @@ public class ViewStudentProfile extends AppCompatActivity {
 					imagef=true;	
 					
 					if(imagef &&dataf) {
-						pd.dismiss();
+						//pd.dismiss();
 					}	
 				}
 			});
@@ -128,7 +127,7 @@ public class ViewStudentProfile extends AppCompatActivity {
 						dataf=true;
 						
 						if(imagef &&dataf) {
-							pd.dismiss();
+							//pd.dismiss();
 						}
 					}
 				}
