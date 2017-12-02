@@ -70,6 +70,57 @@ public class UpdateStudentProfile extends AppCompatActivity {
         reTrain=(EditText)findViewById(R.id.reqdtraining);
         gender=(Spinner) findViewById(R.id.gender);
 
+        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("students");
+        mDatabase.keepSynced(true);
+        mDatabase.addValueEventListener(new ValueEventListener() {
+
+            @Override
+            public void onCancelled(DatabaseError p1)
+            {
+
+            }
+
+
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot child : dataSnapshot.getChildren()) {
+
+
+                    if(child.child("email").getValue().toString().equals(auth.getCurrentUser().getEmail())){
+                        name.setText(child.child("name").getValue().toString());
+
+                        age.setText(child.child("age").getValue().toString());
+if(child.child("gender").getValue().toString().equals("Male"))
+    gender.setSelection(1);
+else if (child.child("gender").getValue().toString().equals("Female"))
+    gender.setSelection(2);
+else
+    gender.setSelection(0);
+
+                        course.setText(child.child("course").getValue().toString());
+
+                        city.setText(child.child("city").getValue().toString());
+
+                        college.setText(child.child("colName").getValue().toString());
+
+                        country.setText(child.child("country").getValue().toString());
+
+                        state.setText( child.child("state").getValue().toString());
+
+                        university.setText( child.child("university").getValue().toString());
+
+                        reTrain.setText( child.child("requiredTrain").getValue().toString());
+
+                        branch.setText(child.child("branch").getValue().toString());
+
+                    }
+
+                }
+            }
+        });
+
+
+
         auth = FirebaseAuth.getInstance();
         final FirebaseUser u=auth.getCurrentUser();
 
