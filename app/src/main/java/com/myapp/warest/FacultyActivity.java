@@ -33,7 +33,7 @@ public class FacultyActivity extends AppCompatActivity
     ActionBarDrawerToggle drawerToggle;
     DrawerLayout drawerLayout;
     Toolbar toolbar;
-    Button updateprofile,videoProfile;
+    Button updateprofile,videoProfile, uploadtutorial,uploadnotes;
 
     FragmentManager fragmentManager;
     NavigationView navigationView;
@@ -70,6 +70,8 @@ public class FacultyActivity extends AppCompatActivity
         frameLayout = (FrameLayout) findViewById(R.id.content_frame);
         updateprofile=(Button) findViewById(R.id.Updatestudentprofile);
         videoProfile=(Button)findViewById(R.id.videoProfile);
+        uploadtutorial=(Button)findViewById(R.id.uploadtutorial);
+        uploadnotes=(Button)findViewById(R.id.uploadnotes);
 
         pd = new ProgressDialog(this);
         pd.setMessage("Uploading....");
@@ -92,6 +94,12 @@ public class FacultyActivity extends AppCompatActivity
             }
         });
 
+        uploadtutorial.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(FacultyActivity.this, UploadTutorialActivity.class));
+            }
+        });
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawer_open, R.string.drawer_close);
