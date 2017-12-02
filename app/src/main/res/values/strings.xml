@@ -71,4 +71,17 @@
 
     </string-array>
 
+
+    <string-array name="Faculty">
+        <item>Select Faculty Type</item>
+        <item>Trainee</item>
+        <item>Freelancer</item>
+
+
+    </string-array>
+
+
+
+
+
 </resources>

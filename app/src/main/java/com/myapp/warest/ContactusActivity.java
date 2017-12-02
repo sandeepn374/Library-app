@@ -1,4 +1,5 @@
 package com.myapp.warest;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -44,6 +45,7 @@ public class ContactusActivity extends AppCompatActivity{
 
 
 
+	@SuppressLint("LongLogTag")
 	protected void sendEmail() {
 		Log.i("Send email", "");
 		String[] TO = {"kshravi86@gmail.com"};

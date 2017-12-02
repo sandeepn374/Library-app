@@ -90,7 +90,7 @@ public class FacultyActivity extends AppCompatActivity
         updateprofile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(FacultyActivity.this, UpdateTraineeProfile.class));
+                startActivity(new Intent(FacultyActivity.this, SelectFacultyType.class));
             }
         });
 

@@ -89,6 +89,11 @@
             android:label="@string/app_name"
             />
 
+        <activity
+            android:name=".SelectFacultyType"
+            android:label="@string/app_name"
+            />
+
 
 
 
