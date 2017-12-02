@@ -33,7 +33,7 @@ public class ViewStudentProfile extends AppCompatActivity {
 	FirebaseStorage storage = FirebaseStorage.getInstance();
     StorageReference storageRef = storage.getReferenceFromUrl("gs://warest-77e4b.appspot.com/");
 	
-
+	boolean imagef,dataf;
 	ProgressDialog pd;
 
 	
@@ -53,6 +53,9 @@ public class ViewStudentProfile extends AppCompatActivity {
         gender=(TextView)findViewById(R.id.gender);
         reTrain=(TextView)findViewById(R.id.reqdtraining);
 		profileImage=(ImageView)findViewById(R.id.profileImage);
+	
+	
+	
 
 		pd=new ProgressDialog(this);
 		pd.setMessage("loading...");
@@ -66,32 +69,42 @@ public class ViewStudentProfile extends AppCompatActivity {
 		imgRef.getDownloadUrl().addOnSuccessListener(this, new OnSuccessListener<Uri>() {
 				@Override
 				public void onSuccess(Uri uri) {
+					
 					//Log.i(TAG, "Download URL : " + uri); // https://firebasestorage.googleapis.com/v0/b/questionpaper-ce229.appspot.com/o/qimgs%2F-KiTpzP5t-xJOO5nSK0A%2F1493896460324-ch1pg2.jpg?alt=media&token=ca2a3f6e-3eb5-4088-a48d-069ac8ad640b
 					Glide.with(ViewStudentProfile.this)
 						.load(uri)
 						.override(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL)
 						.into(profileImage);
+						
+					imagef=true;	
+					
+					if(imagef &&dataf) {
 						pd.dismiss();
+					}	
 				}
 			});
 		
 		
-
-        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+		DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("students");
         mDatabase.keepSynced(true);
-        Query query = mDatabase.child("students");
-        query.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
+		mDatabase.addValueEventListener(new ValueEventListener() {
 
-                for (final DataSnapshot child : dataSnapshot.getChildren()) {
+				@Override
+				public void onCancelled(DatabaseError p1)
+				{
+					
+				}
+				
 
-                    //   String email= () child.child("email").getValue();
-                    if (child.child("email").getValue().equals(auth.getCurrentUser().getEmail())){
-
-                       name.setText("Name :  " +child.child("name").getValue().toString());
-
-                        age.setText("Age   :  "+child.child("age").getValue().toString());
+				@Override
+				public void onDataChange(DataSnapshot dataSnapshot) {
+					for (DataSnapshot child : dataSnapshot.getChildren()) {
+						
+					
+						if(child.child("email").getValue().toString().equals(auth.getCurrentUser().getEmail())){
+						name.setText("Name :  " +child.child("name").getValue().toString());
+						
+						age.setText("Age   :  "+child.child("age").getValue().toString());
 
                         gender.setText("Gender : "+child.child("gender").getValue().toString());
 
@@ -101,23 +114,27 @@ public class ViewStudentProfile extends AppCompatActivity {
 
                         college.setText("College : "+child.child("colName").getValue());
 
-                       country.setText( "Country : "+child.child("country").getValue().toString());
+						country.setText( "Country : "+child.child("country").getValue().toString());
 
-                       state.setText( "State : "+child.child("state").getValue().toString());
+						state.setText( "State : "+child.child("state").getValue().toString());
 
-                       university.setText( "University : "+child.child("university").getValue());
+						university.setText( "University : "+child.child("university").getValue());
 
-                       reTrain.setText( "Required Training : "+child.child("requiredTrain").getValue());
+						reTrain.setText( "Required Training : "+child.child("requiredTrain").getValue());
 
                         branch.setText( "Branch : "+child.child("branch").getValue());
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-    }
+							
+						}
+						dataf=true;
+						
+						if(imagef &&dataf) {
+							pd.dismiss();
+						}
+					}
+				}
+			});
+		
+		
+			
+    } 
 }
