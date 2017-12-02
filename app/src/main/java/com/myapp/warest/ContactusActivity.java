@@ -14,58 +14,84 @@ import android.util.*;
 import android.net.*;
 import android.widget.*;
 import android.view.*;
+import android.os.*;
+import javax.mail.*;
+import android.app.*;
 
 
 /**
- * Created by kshravi on 27/11/2017 AD.
+ * Created by Sirious Black on 27/11/2017 AD.
  */
 
 public class ContactusActivity extends AppCompatActivity{
 
     EditText name, emailid,comments;
-    Button send;
+    Button send; 
+  ProgressDialog pd;
+ 
+  
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+	@Override
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.contact_us);
-        name=(EditText)findViewById(R.id.Name);
-        emailid=(EditText)findViewById(R.id.Emailid);
-        comments=(EditText)findViewById(R.id.comments);
-        send=(Button) findViewById(R.id.send);
+        final Button send = (Button) this.findViewById(R.id.send);
 	
-		send.setOnClickListener(new View.OnClickListener() {
-				public void onClick(View view) {
-					sendEmail();
-				}
-			});
+		name =(EditText)findViewById(R.id.Name);
+		emailid=(EditText)findViewById(R.id.Emailid);
+		comments=(EditText)findViewById(R.id.comments);
 		
+ 
+		send.setOnClickListener(new View.OnClickListener() { 
+				public void onClick(View view) { 
+					SendEmailAsyncTask.emailId=emailid.getText().toString();
+					SendEmailAsyncTask.comment=comments.getText().toString();
+				
+					new SendEmailAsyncTask().execute();
+					Toast.makeText(ContactusActivity.this,"Mail sent",Toast.LENGTH_SHORT).show();
+				} 
+			}); 
     }
 
 
-
-	protected void sendEmail() {
-		Log.i("Send email", "");
-		String[] TO = {"kshravi86@gmail.com"};
-		String[] CC = {"suni9636@gmail.com"};
-		Intent emailIntent = new Intent(Intent.ACTION_SEND);
-
-		emailIntent.setData(Uri.parse("mailto:"));
-		emailIntent.setType("text/plain");
-		emailIntent.putExtra(Intent.EXTRA_EMAIL, TO);
-		emailIntent.putExtra(Intent.EXTRA_CC, CC);
-		emailIntent.putExtra(Intent.EXTRA_SUBJECT,"Mail from Warest" );
-		emailIntent.putExtra(Intent.EXTRA_TEXT, comments.getText().toString());
-
-		try {
-			startActivity(Intent.createChooser(emailIntent, "Send mail..."));
-			finish();
-			Log.i("Finished sending email...", "");
-		} catch (android.content.ActivityNotFoundException ex) {
-			Toast.makeText(ContactusActivity.this, "There is no email client installed.", Toast.LENGTH_SHORT).show();
-		}
-	}
-
-
-
 }
+	
+
+
+	class SendEmailAsyncTask extends AsyncTask <Void, Void, Boolean> {
+		Mail m = new Mail("kshravi86@gmail.com", "18forever");
+	static String emailId;
+	static String comment;
+		public SendEmailAsyncTask() {
+			if (BuildConfig.DEBUG) Log.v(SendEmailAsyncTask.class.getName(), "SendEmailAsyncTask()");
+			
+			String arr[]={emailId};
+			m.setTo(arr);
+			m.setFrom("Anonymous");
+			m.setSubject("Email from Warest");
+			m.setBody(comment);
+		}
+
+		@Override
+		protected Boolean doInBackground(Void... params) {
+			if (BuildConfig.DEBUG) Log.v(SendEmailAsyncTask.class.getName(), "doInBackground()");
+			try {
+				m.send();
+				return true;
+			} catch (AuthenticationFailedException e) {
+				Log.e(SendEmailAsyncTask.class.getName(), "Bad account details");
+				e.printStackTrace();
+				return false;
+			} catch (MessagingException e) {
+				
+				e.printStackTrace();
+				return false;
+			} catch (Exception e) {
+				e.printStackTrace();
+				return false;
+			}
+		} 
+		}
+
+
+
