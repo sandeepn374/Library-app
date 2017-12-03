@@ -44,7 +44,6 @@ public class StudentActivity extends AppCompatActivity
     Uri filePath;
     ProgressDialog pd;
 
-    //creating reference to firebase storage
     FirebaseStorage storage = FirebaseStorage.getInstance();
     StorageReference storageRef = storage.getReferenceFromUrl("gs://warest-77e4b.appspot.com/");
 
@@ -59,7 +58,6 @@ public class StudentActivity extends AppCompatActivity
         fragmentManager = getSupportFragmentManager();
 
         setupView();
-        // if (savedInstanceState == null) showHome();
     }
 
     private void setupView()
@@ -125,6 +123,10 @@ public class StudentActivity extends AppCompatActivity
                 if(menuItem.getItemId()==R.id.notes) {
                     startActivity(new Intent(StudentActivity.this, TutorialNotesActivity.class));
                 }
+
+                if(menuItem.getItemId()==R.id.workshops) {
+                    startActivity(new Intent(StudentActivity.this, WorkshopViewActivity.class));
+                }
                 return true;
             }
         });
@@ -166,47 +168,6 @@ public class StudentActivity extends AppCompatActivity
     }
 
 
-    private void showHome()
-    {
-        selectDrawerItem(navigationView.getMenu().getItem(0));
-        drawerLayout.openDrawer(GravityCompat.START);
-    }
-
-    private void selectDrawerItem(MenuItem menuItem)
-    {
-        boolean specialToolbarBehaviour = false;
-        Class fragmentClass = null;
-
-        switch (menuItem.getItemId())
-        {
-            case R.id.aboutus:
-                //   startActivity(new Intent(StudentActivity.this, AboutusActivity.class));
-                break;
-
-            case R.id.contactus:
-                // startActivity(new Intent(StudentActivity.this, AboutusActivity.class));
-                break;
-
-            default:
-                fragmentClass = HomeFragment.class;
-                break;
-        }
-
-        try
-        {
-            Fragment fragment = (Fragment) fragmentClass.newInstance();
-            fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }
-
-        setToolbarElevation(specialToolbarBehaviour);
-        menuItem.setChecked(true);
-        setTitle(menuItem.getTitle());
-        drawerLayout.closeDrawers();
-    }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     private void setToolbarElevation(boolean specialToolbarBehaviour)
@@ -223,26 +184,6 @@ public class StudentActivity extends AppCompatActivity
         }
     }
 
-    public void showSnackbarMessage(View v)
-    {/*
-		 EditText et_snackbar = (EditText) findViewById(R.id.et_snackbar);
-		 TextInputLayout textInputLayout = (TextInputLayout) findViewById(R.id.textInputLayout);
-		 View view = findViewById(R.id.coordinator_layout);
-		 if (et_snackbar.getText().toString().isEmpty()) {
-		 textInputLayout.setError(getString(R.string.alert_text));
-		 } else {
-		 textInputLayout.setErrorEnabled(false);
-		 et_snackbar.onEditorAction(EditorInfo.IME_ACTION_DONE);
-		 Snackbar.make(view, et_snackbar.getText().toString(), Snackbar.LENGTH_LONG)
-		 .setAction(getResources().getString(android.R.string.ok), new View.OnClickListener() {
-		 @Override
-		 public void onClick(View v) {
-		 // Do nothing
-		 }
-		 })
-		 .show();
-		 }*/
-    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
