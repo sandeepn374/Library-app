@@ -4,7 +4,7 @@ import javax.mail.internet.*;
 import javax.activation.*;
 import java.util.*;
 
-public class Mail extends javax.mail.Authenticator { 
+public class Mail{ //extends javax.mail.Authenticator {
 	private String _user; 
 	private String _pass; 
 
@@ -23,7 +23,7 @@ public class Mail extends javax.mail.Authenticator {
 
 	private boolean _debuggable; 
 
-	private Multipart _multipart; 
+	//private Multipart _multipart;
 
 
 	public Mail() { 
@@ -40,7 +40,7 @@ public class Mail extends javax.mail.Authenticator {
 		_debuggable = false; // debug mode on or off - default off 
 		_auth = true; // smtp authentication - default on 
 
-		_multipart = new MimeMultipart(); 
+		/*_multipart = new MimeMultipart();
 
 		// There is something wrong with MailCap, javamail can not find a handler for the multipart/mixed part, so this bit needs to be added. 
 		MailcapCommandMap mc = (MailcapCommandMap) CommandMap.getDefaultCommandMap(); 
@@ -49,7 +49,8 @@ public class Mail extends javax.mail.Authenticator {
 		mc.addMailcap("text/plain;; x-java-content-handler=com.sun.mail.handlers.text_plain"); 
 		mc.addMailcap("multipart/*;; x-java-content-handler=com.sun.mail.handlers.multipart_mixed"); 
 		mc.addMailcap("message/rfc822;; x-java-content-handler=com.sun.mail.handlers.message_rfc822"); 
-		CommandMap.setDefaultCommandMap(mc); 
+		CommandMap.setDefaultCommandMap(mc);
+		*/
 	} 
 
 	public Mail(String user, String pass) { 
@@ -62,7 +63,7 @@ public class Mail extends javax.mail.Authenticator {
 	public boolean send() throws Exception { 
 		Properties props = _setProperties(); 
 
-		if(!_user.equals("") && !_pass.equals("") && _to.length > 0 && !_from.equals("") && !_subject.equals("") && !_body.equals("")) { 
+	/*	if(!_user.equals("") && !_pass.equals("") && _to.length > 0 && !_from.equals("") && !_subject.equals("") && !_body.equals("")) {
 			Session session = Session.getInstance(props, this); 
 
 			MimeMessage msg = new MimeMessage(session); 
@@ -92,22 +93,24 @@ public class Mail extends javax.mail.Authenticator {
 			return true; 
 		} else { 
 			return false; 
-		} 
+		}
+		*/
+	return  false;
 	} 
 
 	public void addAttachment(String filename) throws Exception { 
-		BodyPart messageBodyPart = new MimeBodyPart(); 
+		/*BodyPart messageBodyPart = new MimeBodyPart();
 		DataSource source = new FileDataSource(filename); 
 		messageBodyPart.setDataHandler(new DataHandler(source)); 
 		messageBodyPart.setFileName(filename); 
 
-		_multipart.addBodyPart(messageBodyPart); 
+		_multipart.addBodyPart(messageBodyPart); */
 	} 
 
-	@Override 
+	/*@Override
 	public PasswordAuthentication getPasswordAuthentication() { 
 		return new PasswordAuthentication(_user, _pass); 
-	} 
+	} */
 
 	private Properties _setProperties() { 
 		Properties props = new Properties(); 

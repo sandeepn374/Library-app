@@ -79,7 +79,7 @@ public class AdminActivity extends AppCompatActivity
                 }
 
                 if(menuItem.getItemId()==R.id.tutorials) {
-                    startActivity(new Intent(AdminActivity.this, TutorialNotesActivity.class));
+                  //  startActivity(new Intent(AdminActivity.this, TutorialNotesActivity.class));
                 }
 
                 return true;
