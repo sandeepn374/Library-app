@@ -35,6 +35,14 @@ public class LoginActivity extends AppCompatActivity
 		auth = FirebaseAuth.getInstance();
 
 		if (auth.getCurrentUser() != null) {
+			if(auth.getCurrentUser().getEmail().equals("kshravi86@gmail.com")){
+
+				Intent intent = new Intent(LoginActivity.this, AdminActivity.class);
+				startActivity(intent);
+				finish();
+
+
+			}
 
 			DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("users");
 			mDatabase.keepSynced(true);
@@ -149,6 +157,14 @@ public class LoginActivity extends AppCompatActivity
 										}*/
 
 									} else {
+										if(auth.getCurrentUser().getEmail().equals("kshravi86@gmail.com")){
+
+											Intent intent = new Intent(LoginActivity.this, AdminActivity.class);
+											startActivity(intent);
+											finish();
+
+
+										}
 
 
 										DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("users");
@@ -195,4 +211,3 @@ public class LoginActivity extends AppCompatActivity
 
 	}
 }
-
