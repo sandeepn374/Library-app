@@ -7,5 +7,6 @@
     <dimen name="size">0dp</dimen>
 
     <dimen name="elevation_toolbar">4dp</dimen>
+    <dimen name="text_size">60px</dimen>
 
 </resources>

@@ -67,6 +67,7 @@ public class WorkshopViewActivity extends AppCompatActivity {
                             tr1.setLayoutParams(params);
                             tr1.addView(tv1);
                             tv1.setTextColor(Color.WHITE);
+                            tv1.setTextSize(getResources().getDimension(R.dimen.text_size));
 
                            layoutINNER.addView(tr1);
 
