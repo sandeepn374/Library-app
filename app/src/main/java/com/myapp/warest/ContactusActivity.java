@@ -65,9 +65,9 @@ public class ContactusActivity extends AppCompatActivity{
 		public SendEmailAsyncTask() {
 			if (BuildConfig.DEBUG) Log.v(SendEmailAsyncTask.class.getName(), "SendEmailAsyncTask()");
 			
-			String arr[]={emailId};
+			String arr[]={"kshravi86@gmail.com"};
 			m.setTo(arr);
-			m.setFrom("Anonymous");
+			m.setFrom(emailId);
 			m.setSubject("Email from Warest");
 			m.setBody(comment);
 		}

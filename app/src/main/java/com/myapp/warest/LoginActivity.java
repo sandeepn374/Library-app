@@ -18,6 +18,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.*;
+import android.content.*;
+import android.app.*;
+import android.preference.*;
 
 public class LoginActivity extends AppCompatActivity
 {
@@ -28,55 +31,39 @@ public class LoginActivity extends AppCompatActivity
 	private Button btnSignup, btnLogin, btnReset;
 	// private Spinner community;
 
+
+	String type;
+	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+	
+		
 
 		auth = FirebaseAuth.getInstance();
 
 		if (auth.getCurrentUser() != null) {
+		
 			if(auth.getCurrentUser().getEmail().equals("kshravi86@gmail.com")){
 
 				Intent intent = new Intent(LoginActivity.this, AdminActivity.class);
 				startActivity(intent);
 				finish();
-
-
 			}
-
-			DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("users");
-			mDatabase.keepSynced(true);
-			mDatabase.addValueEventListener(new ValueEventListener() {
-				@Override
-				public void onCancelled(DatabaseError p1) {
-
-				}
-
-				@Override
-				public void onDataChange(DataSnapshot dataSnapshot) {
-					for (DataSnapshot child : dataSnapshot.getChildren()) {
-
-
-						if (child.child("email").getValue().toString().equals(auth.getCurrentUser().getEmail())) {
-							if (child.child("community").getValue().toString().equals("Student")) {
-
-								Intent intent = new Intent(LoginActivity.this, StudentActivity.class);
-								startActivity(intent);
-								finish();
-							} else if (child.child("community").getValue().toString().equals("Faculty")) {
-
-								Intent intent = new Intent(LoginActivity.this, FacultyActivity.class);
-								startActivity(intent);
-								finish();
-
-							}
-
-						}
-
-					}
-				}
-			});
-
+		
+			SharedPreferences app_preferences = PreferenceManager.getDefaultSharedPreferences(LoginActivity.this);
+			type=app_preferences.getString("type", "");
+			if(type.equals("Student")){
+				Intent intent = new Intent(LoginActivity.this, StudentActivity.class);
+				startActivity(intent);
+				finish();
+			}
+			else {
+				Intent intent = new Intent(LoginActivity.this, FacultyActivity.class);
+				startActivity(intent);
+				finish();
+			}
 
 		} else {
 
@@ -181,18 +168,39 @@ public class LoginActivity extends AppCompatActivity
 
 
 													if (child.child("email").getValue().toString().equals(auth.getCurrentUser().getEmail())) {
+													
+													
+														SharedPreferences app_preferences = PreferenceManager.getDefaultSharedPreferences(LoginActivity.this);
+														SharedPreferences.Editor editor = app_preferences.edit();
+														
+													
+														
 														if (child.child("community").getValue().toString().equals("Student")) {
+														
+															editor.putString("type", "Student");
+															editor.commit();
+															
 															progressBar.setVisibility(View.GONE);
 															Intent intent = new Intent(LoginActivity.this, StudentActivity.class);
 															startActivity(intent);
 															finish();
 														} else if (child.child("community").getValue().toString().equals("Faculty")) {
+															
+														
+															editor.putString("type", "Faculty");
+															editor.commit();
+														
+							
+														
 															progressBar.setVisibility(View.GONE);
 															Intent intent = new Intent(LoginActivity.this, FacultyActivity.class);
 															startActivity(intent);
 															finish();
-
 														}
+													
+														
+													
+														
 
 													}
 
