@@ -99,6 +99,13 @@
                   android:label="@string/app_name"
                     />
 
+
+
+        <activity
+            android:name=".WorkshopActivity"
+            android:label="@string/app_name"
+            />
+
     </application>
 
 </manifest>
