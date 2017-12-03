@@ -53,8 +53,8 @@ public class SignupActivity extends AppCompatActivity {
         btnResetPassword = (Button) findViewById(R.id.btn_reset_password);
         community=(Spinner)findViewById(R.id.community);
         sub=(Spinner)findViewById(R.id.sub);
-		fullname=(EditText)findViewById(R.id.fullname);
-		phone=(EditText)findViewById(R.id.phone);
+        fullname=(EditText)findViewById(R.id.fullname);
+        phone=(EditText)findViewById(R.id.phone);
         sub.setVisibility(View.GONE);
 
 
@@ -69,7 +69,7 @@ public class SignupActivity extends AppCompatActivity {
         data.keySet().toArray(dataSpinner1);
 
         // initializing an string type, ArrayAdapter for spinner1
-        // you will need to pass activity context, adminactivity for the spinner item and
+        // you will need to pass activity context, layout for the spinner item and
         // spinner content(as string array) as arguments to create an array adapter
         final ArrayAdapter<String> spinner1Adapter = new ArrayAdapter<String>(SignupActivity.this, android.R.layout.simple_spinner_item, dataSpinner1);
         community.setAdapter(spinner1Adapter);
@@ -102,37 +102,37 @@ public class SignupActivity extends AppCompatActivity {
         });
 
         btnSignIn.setOnClickListener(new View.OnClickListener() {
-				@Override
-				public void onClick(View v) {
-					finish();
-				}
-			});
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         btnSignUp.setOnClickListener(new View.OnClickListener() {
-				@Override
-				public void onClick(View v) {
+            @Override
+            public void onClick(View v) {
 
-					String email = inputEmail.getText().toString().trim();
-					String password = inputPassword.getText().toString().trim();
+                String email = inputEmail.getText().toString().trim();
+                String password = inputPassword.getText().toString().trim();
 
-					if (TextUtils.isEmpty(email)) {
-						Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
-						return;
-					}
+                if (TextUtils.isEmpty(email)) {
+                    Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
-					if (TextUtils.isEmpty(password)) {
-						Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
-						return;
-					}
+                if (TextUtils.isEmpty(password)) {
+                    Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
-					if (password.length() < 6) {
-						Toast.makeText(getApplicationContext(), "Password too short, enter minimum 6 characters!", Toast.LENGTH_SHORT).show();
-						return;
-					}
+                if (password.length() < 6) {
+                    Toast.makeText(getApplicationContext(), "Password too short, enter minimum 6 characters!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
-					progressBar.setVisibility(View.VISIBLE);
-					//create user
-					auth.createUserWithEmailAndPassword(email, password)
+                progressBar.setVisibility(View.VISIBLE);
+                //create user
+                auth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(SignupActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -143,10 +143,10 @@ public class SignupActivity extends AppCompatActivity {
                                 // signed in user can be handled in the listener.
                                 if (!task.isSuccessful()) {
                                     Toast.makeText(SignupActivity.this, "Authentication failed." + task.getException(),
-												   Toast.LENGTH_SHORT).show();
+                                            Toast.LENGTH_SHORT).show();
                                 } else {
 
-                                 String name=fullname.getText().toString();
+                                    String name=fullname.getText().toString();
                                     String ph=phone.getText().toString();
                                     String email=inputEmail.getText().toString();
                                     String comm=community.getSelectedItem().toString();
@@ -158,51 +158,52 @@ public class SignupActivity extends AppCompatActivity {
                                     User user = new User(name, email,ph,comm,commSub);
 
 
-String type="";
-if(comm.equals("Student")) {
-    Student send=new Student();
-send.setEmail(email);
-    send.setName(name);
-    type = "students";
-    DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference(type);
-    mDatabase.keepSynced(true);
-    String userId = mDatabase.push().getKey();
-    mDatabase.child(userId).setValue(send);
+                                    DatabaseReference mDatabaseForUser = FirebaseDatabase.getInstance().getReference("users");
+                                    String userIdForUser = mDatabaseForUser.push().getKey();
+                                    mDatabaseForUser.child(userIdForUser).setValue(user);
 
-}
+
+                                    if(comm.equals("Student")) {
+                                        Student send=new Student();
+                                        send.setEmail(email);
+                                        send.setName(name);
+
+                                        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("students");
+                                        mDatabase.keepSynced(true);
+                                        String userId = mDatabase.push().getKey();
+                                        mDatabase.child(userId).setValue(send);
+
+                                    }
                                     else if(comm.equals("Faculty")) {
-    if(commSub.equals("Trainee")) {
-     FacultyTrainee send=new FacultyTrainee();
-        send.user=user;
+                                        if(commSub.equals("Trainee")) {
+                                            FacultyTrainee send=new FacultyTrainee();
+                                            send.user=user;
 
-        type = "facultyTraineeGroup";
 
-        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference(type);
-        String userId = mDatabase.push().getKey();
-        mDatabase.child(userId).setValue(send);
-    }
-    else {
+                                            DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("facultyTraineeGroup");
+                                            String userId = mDatabase.push().getKey();
+                                            mDatabase.child(userId).setValue(send);
+                                        }
+                                        else {
 
-        FacultyFreelance send=new FacultyFreelance();
-        send.user=user;
-        type = "facultyFreelancegroup";
-        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference(type);
-        String userId = mDatabase.push().getKey();
-        mDatabase.child(userId).setValue(send);
-    }
-}
+                                            FacultyFreelance send=new FacultyFreelance();
+                                            send.user=user;
+
+                                            DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("facultyFreelancegroup");
+                                            String userId = mDatabase.push().getKey();
+                                            mDatabase.child(userId).setValue(send);
+                                        }
+                                    }
 
                                     else {
 
-    User send=new User(name, email,ph,comm,commSub);
-    type = "OrganisationGroup";
-
-    DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference(type);
-    String userId = mDatabase.push().getKey();
-    mDatabase.child(userId).setValue(send);
+                                        User send=new User(name, email,ph,comm,commSub);
+                                        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("OrganisationGroup");
+                                        String userId = mDatabase.push().getKey();
+                                        mDatabase.child(userId).setValue(send);
 
 
-}
+                                    }
 
 
                                     startActivity(new Intent(SignupActivity.this, LoginActivity.class));
@@ -211,8 +212,8 @@ send.setEmail(email);
                             }
                         });
 
-				}
-			});
+            }
+        });
     }
 
     @Override
