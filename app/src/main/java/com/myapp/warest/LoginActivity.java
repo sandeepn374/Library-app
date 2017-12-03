@@ -26,171 +26,147 @@ public class LoginActivity extends AppCompatActivity
     private FirebaseAuth auth;
     private ProgressBar progressBar;
     private Button btnSignup, btnLogin, btnReset;
-   // private Spinner community;
+    private Spinner community;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+    protected void onCreate(Bundle savedInstanceState)
+	{
+        super.onCreate(savedInstanceState);
 
-		auth = FirebaseAuth.getInstance();
+        //Get Firebase auth instance
+        auth = FirebaseAuth.getInstance();
 
-		if (auth.getCurrentUser() != null) {
-			if(auth.getCurrentUser().getEmail().equals("kshravi86@gmail.com")){
+        if (auth.getCurrentUser() != null)
+		{
+            startActivity(new Intent(LoginActivity.this, StudentActivity.class));
+            finish();
+        }
 
-				Intent intent = new Intent(LoginActivity.this, AdminActivity.class);
-				startActivity(intent);
-				finish();
-
-
-			}
-
-			DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("users");
-			mDatabase.keepSynced(true);
-			mDatabase.addValueEventListener(new ValueEventListener() {
-				@Override
-				public void onCancelled(DatabaseError p1) {
-
-				}
-
-				@Override
-				public void onDataChange(DataSnapshot dataSnapshot) {
-					for (DataSnapshot child : dataSnapshot.getChildren()) {
-
-
-						if (child.child("email").getValue().toString().equals(auth.getCurrentUser().getEmail())) {
-							if (child.child("community").getValue().toString().equals("Student")) {
-
-								Intent intent = new Intent(LoginActivity.this, StudentActivity.class);
-								startActivity(intent);
-								finish();
-							} else if (child.child("community").getValue().toString().equals("Faculty")) {
-
-								Intent intent = new Intent(LoginActivity.this, FacultyActivity.class);
-								startActivity(intent);
-								finish();
-
-							}
-
-						}
-
-					}
-				}
-			});
-
-
-		} else {
-
-			// set the view now
-			setContentView(R.layout.activity_login);
+        // set the view now
+        setContentView(R.layout.activity_login);
 
 //        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
 
-			inputEmail = (EditText) findViewById(R.id.email);
-			inputPassword = (EditText) findViewById(R.id.password);
-			progressBar = (ProgressBar) findViewById(R.id.progressBar);
-			btnSignup = (Button) findViewById(R.id.btn_signup);
-			btnLogin = (Button) findViewById(R.id.btn_login);
-			btnReset = (Button) findViewById(R.id.btn_reset_password);
-			//community = (Spinner) findViewById(R.id.community);
+        inputEmail = (EditText) findViewById(R.id.email);
+        inputPassword = (EditText) findViewById(R.id.password);
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        btnSignup = (Button) findViewById(R.id.btn_signup);
+        btnLogin = (Button) findViewById(R.id.btn_login);
+        btnReset = (Button) findViewById(R.id.btn_reset_password);
+        community = (Spinner)findViewById(R.id.community);
 
-			//Get Firebase auth instance
-			auth = FirebaseAuth.getInstance();
+        //Get Firebase auth instance
+        auth = FirebaseAuth.getInstance();
 
-			btnSignup.setOnClickListener(new View.OnClickListener() {
+        btnSignup.setOnClickListener(new View.OnClickListener() {
 				@Override
-				public void onClick(View v) {
+				public void onClick(View v)
+				{
 					startActivity(new Intent(LoginActivity.this, SignupActivity.class));
 				}
 			});
 
-			btnReset.setOnClickListener(new View.OnClickListener() {
+        btnReset.setOnClickListener(new View.OnClickListener() {
 				@Override
-				public void onClick(View v) {
+				public void onClick(View v)
+				{
 					startActivity(new Intent(LoginActivity.this, ResetPasswordActivity.class));
 				}
 			});
 
-			btnLogin.setOnClickListener(new View.OnClickListener() {
+        btnLogin.setOnClickListener(new View.OnClickListener() {
 				@Override
-				public void onClick(View v) {
+				public void onClick(View v)
+				{
 					String email = inputEmail.getText().toString();
 					final String password = inputPassword.getText().toString();
-					//community = (Spinner) findViewById(R.id.community);
+                    community = (Spinner)findViewById(R.id.community);
 
-					if (TextUtils.isEmpty(email)) {
+					if (TextUtils.isEmpty(email))
+					{
 						Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
 						return;
 					}
 
-					if (TextUtils.isEmpty(password)) {
+					if (TextUtils.isEmpty(password))
+					{
 						Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
 						return;
 					}
 
-					/*if (community.getSelectedItem() == "Select Community") {
-						Toast.makeText(getApplicationContext(), "Please Select Community", Toast.LENGTH_SHORT).show();
-						return;
-					}*/
+					if (community.getSelectedItem() == "Select Community")
+					{
+                        Toast.makeText(getApplicationContext(), "Please Select Community", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
 
 					progressBar.setVisibility(View.VISIBLE);
 
 					//authenticate user
 					auth.signInWithEmailAndPassword(email, password)
-							.addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
-								@Override
-								public void onComplete(@NonNull Task<AuthResult> task) {
-									// If sign in fails, display a message to the user. If sign in succeeds
-									// the auth state listener will be notified and logic to handle the
-									// signed in user can be handled in the listener.
+                        .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task)
+							{
+                                // If sign in fails, display a message to the user. If sign in succeeds
+                                // the auth state listener will be notified and logic to handle the
+                                // signed in user can be handled in the listener.
+                                
+                                if (!task.isSuccessful())
+								{
+                                    // there was an error
+                                    if (password.length() < 6)
+									{
+                                        inputPassword.setError(getString(R.string.minimum_password));
+                                    }
+									else
+									{
+                                        Toast.makeText(LoginActivity.this, getString(R.string.auth_failed), Toast.LENGTH_LONG).show();
+                                    }
+                                    if (community.getSelectedItem() == "Select Community")
+									{
+                                        Toast.makeText(getApplicationContext(), "Please Select Community", Toast.LENGTH_SHORT).show();
 
-									if (!task.isSuccessful()) {
-										// there was an error
-										if (password.length() < 6) {
-											inputPassword.setError(getString(R.string.minimum_password));
-										} else {
-											Toast.makeText(LoginActivity.this, getString(R.string.auth_failed), Toast.LENGTH_LONG).show();
-										}
-										/*if (community.getSelectedItem() == "Select Community") {
-											Toast.makeText(getApplicationContext(), "Please Select Community", Toast.LENGTH_SHORT).show();
+                                    }
 
-										}*/
-
-									} else {
-										if(auth.getCurrentUser().getEmail().equals("kshravi86@gmail.com")){
-
-											Intent intent = new Intent(LoginActivity.this, AdminActivity.class);
-											startActivity(intent);
-											finish();
+                                }
+								else
+								{
 
 
-										}
-
-
-										DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("users");
-										mDatabase.keepSynced(true);
-										mDatabase.addValueEventListener(new ValueEventListener() {
+									DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("users");
+									mDatabase.keepSynced(true);
+									mDatabase.addValueEventListener(new ValueEventListener() {
 											@Override
-											public void onCancelled(DatabaseError p1) {
+											public void onCancelled(DatabaseError p1)
+											{
 
 											}
 
 											@Override
-											public void onDataChange(DataSnapshot dataSnapshot) {
-												for (DataSnapshot child : dataSnapshot.getChildren()) {
+											public void onDataChange(DataSnapshot dataSnapshot)
+											{
+												for (DataSnapshot child : dataSnapshot.getChildren())
+												{
 
 
-													if (child.child("email").getValue().toString().equals(auth.getCurrentUser().getEmail())) {
-														if (child.child("community").getValue().toString().equals("Student")) {
+													if (child.child("email").getValue().toString().equals(auth.getCurrentUser().getEmail()))
+													{
+														if (child.child("community").getValue().toString().equals("Student"))
+														{
 															progressBar.setVisibility(View.GONE);
 															Intent intent = new Intent(LoginActivity.this, StudentActivity.class);
 															startActivity(intent);
-															finish();
-														} else if (child.child("community").getValue().toString().equals("Faculty")) {
+															finish();	
+														} 
+														else 
+														if (child.child("community").getValue().toString().equals("Faculty"))
+														{
 															progressBar.setVisibility(View.GONE);
 															Intent intent = new Intent(LoginActivity.this, FacultyActivity.class);
 															startActivity(intent);
-															finish();
+															finish();	
 
 														}
 
@@ -201,14 +177,13 @@ public class LoginActivity extends AppCompatActivity
 										});
 
 
-									}
-								}
-							});
+
+                                }
+                            }
+                        });
 
 				}
 			});
-		}
-
-	}
+    }
 }
 

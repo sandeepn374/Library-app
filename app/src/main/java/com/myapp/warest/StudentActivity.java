@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -117,14 +116,6 @@ public class StudentActivity extends AppCompatActivity
 					if(menuItem.getItemId()==R.id.aboutus) {
 						startActivity(new Intent(StudentActivity.this, AboutusActivity.class));
 						}
-
-                    if(menuItem.getItemId()==R.id.tutorials) {
-                        startActivity(new Intent(StudentActivity.this, TutorialNotesActivity.class));
-                    }
-
-                    if(menuItem.getItemId()==R.id.notes) {
-                        startActivity(new Intent(StudentActivity.this, TutorialNotesActivity.class));
-                    }
 					return true;
 				}
 			});
@@ -262,28 +253,5 @@ public class StudentActivity extends AppCompatActivity
 	{
         super.onConfigurationChanged(newConfig);
         drawerToggle.onConfigurationChanged(newConfig);
-    }
-
-    private boolean doubleBackToExitPressedOnce;
-    @Override
-    public void onBackPressed()
-    {
-        if (doubleBackToExitPressedOnce)
-        {
-            super.onBackPressed();
-            return;
-        }
-
-        this.doubleBackToExitPressedOnce = true;
-        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
-
-        new Handler().postDelayed(new Runnable() {
-
-            @Override
-            public void run()
-            {
-                doubleBackToExitPressedOnce = false;
-            }
-        }, 2000);
     }
 }

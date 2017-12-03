@@ -59,9 +59,7 @@ public class StartScreenActivity extends AppCompatActivity
 				public void onClick(View v)
 				{
 					startActivity(new Intent(StartScreenActivity.this, SignupActivity.class));
-
-
-								}
+				}
 			});
 
 
@@ -77,7 +75,7 @@ public class StartScreenActivity extends AppCompatActivity
 				@Override
 				public void onClick(View v)
 				{
-					//startActivity(new Intent(StartScreenActivity.this, FacultyActivity.class));
+					startActivity(new Intent(StartScreenActivity.this, FacultyActivity.class));
 				}
 			});
     }

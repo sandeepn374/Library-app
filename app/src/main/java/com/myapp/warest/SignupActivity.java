@@ -158,17 +158,13 @@ public class SignupActivity extends AppCompatActivity {
                                     User user = new User(name, email,ph,comm,commSub);
 
 
-                                    DatabaseReference mDatabaseForUser = FirebaseDatabase.getInstance().getReference("users");
-                                    String userIdForUser = mDatabaseForUser.push().getKey();
-                                    mDatabaseForUser.child(userIdForUser).setValue(user);
-
-
+String type="";
 if(comm.equals("Student")) {
     Student send=new Student();
 send.setEmail(email);
     send.setName(name);
-
-    DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("students");
+    type = "students";
+    DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference(type);
     mDatabase.keepSynced(true);
     String userId = mDatabase.push().getKey();
     mDatabase.child(userId).setValue(send);
@@ -179,8 +175,9 @@ send.setEmail(email);
      FacultyTrainee send=new FacultyTrainee();
         send.user=user;
 
+        type = "facultyTraineeGroup";
 
-        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("facultyTraineeGroup");
+        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference(type);
         String userId = mDatabase.push().getKey();
         mDatabase.child(userId).setValue(send);
     }
@@ -188,8 +185,8 @@ send.setEmail(email);
 
         FacultyFreelance send=new FacultyFreelance();
         send.user=user;
-
-        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("facultyFreelancegroup");
+        type = "facultyFreelancegroup";
+        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference(type);
         String userId = mDatabase.push().getKey();
         mDatabase.child(userId).setValue(send);
     }
@@ -198,7 +195,9 @@ send.setEmail(email);
                                     else {
 
     User send=new User(name, email,ph,comm,commSub);
-    DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("OrganisationGroup");
+    type = "OrganisationGroup";
+
+    DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference(type);
     String userId = mDatabase.push().getKey();
     mDatabase.child(userId).setValue(send);
 

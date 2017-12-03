@@ -53,7 +53,6 @@
     <string name="action_show">Show</string>
 
     <string name="snackbar_text">Snackbar Text</string>
-    <string name="subject">Subject</string>
 
     <string-array name="spinnerItems">
         <item>Select Community</item>
@@ -70,18 +69,5 @@
 
 
     </string-array>
-
-
-    <string-array name="Faculty">
-        <item>Select Faculty Type</item>
-        <item>Trainee</item>
-        <item>Freelancer</item>
-
-
-    </string-array>
-
-
-
-
 
 </resources>
