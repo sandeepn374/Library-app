@@ -69,7 +69,7 @@ public class SignupActivity extends AppCompatActivity {
         data.keySet().toArray(dataSpinner1);
 
         // initializing an string type, ArrayAdapter for spinner1
-        // you will need to pass activity context, layout for the spinner item and
+        // you will need to pass activity context, adminactivity for the spinner item and
         // spinner content(as string array) as arguments to create an array adapter
         final ArrayAdapter<String> spinner1Adapter = new ArrayAdapter<String>(SignupActivity.this, android.R.layout.simple_spinner_item, dataSpinner1);
         community.setAdapter(spinner1Adapter);
