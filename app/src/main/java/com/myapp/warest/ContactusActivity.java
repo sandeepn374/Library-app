@@ -74,7 +74,7 @@ public class ContactusActivity extends AppCompatActivity{
 
 		@Override
 		protected Boolean doInBackground(Void... params) {
-			/*if (BuildConfig.DEBUG) Log.v(SendEmailAsyncTask.class.getName(), "doInBackground()");
+			if (BuildConfig.DEBUG) Log.v(SendEmailAsyncTask.class.getName(), "doInBackground()");
 			try {
 				m.send();
 				return true;
@@ -90,8 +90,8 @@ public class ContactusActivity extends AppCompatActivity{
 				e.printStackTrace();
 				return false;
 			}
-		 */
-			return false;
+		 
+			
 		}
 		}
 
