@@ -1,5 +1,5 @@
 <resources>
-	<string name="app_name">Warest</string>
+    <string name="app_name">Warest</string>
     <string name="action_sign_in_short">Register</string>
     <string name="email">Email</string>
     <string name="minimum_password">Password too short, enter minimum 6 characters!</string>
@@ -53,6 +53,7 @@
     <string name="action_show">Show</string>
 
     <string name="snackbar_text">Snackbar Text</string>
+    <string name="subject">Subject</string>
 
     <string-array name="spinnerItems">
         <item>Select Community</item>
@@ -69,5 +70,18 @@
 
 
     </string-array>
+
+
+    <string-array name="Faculty">
+        <item>Select Faculty Type</item>
+        <item>Trainee</item>
+        <item>Freelancer</item>
+
+
+    </string-array>
+
+
+
+
 
 </resources>
