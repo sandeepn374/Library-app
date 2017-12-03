@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -32,7 +33,7 @@ public class FacultyActivity extends AppCompatActivity
     ActionBarDrawerToggle drawerToggle;
     DrawerLayout drawerLayout;
     Toolbar toolbar;
-    Button updateprofile,videoProfile;
+    Button updateprofile,videoProfile, uploadtutorial,uploadnotes;
 
     FragmentManager fragmentManager;
     NavigationView navigationView;
@@ -69,6 +70,8 @@ public class FacultyActivity extends AppCompatActivity
         frameLayout = (FrameLayout) findViewById(R.id.content_frame);
         updateprofile=(Button) findViewById(R.id.Updatestudentprofile);
         videoProfile=(Button)findViewById(R.id.videoProfile);
+        uploadtutorial=(Button)findViewById(R.id.uploadtutorial);
+        uploadnotes=(Button)findViewById(R.id.uploadnotes);
 
         pd = new ProgressDialog(this);
         pd.setMessage("Uploading....");
@@ -87,10 +90,16 @@ public class FacultyActivity extends AppCompatActivity
         updateprofile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(FacultyActivity.this, UpdateTraineeProfile.class));
+                startActivity(new Intent(FacultyActivity.this, SelectFacultyType.class));
             }
         });
 
+        uploadtutorial.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(FacultyActivity.this, UploadTutorialActivity.class));
+            }
+        });
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawer_open, R.string.drawer_close);
@@ -253,5 +262,30 @@ public class FacultyActivity extends AppCompatActivity
     {
         super.onConfigurationChanged(newConfig);
         drawerToggle.onConfigurationChanged(newConfig);
+    }
+
+
+
+    private boolean doubleBackToExitPressedOnce;
+    @Override
+    public void onBackPressed()
+    {
+        if (doubleBackToExitPressedOnce)
+        {
+            super.onBackPressed();
+            return;
+        }
+
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run()
+            {
+                doubleBackToExitPressedOnce = false;
+            }
+        }, 2000);
     }
 }
