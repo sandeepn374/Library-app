@@ -19,7 +19,7 @@ import android.widget.Spinner;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.facultytype);
-        facultytype = (Spinner)findViewById(R.id.facultytype);
+        facultytype = (Spinner)findViewById(R.id.selectfaculty);
 
 
         facultytype.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

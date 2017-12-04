@@ -56,6 +56,9 @@
 
     <string name="snackbar_text">Snackbar Text</string>
     <string name="subject">Subject</string>
+    <string name="objective">Objective</string>
+    <string name="vision">Vision</string>
+    <string name="mission">Mission</string>
 
     <string-array name="spinnerItems">
         <item>Select Community</item>

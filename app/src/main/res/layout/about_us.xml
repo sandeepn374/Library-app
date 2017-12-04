@@ -15,10 +15,10 @@
         android:id="@+id/objective"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Objective"
+        android:hint="@string/objective"
         android:lines="8"
         android:minLines="6"
-        android:inputType="textMultiLine"
+
         android:maxLines="1"
         android:textColor="@android:color/white" />
 
@@ -26,10 +26,10 @@
         android:id="@+id/mission"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Mission"
+        android:hint="@string/mission"
         android:lines="8"
         android:minLines="6"
-        android:inputType="textMultiLine"
+
         android:maxLines="1"
         android:textColor="@android:color/white" />
 
@@ -37,10 +37,10 @@
         android:id="@+id/vision"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Vision"
+        android:hint="@string/vision"
         android:lines="8"
         android:minLines="6"
-        android:inputType="textMultiLine"
+
         android:maxLines="1"
         android:textColor="@android:color/white" />
 
