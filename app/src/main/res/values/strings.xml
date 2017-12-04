@@ -56,9 +56,22 @@
 
     <string name="snackbar_text">Snackbar Text</string>
     <string name="subject">Subject</string>
-    <string name="objective">Objective</string>
-    <string name="vision">Vision</string>
-    <string name="mission">Mission</string>
+    <string name="Values">VALUES-
+    Power to make engineering science and technological communities to lead the world as responsible global citizens.</string>
+    <string name="vision">VISION
+
+        •To inspire students, faculty, institute and corporate about the principles that leads to global responsibility for education, skill set and ethical environment al change./n
+        •To implement innovative livelihood programmes, workshops, conference in various discipline with these communities in different part of Karnataka and india./n
+        •To provide the platform in growth of quality education in engineering, science and technology through innovative ideas and creative deployment. /n
+        •To help the various sector of societies by providing proper education and make them future endeavors./n
+        •Investment to raise stable and sustainable development in research through long term link with govt. and other research institution to make globally developed nation.
+</string>
+
+
+    <string name="mission">MISSION
+    •To identify, verify, define and detail the need of the society in the field of education.
+    •Uplifting the society for the need of education and helps them to farm a better future.
+</string>
 
     <string-array name="spinnerItems">
         <item>Select Community</item>

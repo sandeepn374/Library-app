@@ -32,10 +32,6 @@ import android.widget.Spinner;
                     startActivity(new Intent(SelectFacultyType.this, UpdateTraineeProfile.class));
 
 
-
-
-
-
                 }
                 else if (facultytype.getSelectedItem().toString().equals("Freelancer")){
 
