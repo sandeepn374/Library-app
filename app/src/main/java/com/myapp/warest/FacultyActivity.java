@@ -100,6 +100,12 @@ public class FacultyActivity extends AppCompatActivity
                 startActivity(new Intent(FacultyActivity.this, UploadTutorialActivity.class));
             }
         });
+        uploadnotes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(FacultyActivity.this, UploadTutorialActivity.class));
+            }
+        });
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawer_open, R.string.drawer_close);
@@ -124,6 +130,9 @@ public class FacultyActivity extends AppCompatActivity
                 }
                 if(menuItem.getItemId()==R.id.aboutus) {
                     startActivity(new Intent(FacultyActivity.this, AboutusActivity.class));
+                }
+                if(menuItem.getItemId()==R.id.workshops) {
+                    startActivity(new Intent(FacultyActivity.this, WorkshopViewActivity.class));
                 }
                 return true;
             }
@@ -166,47 +175,7 @@ public class FacultyActivity extends AppCompatActivity
     }
 
 
-    private void showHome()
-    {
-        selectDrawerItem(navigationView.getMenu().getItem(0));
-        drawerLayout.openDrawer(GravityCompat.START);
-    }
-
-    private void selectDrawerItem(MenuItem menuItem)
-    {
-        boolean specialToolbarBehaviour = false;
-        Class fragmentClass = null;
-
-        switch (menuItem.getItemId())
-        {
-            case R.id.aboutus:
-                //   startActivity(new Intent(StudentActivity.this, AboutusActivity.class));
-                break;
-
-            case R.id.contactus:
-                // startActivity(new Intent(StudentActivity.this, AboutusActivity.class));
-                break;
-
-            default:
-                fragmentClass = HomeFragment.class;
-                break;
-        }
-
-        try
-        {
-            Fragment fragment = (Fragment) fragmentClass.newInstance();
-            fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }
-
-        setToolbarElevation(specialToolbarBehaviour);
-        menuItem.setChecked(true);
-        setTitle(menuItem.getTitle());
-        drawerLayout.closeDrawers();
-    }
+   
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     private void setToolbarElevation(boolean specialToolbarBehaviour)
