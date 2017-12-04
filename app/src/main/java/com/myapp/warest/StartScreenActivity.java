@@ -16,7 +16,7 @@ import android.os.*;
 
 public class StartScreenActivity extends AppCompatActivity
 {
-    private Button btnSignup, btnLogin,admin;
+    private Button btnSignup, btnLogin;
 
 	private boolean doubleBackToExitPressedOnce;
 	@Override
@@ -52,7 +52,7 @@ public class StartScreenActivity extends AppCompatActivity
 
         btnSignup = (Button) findViewById(R.id.btn_signup);
         btnLogin = (Button) findViewById(R.id.btn_login);
-        admin = (Button)findViewById(R.id.admin);
+
 
         btnSignup.setOnClickListener(new View.OnClickListener() {
 				@Override
@@ -71,12 +71,6 @@ public class StartScreenActivity extends AppCompatActivity
 				}
 			});
 
-        admin.setOnClickListener(new View.OnClickListener() {
-				@Override
-				public void onClick(View v)
-				{
-					startActivity(new Intent(StartScreenActivity.this, FacultyActivity.class));
-				}
-			});
+
     }
 }

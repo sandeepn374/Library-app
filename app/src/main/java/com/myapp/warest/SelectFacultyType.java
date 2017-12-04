@@ -39,7 +39,7 @@ import android.widget.Spinner;
                 }
                 else if (facultytype.getSelectedItem().toString().equals("Freelancer")){
 
-
+                    startActivity(new Intent(SelectFacultyType.this, UpdateFreelancerProfile.class));
                 }
             }
 

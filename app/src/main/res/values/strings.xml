@@ -44,6 +44,8 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
+    <string name="Warest">Wisdom Association of Research in Engineering, Science and Technology</string>
+
     <string name="action_settings">Settings</string>
 
     <string name="drawer_open">Open navigation drawer</string>
@@ -78,6 +80,45 @@
         <item>Freelancer</item>
 
 
+    </string-array>
+
+    <string-array name="Qualification">
+        <item>Select Your Qualification</item>
+        <item>Graduate</item>
+        <item>Post Graduate</item>
+        <item>Dual Degree/Integrated Program</item>
+        <item>Others</item>
+
+
+    </string-array>
+
+
+    <string-array name="Degree">
+        <item>Select Your Degree</item>
+        <item>BE/B.Tech</item>
+        <item>ME/M.Tech</item>
+        <item>MS</item>
+        <item>Dual Degree/Integrated Program</item>
+        <item>MBA</item>
+        <item>Graduate Diploma</item>
+        <item>BSC/BCA/BCOM</item>
+        <item>BBA/BBM</item>
+        <item>MSC/MCOM</item>
+        <item>MCA</item>
+
+
+    </string-array>
+
+    <string-array name="Field">
+        <item>Select Your Field of Study</item>
+        <item>CSE</item>
+        <item>ECE</item>
+        <item>ME</item>
+        <item>CE</item>
+        <item>EE</item>
+        <item>Finance</item>
+        <item>HR</item>
+        <item>Sales</item>
     </string-array>
 
 

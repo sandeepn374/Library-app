@@ -24,18 +24,14 @@
         android:padding="@dimen/activity_horizontal_margin">
 
 
-        <Button
-            android:id="@+id/admin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Admin" />
+
 
         <ImageView
             android:layout_width="@dimen/logo_w_h"
             android:layout_height="@dimen/logo_w_h"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="30dp"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@drawable/warest" />
 
         <TextView
             android:id="@+id/textview"
@@ -43,7 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dip"
             android:background="@null"
-            android:text="Welcome To Warest App"
+            android:text="@string/Warest"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="15dp"

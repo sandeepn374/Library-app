@@ -111,6 +111,11 @@
             android:label="@string/app_name"
             />
 
+
+        <activity
+            android:name=".UpdateFreelancerProfile"
+            android:label="@string/app_name"
+            />
     </application>
 
 </manifest>
