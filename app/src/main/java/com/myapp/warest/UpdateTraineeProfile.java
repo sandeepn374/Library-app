@@ -72,7 +72,7 @@ public class UpdateTraineeProfile extends AppCompatActivity{
 
                                 child.getRef().child("gender").setValue(gender.getSelectedItem().toString());
 
-
+//
                                 Toastmsg(UpdateTraineeProfile.this,"Profile Updated ");
                             }
                         }
