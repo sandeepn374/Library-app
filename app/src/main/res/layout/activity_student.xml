@@ -24,23 +24,34 @@
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:orientation="vertical"
-				android:gravity="right"
-			>
+				android:gravity="right">
+
+
 
             <Button
                 android:id="@+id/Updatestudentprofile"
                 android:layout_width="108dp"
                 android:layout_height="wrap_content"
                 android:text="Update Profile"
-                android:layout_gravity="top|right"/> 
-		
-			
-			<Button
-                android:id="@+id/videoProfile"
-                android:layout_width="108dp"
-                android:layout_height="wrap_content"
-                android:text="Upload Video Profile"
-                /> 
+                android:layout_gravity="top|right"/>
+
+
+				<Button
+					android:id="@+id/videoProfile"
+					android:layout_width="108dp"
+					android:layout_height="wrap_content"
+					android:text="Upload Video Profile" />
+
+				<TextView
+					android:id="@+id/values"
+					android:layout_width="match_parent"
+					android:layout_height="362dp"
+					android:hint="@string/Students"
+					android:textStyle="normal"
+					android:lines="8"
+					android:maxLines="1"
+					android:minLines="6"
+					android:textColor="@android:color/white" />
 			</LinearLayout>
 
         </FrameLayout>

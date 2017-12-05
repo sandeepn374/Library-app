@@ -12,13 +12,12 @@
 
 
     <TextView
-        android:id="@+id/objective"
+        android:id="@+id/values"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/Values"
         android:lines="8"
         android:minLines="6"
-
         android:maxLines="1"
         android:textColor="@android:color/white" />
 
@@ -29,7 +28,6 @@
         android:hint="@string/mission"
         android:lines="8"
         android:minLines="6"
-
         android:maxLines="1"
         android:textColor="@android:color/white" />
 
@@ -40,7 +38,6 @@
         android:hint="@string/vision"
         android:lines="8"
         android:minLines="6"
-
         android:maxLines="1"
         android:textColor="@android:color/white" />
 

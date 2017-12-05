@@ -40,53 +40,83 @@
     <string name="State">State</string>
     <string name="City">City</string>
     <string name="Requiredtraining">Required Training</string>
-
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
     <string name="Warest">Wisdom Association of Research in Engineering, Science and Technology</string>
-
     <string name="action_settings">Settings</string>
-
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
-
-
     <string name="action_show">Show</string>
-
     <string name="snackbar_text">Snackbar Text</string>
     <string name="subject">Subject</string>
-    <string name="Values">VALUES-
-    Power to make engineering science and technological communities to lead the world as responsible global citizens.</string>
+
+
+
+
+    <string name="Values">
+        VALUES-
+        Power to make engineering science and technological communities to lead the world as responsible global citizens.
+    </string>
+
+
+
+
     <string name="vision">VISION
 
-        •To inspire students, faculty, institute and corporate about the principles that leads to global responsibility for education, skill set and ethical environment al change./n
-        •To implement innovative livelihood programmes, workshops, conference in various discipline with these communities in different part of Karnataka and india./n
-        •To provide the platform in growth of quality education in engineering, science and technology through innovative ideas and creative deployment. /n
-        •To help the various sector of societies by providing proper education and make them future endeavors./n
+        •To inspire students, faculty, institute and corporate about the principles that leads to global responsibility for education, skill set and ethical environment al change.
+        •To implement innovative livelihood programmes, workshops, conference in various discipline with these communities in different part of Karnataka and india.
+        •To provide the platform in growth of quality education in engineering, science and technology through innovative ideas and creative deployment.
+        •To help the various sector of societies by providing proper education and make them future endeavors.
         •Investment to raise stable and sustainable development in research through long term link with govt. and other research institution to make globally developed nation.
-</string>
+    </string>
+
+
+
+
+
 
 
     <string name="mission">MISSION
     •To identify, verify, define and detail the need of the society in the field of education.
     •Uplifting the society for the need of education and helps them to farm a better future.
-</string>
+    </string>
+
+
+
+
+
+    <string name="Students">
+    Students Benefits -
+•	Deliver innovative training program which benefits students in building their career.
+•	Identifying and assisting in futuristic employment opportunities at national and international level.
+•	Provides coaching classes of academic subjects of different branches to strive for academic excellence.
+•	Provides industrial visits, workshops, seminars, conferences, seminars, guest lectures and many more in various disciplines.
+•	Providing free online material both data and video files of different subjects from various faculties in the field of engineering science and technology.
+•	Helps in providing a platform for internships with leading corporates and Research institutions.
+•	Identifying and assisting in futuristic employment opportunities at National and international level.
+•	Provides opportunity to do research and development work in different domain and publishing their research work in various Journals and Conferences.
+    </string>
+
+
+
+
+
 
     <string-array name="spinnerItems">
         <item>Select Community</item>
         <item>Student</item>
         <item>Faculty</item>
         <item>Organisation</item>
-
     </string-array>
+
+
+
+
 
     <string-array name="Gender">
         <item>Select Gender</item>
         <item>Male</item>
         <item>Female</item>
-
-
     </string-array>
 
 
@@ -94,9 +124,11 @@
         <item>Select Faculty Type</item>
         <item>Trainee</item>
         <item>Freelancer</item>
-
-
     </string-array>
+
+
+
+
 
     <string-array name="Qualification">
         <item>Select Your Qualification</item>
@@ -104,8 +136,6 @@
         <item>Post Graduate</item>
         <item>Dual Degree/Integrated Program</item>
         <item>Others</item>
-
-
     </string-array>
 
 
@@ -121,9 +151,10 @@
         <item>BBA/BBM</item>
         <item>MSC/MCOM</item>
         <item>MCA</item>
-
-
     </string-array>
+
+
+
 
     <string-array name="Field">
         <item>Select Your Field of Study</item>

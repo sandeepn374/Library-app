@@ -21,40 +21,36 @@
             android:layout_marginTop="?attr/actionBarSize" >
 
             <LinearLayout
-                xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:gravity="right"
-                >
+                android:orientation="vertical">
 
                 <Button
                     android:id="@+id/Updatestudentprofile"
                     android:layout_width="108dp"
                     android:layout_height="wrap_content"
-                    android:text="Update Profile"
-                    android:layout_gravity="top|right"/>
+                    android:layout_gravity="top|right"
+                    android:text="Update Profile" />
 
 
                 <Button
                     android:id="@+id/videoProfile"
                     android:layout_width="108dp"
                     android:layout_height="wrap_content"
-                    android:text="Upload Video Profile"
-                    />
+                    android:text="Upload Video Profile" />
 
                 <Button
                     android:id="@+id/uploadtutorial"
                     android:layout_width="108dp"
                     android:layout_height="wrap_content"
-                    android:text="Upload Tutorial"
-                    />
+                    android:text="Upload Tutorial" />
+
                 <Button
                     android:id="@+id/uploadnotes"
                     android:layout_width="108dp"
                     android:layout_height="wrap_content"
-                    android:text="Upload Notes"
-                    />
+                    android:text="Upload Notes" />
             </LinearLayout>
 
         </FrameLayout>
