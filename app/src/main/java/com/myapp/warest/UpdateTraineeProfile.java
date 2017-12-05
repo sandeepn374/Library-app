@@ -8,9 +8,20 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 /**
  * Created by kshravi on 27/11/2017 AD.
@@ -18,6 +29,7 @@ import android.widget.Spinner;
 
 public class UpdateTraineeProfile extends AppCompatActivity{
     EditText name, age,designation,qualification;
+    FirebaseAuth auth;
     Spinner gender;
     Button update;
     @Override
@@ -30,6 +42,47 @@ public class UpdateTraineeProfile extends AppCompatActivity{
         qualification=(EditText)  findViewById(R.id.qualification);
         gender=(Spinner)findViewById(R.id.traineegender);
         update=(Button)findViewById(R.id.updateprofile);
+        auth = FirebaseAuth.getInstance();
+        final FirebaseUser u=auth.getCurrentUser();
+
+        update.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+                mDatabase.keepSynced(true);
+                Query query = mDatabase.child("facultyTraineeGroup");
+                query.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+
+                        for (final DataSnapshot child : dataSnapshot.getChildren()) {
+
+                            //   String email= () child.child("email").getValue();
+                            if (child.child("email").getValue().equals(auth.getCurrentUser().getEmail())){
+
+                                child.getRef().child("name").setValue(name.getText().toString());
+
+                                child.getRef().child("age").setValue(age.getText().toString());
+
+                                child.getRef().child("designation").setValue(designation.getText().toString());
+
+                                child.getRef().child("qualification").setValue(qualification.getText().toString());
+
+                                child.getRef().child("gender").setValue(gender.getSelectedItem().toString());
+
+
+                                Toastmsg(UpdateTraineeProfile.this,"Profile Updated ");
+                            }
+                        }
+                    }
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                    }
+                });
+            }
+        });
 
 
 
@@ -38,7 +91,12 @@ public class UpdateTraineeProfile extends AppCompatActivity{
 
 
     }
+    private void Toastmsg(UpdateTraineeProfile collectionActivity, String p1)
+    {
 
+        Toast.makeText(this,p1,
+                Toast.LENGTH_SHORT).show();
+    }
 
 
 
