@@ -73,7 +73,7 @@ public class UpdateTraineeProfile extends AppCompatActivity{
 
 //
                                 Toastmsg(UpdateTraineeProfile.this,"Profile Updated ");
-                          
+
                         }
                     }
                     @Override

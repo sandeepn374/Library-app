@@ -30,7 +30,8 @@
 
             <Button
                 android:id="@+id/Updatestudentprofile"
-                android:layout_width="108dp"
+
+				android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Update Profile"
 				android:layout_marginTop="20dip"
@@ -41,7 +42,7 @@
 
 				<Button
 					android:id="@+id/videoProfile"
-					android:layout_width="108dp"
+					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:layout_marginTop="20dip"
 					android:background="@color/colorPrimary"
