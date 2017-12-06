@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/aboutus"
+            android:title="About Us" />
+
+        <item
+            android:id="@+id/upcomingevents"
+            android:title="Upcoming Events" />
+
+
+        <item
+            android:id="@+id/contactus"
+            android:title="Contact Us" />
+
+    </group>
+
+
+
+            <item
+                android:id="@+id/logout"
+                android:title="LogOut" />
+
+
+
+        </menu>
+
