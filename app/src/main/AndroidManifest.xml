@@ -116,6 +116,25 @@
             android:name=".UpdateFreelancerProfile"
             android:label="@string/app_name"
             />
+
+
+        <activity
+            android:name=".OrganisationActivity"
+            android:label="@string/app_name"
+            />
+
+
+
+
+
+
+
+
+
+
+
+
+
     </application>
 
 </manifest>

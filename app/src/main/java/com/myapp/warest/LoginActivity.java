@@ -197,7 +197,19 @@ public class LoginActivity extends AppCompatActivity
 															startActivity(intent);
 															finish();
 														}
-													
+														else if (child.child("community").getValue().toString().equals("Organisation")) {
+
+
+															editor.putString("type", "Organisation");
+															editor.commit();
+
+
+
+															progressBar.setVisibility(View.GONE);
+															Intent intent = new Intent(LoginActivity.this, OrganisationActivity.class);
+															startActivity(intent);
+															finish();
+														}
 														
 													
 														
