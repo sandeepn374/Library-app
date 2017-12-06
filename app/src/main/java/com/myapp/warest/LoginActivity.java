@@ -59,11 +59,20 @@ public class LoginActivity extends AppCompatActivity
 				startActivity(intent);
 				finish();
 			}
-			else {
+			else if(type.equals("Faculty")){
 				Intent intent = new Intent(LoginActivity.this, FacultyActivity.class);
 				startActivity(intent);
 				finish();
 			}
+			else{
+				
+				Intent intent = new Intent(LoginActivity.this, OrganisationActivity.class);
+				startActivity(intent);
+				finish();
+				
+			}
+			
+			
 
 		} else {
 
