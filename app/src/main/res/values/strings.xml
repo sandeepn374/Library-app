@@ -127,6 +127,13 @@
     </string-array>
 
 
+    <string-array name="Orgtype">
+        <item>Select Organisation Type</item>
+        <item>College/University</item>
+        <item>Training</item>
+        <item>Corporate</item>
+    </string-array>
+
 
 
 

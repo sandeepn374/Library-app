@@ -124,6 +124,12 @@
             />
 
 
+        <activity
+            android:name=".SelectOrganisation"
+            android:label="@string/app_name"
+            />
+
+
 
 
 

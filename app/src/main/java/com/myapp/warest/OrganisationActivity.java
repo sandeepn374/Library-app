@@ -66,7 +66,7 @@ public class OrganisationActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         frameLayout = (FrameLayout) findViewById(R.id.content_frame);
-        updateprofile=(Button) findViewById(R.id.Updatestudentprofile);
+        updateprofile=(Button) findViewById(R.id.Updateorgprofile);
        // videoProfile=(Button)findViewById(R.id.videoProfile);
 
         pd = new ProgressDialog(this);
@@ -77,7 +77,7 @@ public class OrganisationActivity extends AppCompatActivity
         updateprofile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-              //  startActivity(new Intent(OrganisationActivity.this, UpdateStudentProfile.class));
+                startActivity(new Intent(OrganisationActivity.this, SelectOrganisation.class));
             }
         });
 

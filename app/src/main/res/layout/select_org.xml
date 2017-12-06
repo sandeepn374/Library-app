@@ -17,15 +17,15 @@
 
 
         <Spinner
-            android:id="@+id/selectfacultytype"
+            android:id="@+id/selectorgtype"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.00"
-            android:entries="@array/Facultytype"
+            android:entries="@array/Orgtype"
             android:spinnerMode="dropdown">
 
         </Spinner>
-	</LinearLayout>
+    </LinearLayout>
 
 
 </android.support.design.widget.CoordinatorLayout>
