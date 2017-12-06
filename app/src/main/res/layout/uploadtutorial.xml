@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/colorPrimaryDark"
+    android:background="@color/white"
     android:gravity="center"
     android:padding="@dimen/activity_horizontal_margin"
     android:weightSum="1">
@@ -59,12 +59,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Choose File to Upload"
+
             android:textStyle="bold" />
         <Button
             android:id="@+id/chooseFile"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:text="Choose File" />
+            android:text="Choose File"
+            />
 </LinearLayout>
   
 	<LinearLayout
@@ -79,7 +81,8 @@
             android:id="@+id/upload"
             android:layout_width="wrap_content"
             android:layout_height="45dp"
-            android:text="Upload" />
+            android:text="Upload"
+            android:background="@color/colorPrimary"/>
 	</LinearLayout>
 
 

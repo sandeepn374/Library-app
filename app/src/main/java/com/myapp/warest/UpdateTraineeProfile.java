@@ -48,7 +48,7 @@ public class UpdateTraineeProfile extends AppCompatActivity{
         update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                //Toastmsg(UpdateTraineeProfile.this,"Profile Updated ");
 
                 DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
                 mDatabase.keepSynced(true);
@@ -60,7 +60,7 @@ public class UpdateTraineeProfile extends AppCompatActivity{
                         for (final DataSnapshot child : dataSnapshot.getChildren()) {
 
                             //   String email= () child.child("email").getValue();
-                            if (child.child("email").getValue().equals(auth.getCurrentUser().getEmail())){
+                         //   if (child.child("email").getValue().equals(auth.getCurrentUser().getEmail())){
 
                                 child.getRef().child("name").setValue(name.getText().toString());
 
@@ -74,7 +74,7 @@ public class UpdateTraineeProfile extends AppCompatActivity{
 
 //
                                 Toastmsg(UpdateTraineeProfile.this,"Profile Updated ");
-                            }
+                           // }
                         }
                     }
                     @Override

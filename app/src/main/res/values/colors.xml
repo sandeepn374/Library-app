@@ -2,8 +2,8 @@
 <resources>
 	<color name="colorPrimary">#DC143C</color>
     <color name="colorPrimaryDark">#da0551</color>
-    <color name="colorAccent">#f2fe71</color>
-
+    <color name="colorAccent">#000000</color>
+    <color name="background">#ffffff</color>
     <color name="bg_login">#26ae90</color>
     <color name="bg_register">#2e3237</color>
     <color name="bg_main">#428bca</color>
@@ -25,5 +25,6 @@
     <color name="secondary_text">#727272</color>
     <color name="divider">#B6B6B6</color>
     <color name="gray">#E0E0E0</color>
+    <color name="black">#000000</color>
 
 </resources>
