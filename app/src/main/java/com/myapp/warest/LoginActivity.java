@@ -51,26 +51,57 @@ public class LoginActivity extends AppCompatActivity
 				startActivity(intent);
 				finish();
 			}
-		
-			SharedPreferences app_preferences = PreferenceManager.getDefaultSharedPreferences(LoginActivity.this);
-			type=app_preferences.getString("type", "");
-			if(type.equals("Student")){
-				Intent intent = new Intent(LoginActivity.this, StudentActivity.class);
-				startActivity(intent);
-				finish();
-			}
-			else if(type.equals("Faculty")){
-				Intent intent = new Intent(LoginActivity.this, FacultyActivity.class);
-				startActivity(intent);
-				finish();
-			}
-			else{
-				
-				Intent intent = new Intent(LoginActivity.this, OrganisationActivity.class);
-				startActivity(intent);
-				finish();
-				
-			}
+
+			DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("users");
+			mDatabase.keepSynced(true);
+			mDatabase.addValueEventListener(new ValueEventListener() {
+				@Override
+				public void onCancelled(DatabaseError p1) {
+
+				}
+
+				@Override
+				public void onDataChange(DataSnapshot dataSnapshot) {
+					for (DataSnapshot child : dataSnapshot.getChildren()) {
+
+
+						if (child.child("email").getValue().toString().equals(auth.getCurrentUser().getEmail())) {
+
+
+
+
+
+							if (child.child("community").getValue().toString().equals("Student")) {
+
+								Intent intent = new Intent(LoginActivity.this, StudentActivity.class);
+								startActivity(intent);
+								finish();
+							} else if(child.child("community").getValue().toString().equals("Faculty"))  {
+
+								Intent intent = new Intent(LoginActivity.this, FacultyActivity.class);
+								startActivity(intent);
+								finish();
+							}
+
+							else{
+
+								Intent intent = new Intent(LoginActivity.this, OrganisationActivity.class);
+								startActivity(intent);
+								finish();
+
+							}
+
+
+
+
+
+						}
+
+					}
+				}
+			});
+
+
 			
 			
 

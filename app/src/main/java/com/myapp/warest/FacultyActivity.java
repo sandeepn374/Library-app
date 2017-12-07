@@ -2,10 +2,12 @@ package com.myapp.warest;
 
 import android.annotation.TargetApi;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -21,6 +23,12 @@ import android.widget.FrameLayout;
 import com.google.firebase.auth.*;
 import android.net.*;
 import android.app.*;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.*;
 import com.google.android.gms.tasks.*;
 import android.support.annotation.*;
@@ -34,6 +42,7 @@ public class FacultyActivity extends AppCompatActivity
     DrawerLayout drawerLayout;
     Toolbar toolbar;
     Button updateprofile,videoProfile, uploadtutorial,uploadnotes;
+    private FirebaseAuth auth;
 
     FragmentManager fragmentManager;
     NavigationView navigationView;
@@ -55,6 +64,7 @@ public class FacultyActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_faculty);
+        auth = FirebaseAuth.getInstance();
 
         fragmentManager = getSupportFragmentManager();
 
@@ -90,7 +100,60 @@ public class FacultyActivity extends AppCompatActivity
         updateprofile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(FacultyActivity.this, SelectFacultyType.class));
+                DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("users");
+                mDatabase.keepSynced(true);
+                mDatabase.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onCancelled(DatabaseError p1) {
+
+                    }
+
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        for (DataSnapshot child : dataSnapshot.getChildren()) {
+
+
+                            if (child.child("email").getValue().toString().equals(auth.getCurrentUser().getEmail())) {
+
+
+                                //SharedPreferences app_preferences = PreferenceManager.getDefaultSharedPreferences(FacultyActivity.this);
+                                //SharedPreferences.Editor editor = app_preferences.edit();
+
+
+
+                                if (child.child("communitySub").getValue().toString().equals("Freelance")) {
+
+                                   // editor.putString("type", "Student");
+                                   // editor.commit();
+
+                                    //progressBar.setVisibility(View.GONE);
+                                    Intent intent = new Intent(FacultyActivity.this, UpdateFreelancerProfile.class);
+                                    startActivity(intent);
+                                    finish();
+                                } else   {
+
+
+                                   // editor.putString("type", "Faculty");
+                                   // editor.commit();
+
+
+
+                                    //progressBar.setVisibility(View.GONE);
+                                    Intent intent = new Intent(FacultyActivity.this, UpdateTraineeProfile.class);
+                                    startActivity(intent);
+                                    finish();
+                                }
+
+
+
+
+
+                            }
+
+                        }
+                    }
+                });
+               // startActivity(new Intent(FacultyActivity.this, SelectFacultyType.class));
             }
         });
 

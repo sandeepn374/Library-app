@@ -177,8 +177,8 @@ public class SignupActivity extends AppCompatActivity {
                                     else if(comm.equals("Faculty")) {
                                         if(commSub.equals("Trainee")) {
                                             FacultyTrainee send=new FacultyTrainee();
-                                            send.user=user;
-
+                                            send.setEmail(email);
+                                            send.setName(name);
 
                                             DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("facultyTraineeGroup");
                                             String userId = mDatabase.push().getKey();
@@ -187,7 +187,9 @@ public class SignupActivity extends AppCompatActivity {
                                         else {
 
                                             FacultyFreelance send=new FacultyFreelance();
-                                            send.user=user;
+                                            send.setEmail(email);
+                                            send.setName(name);
+
 
                                             DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("facultyFreelancegroup");
                                             String userId = mDatabase.push().getKey();
