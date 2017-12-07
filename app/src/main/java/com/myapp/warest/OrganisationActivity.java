@@ -21,6 +21,12 @@ import android.widget.FrameLayout;
 import com.google.firebase.auth.*;
 import android.net.*;
 import android.app.*;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.*;
 import com.google.android.gms.tasks.*;
 import android.support.annotation.*;
@@ -34,6 +40,7 @@ public class OrganisationActivity extends AppCompatActivity
     DrawerLayout drawerLayout;
     Toolbar toolbar;
     Button updateprofile;
+    private FirebaseAuth auth;
 
     FragmentManager fragmentManager;
     NavigationView navigationView;
@@ -56,6 +63,7 @@ public class OrganisationActivity extends AppCompatActivity
         setContentView(R.layout.activity_organisation);
 
         fragmentManager = getSupportFragmentManager();
+        auth = FirebaseAuth.getInstance();
 
         setupView();
     }
@@ -74,10 +82,77 @@ public class OrganisationActivity extends AppCompatActivity
 
 
 
+
         updateprofile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(OrganisationActivity.this, SelectOrganisation.class));
+                DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("users");
+                mDatabase.keepSynced(true);
+                mDatabase.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onCancelled(DatabaseError p1) {
+
+                    }
+
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        for (DataSnapshot child : dataSnapshot.getChildren()) {
+
+
+                            if (child.child("email").getValue().toString().equals(auth.getCurrentUser().getEmail())) {
+
+
+
+
+
+
+                                if (child.child("communitySub").getValue().toString().equals("College/University")) {
+
+                                    // editor.putString("type", "Student");
+                                    // editor.commit();
+
+                                    //progressBar.setVisibility(View.GONE);
+                                    Intent intent = new Intent(OrganisationActivity.this, CollegeProfile.class);
+                                    startActivity(intent);
+                                    finish();
+                                } else if(child.child("communitySub").getValue().toString().equals("Corporate"))  {
+
+
+                                    // editor.putString("type", "Faculty");
+                                    // editor.commit();
+
+
+
+                                    //progressBar.setVisibility(View.GONE);
+                                    Intent intent = new Intent(OrganisationActivity.this, CorporateProfile.class);
+                                    startActivity(intent);
+                                    finish();
+                                }
+
+                                else   {
+
+
+                                    // editor.putString("type", "Faculty");
+                                    // editor.commit();
+
+
+
+                                    //progressBar.setVisibility(View.GONE);
+                                     Intent intent = new Intent(OrganisationActivity.this, TrainingProfile.class);
+                                     startActivity(intent);
+                                    finish();
+                                }
+
+
+
+
+
+                            }
+
+                        }
+                    }
+                });
+                // startActivity(new Intent(FacultyActivity.this, SelectFacultyType.class));
             }
         });
 

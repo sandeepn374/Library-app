@@ -176,7 +176,33 @@
     </string-array>
 
 
+    <string-array name="MaxDistance">
+        <item>Select Your Max Distance of Onsite Work</item>
+        <item>Teleworking</item>
+        <item>Upto 10km</item>
+        <item>Upto 30km</item>
+        <item>upto 50/100/300km</item>
 
+    </string-array>
+
+    <string-array name="Daystrain">
+        <item>Number of days you can train</item>
+        <item>1 day</item>
+        <item>2 days</item>
+        <item>3 days</item>
+        <item>4 days</item>
+        <item>5 days</item>
+        <item>6 days</item>
+        <item>1 week</item>
+        <item>2 weeks</item>
+        <item>3 weeks</item>
+        <item>1 month</item>
+        <item>2 months</item>
+        <item>3 months</item>
+        <item>4 months</item>
+        <item>5 months</item>
+
+    </string-array>
 
 
 </resources>

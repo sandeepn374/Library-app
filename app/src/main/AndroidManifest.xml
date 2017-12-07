@@ -129,7 +129,20 @@
             android:label="@string/app_name"
             />
 
+        <activity
+            android:name=".CollegeProfile"
+            android:label="@string/app_name"
+            />
 
+        <activity
+            android:name=".CorporateProfile"
+            android:label="@string/app_name"
+            />
+
+        <activity
+            android:name=".TrainingProfile"
+            android:label="@string/app_name"
+            />
 
 
 
