@@ -198,11 +198,39 @@ public class SignupActivity extends AppCompatActivity {
                                     }
 
                                     else {
+                                        if(commSub.equals("College/University")) {
+                                            OrgCollege send=new OrgCollege();
+                                            send.setEmail(email);
+                                            send.setName(name);
 
-                                        User send=new User(name, email,ph,comm,commSub);
-                                        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("OrganisationGroup");
-                                        String userId = mDatabase.push().getKey();
-                                        mDatabase.child(userId).setValue(send);
+                                            DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("OrgCollege");
+                                            String userId = mDatabase.push().getKey();
+                                            mDatabase.child(userId).setValue(send);
+                                        }
+                                        else if(commSub.equals("Training Institute")){
+
+                                            OrgTraining send=new OrgTraining();
+                                            send.setEmail(email);
+                                            send.setName(name);
+
+
+                                            DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("OrgTraining");
+                                            String userId = mDatabase.push().getKey();
+                                            mDatabase.child(userId).setValue(send);
+                                        }
+                                        else
+                                        {
+
+
+                                            OrgCorporate send=new OrgCorporate();
+                                            send.setEmail(email);
+                                            send.setName(name);
+
+
+                                            DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("OrgCorporate");
+                                            String userId = mDatabase.push().getKey();
+                                            mDatabase.child(userId).setValue(send);
+                                        }
 
 
                                     }
