@@ -83,7 +83,7 @@ public class OrganisationActivity extends AppCompatActivity
 
 
 
-        updateprofile.setOnClickListener(new View.OnClickListener() {
+    /*    updateprofile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("users");
@@ -154,7 +154,7 @@ public class OrganisationActivity extends AppCompatActivity
                 });
                 // startActivity(new Intent(FacultyActivity.this, SelectFacultyType.class));
             }
-        });
+        });*/
 
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -180,6 +180,74 @@ public class OrganisationActivity extends AppCompatActivity
                 }
                 if(menuItem.getItemId()==R.id.aboutus) {
                     startActivity(new Intent(OrganisationActivity.this, AboutusActivity.class));
+                }
+                if(menuItem.getItemId()==R.id.Updateorgprofile) {
+                    DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("users");
+                    mDatabase.keepSynced(true);
+                    mDatabase.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onCancelled(DatabaseError p1) {
+
+                        }
+
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            for (DataSnapshot child : dataSnapshot.getChildren()) {
+
+
+                                if (child.child("email").getValue().toString().equals(auth.getCurrentUser().getEmail())) {
+
+
+
+
+
+
+                                    if (child.child("communitySub").getValue().toString().equals("College/University")) {
+
+                                        // editor.putString("type", "Student");
+                                        // editor.commit();
+
+                                        //progressBar.setVisibility(View.GONE);
+                                        Intent intent = new Intent(OrganisationActivity.this, CollegeProfile.class);
+                                        startActivity(intent);
+                                        finish();
+                                    } else if(child.child("communitySub").getValue().toString().equals("Corporate"))  {
+
+
+                                        // editor.putString("type", "Faculty");
+                                        // editor.commit();
+
+
+
+                                        //progressBar.setVisibility(View.GONE);
+                                        Intent intent = new Intent(OrganisationActivity.this, CorporateProfile.class);
+                                        startActivity(intent);
+                                        finish();
+                                    }
+
+                                    else   {
+
+
+                                        // editor.putString("type", "Faculty");
+                                        // editor.commit();
+
+
+
+                                        //progressBar.setVisibility(View.GONE);
+                                        Intent intent = new Intent(OrganisationActivity.this, TrainingProfile.class);
+                                        startActivity(intent);
+                                        finish();
+                                    }
+
+
+
+
+
+                                }
+
+                            }
+                        }
+                    });
                 }
 
 

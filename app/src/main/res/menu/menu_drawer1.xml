@@ -6,7 +6,9 @@
         <item
             android:id="@+id/aboutus"
             android:title="About Us" />
-
+        <item
+            android:id="@+id/Updateorgprofile"
+            android:title="Update Profile" />
         <item
             android:id="@+id/upcomingevents"
             android:title="Upcoming Events" />

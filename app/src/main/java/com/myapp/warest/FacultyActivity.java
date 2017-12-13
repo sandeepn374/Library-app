@@ -86,7 +86,7 @@ public class FacultyActivity extends AppCompatActivity
         pd = new ProgressDialog(this);
         pd.setMessage("Uploading....");
 
-        videoProfile.setOnClickListener(new View.OnClickListener() {
+       /* videoProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
@@ -94,10 +94,10 @@ public class FacultyActivity extends AppCompatActivity
                 intent.setAction(Intent.ACTION_PICK);
                 startActivityForResult(Intent.createChooser(intent, "Select a file"), 101);
             }
-        });
+        });*/
 
 
-        updateprofile.setOnClickListener(new View.OnClickListener() {
+    /*    updateprofile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("users");
@@ -155,20 +155,15 @@ public class FacultyActivity extends AppCompatActivity
                 });
                // startActivity(new Intent(FacultyActivity.this, SelectFacultyType.class));
             }
-        });
+        });*/
 
-        uploadtutorial.setOnClickListener(new View.OnClickListener() {
+
+      /*  uploadnotes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(FacultyActivity.this, UploadTutorialActivity.class));
             }
-        });
-        uploadnotes.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(FacultyActivity.this, UploadTutorialActivity.class));
-            }
-        });
+        });*/
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawer_open, R.string.drawer_close);
@@ -196,6 +191,74 @@ public class FacultyActivity extends AppCompatActivity
                 }
                 if(menuItem.getItemId()==R.id.workshops) {
                     startActivity(new Intent(FacultyActivity.this, WorkshopViewActivity.class));
+                }
+                if(menuItem.getItemId()==R.id.Updatestudentprofile) {
+                    DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("users");
+                    mDatabase.keepSynced(true);
+                    mDatabase.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onCancelled(DatabaseError p1) {
+
+                        }
+
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            for (DataSnapshot child : dataSnapshot.getChildren()) {
+
+
+                                if (child.child("email").getValue().toString().equals(auth.getCurrentUser().getEmail())) {
+
+
+                                    //SharedPreferences app_preferences = PreferenceManager.getDefaultSharedPreferences(FacultyActivity.this);
+                                    //SharedPreferences.Editor editor = app_preferences.edit();
+
+
+
+                                    if (child.child("communitySub").getValue().toString().equals("Freelance")) {
+
+                                        // editor.putString("type", "Student");
+                                        // editor.commit();
+
+                                        //progressBar.setVisibility(View.GONE);
+                                        Intent intent = new Intent(FacultyActivity.this, UpdateFreelancerProfile.class);
+                                        startActivity(intent);
+                                        finish();
+                                    } else   {
+
+
+                                        // editor.putString("type", "Faculty");
+                                        // editor.commit();
+
+
+
+                                        //progressBar.setVisibility(View.GONE);
+                                        Intent intent = new Intent(FacultyActivity.this, UpdateTraineeProfile.class);
+                                        startActivity(intent);
+                                        finish();
+                                    }
+
+
+
+
+
+                                }
+
+                            }
+                        }
+                    });
+
+                }
+                if(menuItem.getItemId()==R.id.videoProfile) {
+                    Intent intent = new Intent();
+                    intent.setType("video/mp4");
+                    intent.setAction(Intent.ACTION_PICK);
+                    startActivityForResult(Intent.createChooser(intent, "Select a file"), 101);
+                }
+                if(menuItem.getItemId()==R.id.uploadtutorial) {
+                    startActivity(new Intent(FacultyActivity.this, UploadTutorialActivity.class));
+                }
+                if(menuItem.getItemId()==R.id.uploadnotes) {
+                    startActivity(new Intent(FacultyActivity.this, UploadTutorialActivity.class));
                 }
                 return true;
             }

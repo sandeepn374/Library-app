@@ -28,7 +28,7 @@
 
 
 
-            <Button
+ <!--           <Button
                 android:id="@+id/Updatestudentprofile"
 
 				android:layout_width="match_parent"
@@ -47,7 +47,7 @@
 					android:layout_marginTop="20dip"
 					android:background="@color/colorPrimary"
 					android:textColor="@android:color/white"
-					android:text="Upload Video Profile" />
+					android:text="Upload Video Profile" />-->
 
 	<!--			<TextView
 					android:id="@+id/values"

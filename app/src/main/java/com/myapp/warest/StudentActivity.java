@@ -72,7 +72,7 @@ public class StudentActivity extends AppCompatActivity
         pd = new ProgressDialog(this);
         pd.setMessage("Uploading....");
 
-        videoProfile.setOnClickListener(new View.OnClickListener() {
+      /*  videoProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
@@ -80,15 +80,15 @@ public class StudentActivity extends AppCompatActivity
                 intent.setAction(Intent.ACTION_PICK);
                 startActivityForResult(Intent.createChooser(intent, "Select a file"), 101);
             }
-        });
+        });*/
 
 
-        updateprofile.setOnClickListener(new View.OnClickListener() {
+      /*  updateprofile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(StudentActivity.this, UpdateStudentProfile.class));
             }
-        });
+        });*/
 
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -126,6 +126,16 @@ public class StudentActivity extends AppCompatActivity
 
                 if(menuItem.getItemId()==R.id.workshops) {
                     startActivity(new Intent(StudentActivity.this, WorkshopViewActivity.class));
+                }
+
+                if(menuItem.getItemId()==R.id.Updatestudentprofile) {
+                    startActivity(new Intent(StudentActivity.this, UpdateStudentProfile.class));
+                }
+                if(menuItem.getItemId()==R.id.videoProfile) {
+                    Intent intent = new Intent();
+                    intent.setType("video/mp4");
+                    intent.setAction(Intent.ACTION_PICK);
+                    startActivityForResult(Intent.createChooser(intent, "Select a file"), 101);
                 }
                 return true;
             }

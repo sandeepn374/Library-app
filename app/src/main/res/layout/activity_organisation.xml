@@ -28,7 +28,7 @@
 
 
 
-                <Button
+            <!--    <Button
                     android:id="@+id/Updateorgprofile"
 
                     android:layout_width="match_parent"
@@ -37,7 +37,7 @@
                     android:layout_marginTop="20dip"
                     android:background="@color/colorPrimary"
                     android:textColor="@android:color/white"
-                    android:layout_gravity="top|right"/>
+                    android:layout_gravity="top|right"/>-->
 
 
 

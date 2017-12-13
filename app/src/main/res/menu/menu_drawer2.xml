@@ -10,15 +10,22 @@
             android:id="@+id/videoProfile"
             android:title="Upload Video Profile" />
 
-		  <item
+        <item
+            android:id="@+id/uploadtutorial"
+            android:title="Upload Tutorial" />
+
+        <item
+            android:id="@+id/uploadnotes"
+            android:title="Upload Notes" />
+        <item
             android:id="@+id/aboutus"
             android:title="About Us" />
-		
-		<item
+
+        <item
             android:id="@+id/upcomingevents"
             android:title="Upcoming Events" />
-		
-        
+
+
         <item
             android:id="@+id/contactus"
             android:title="Contact Us" />
