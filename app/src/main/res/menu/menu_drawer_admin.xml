@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+
+
+        <item
+            android:id="@+id/studentview"
+            android:title="View Students" />
+
+        <item
+            android:id="@+id/facultyview"
+            android:title="View Faculty" />
+
+        <item
+            android:id="@+id/organview"
+            android:title="View Organisation" />
+
+
+
+
+    </group>
+
+    <item android:title="Services">
+        <menu>
+            <item
+                android:id="@+id/workshops"
+                android:title="Workshops" />
+            <item
+                android:id="@+id/webinars"
+                android:title="Webinars" />
+            <item
+                android:id="@+id/conference"
+                android:title="Conference" />
+            <item
+                android:id="@+id/onlinecourses"
+                android:title="Online Courses" />
+        </menu>
+    </item>
+
+    <item android:title="Training">
+        <menu>
+
+
+            <item
+                android:id="@+id/logout"
+                android:title="LogOut" />
+
+
+
+        </menu>
+
+    </item>
+
+
+
+
+</menu>

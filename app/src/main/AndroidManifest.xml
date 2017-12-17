@@ -145,8 +145,20 @@
             />
 
 
+        <activity
+            android:name=".StudentViewActivity"
+            android:label="@string/app_name"
+            />
 
+        <activity
+            android:name=".FacultyViewActivity"
+            android:label="@string/app_name"
+            />
 
+        <activity
+            android:name=".OrganViewActivity"
+            android:label="@string/app_name"
+            />
 
 
 

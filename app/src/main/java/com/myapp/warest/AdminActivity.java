@@ -63,23 +63,21 @@ public class AdminActivity extends AppCompatActivity
             public boolean onNavigationItemSelected(MenuItem menuItem)
             {
 
-                if (menuItem.getItemId() == R.id.contactus)
-                {
-                    startActivity(new Intent(AdminActivity.this, ContactusActivity.class));
 
-                }
                 if (menuItem.getItemId() == R.id.logout)
                 {
                     FirebaseAuth.getInstance().signOut();
                     startActivity(new Intent(AdminActivity.this, StartScreenActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP ));
                     finish();
                 }
-                if(menuItem.getItemId()==R.id.aboutus) {
-                    startActivity(new Intent(AdminActivity.this, AboutusActivity.class));
+                if(menuItem.getItemId()==R.id.studentview) {
+                    startActivity(new Intent(AdminActivity.this, StudentViewActivity.class));
                 }
-
-                if(menuItem.getItemId()==R.id.workshops) {
-                    startActivity(new Intent(AdminActivity.this, WorkshopActivity.class));
+                if(menuItem.getItemId()==R.id.facultyview){
+                    startActivity(new  Intent(AdminActivity.this, FacultyViewActivity.class));
+                }
+                if(menuItem.getItemId()==R.id.organview){
+                    startActivity(new  Intent(AdminActivity.this, OrganViewActivity.class));
                 }
 
                 return true;

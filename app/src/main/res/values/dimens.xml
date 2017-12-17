@@ -6,6 +6,6 @@
     <dimen name="logo_w_h">100dp</dimen>
     <dimen name="size">0dp</dimen>
     <dimen name="elevation_toolbar">4dp</dimen>
-    <dimen name="text_size">40px</dimen>
+    <dimen name="text_size">30px</dimen>
 
 </resources>
