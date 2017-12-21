@@ -41,7 +41,7 @@ public class OrganViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.organviewforadmin);
 
-        FirebaseDatabase.getInstance().getReference().child("students")
+        FirebaseDatabase.getInstance().getReference().child("OrgCollege")
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
@@ -108,8 +108,138 @@ public class OrganViewActivity extends AppCompatActivity {
                     }
                 });
 
+        FirebaseDatabase.getInstance().getReference().child("OrgCorporate")
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        int totDue=0;
+                        ArrayList<Student> users=new ArrayList<Student>();
+                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                            final Student user = snapshot.getValue(Student.class);
+                            users.add(user);
+
+                        }
+
+                        TableLayout layoutINNER = new TableLayout(OrganViewActivity.this);
+                        for(final Student user:users) {
 
 
+                            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(TableLayout.LayoutParams.FILL_PARENT,
+                                    TableLayout.LayoutParams.WRAP_CONTENT);
+
+                            TextView tv1 = new TextView(OrganViewActivity.this);
+
+                            tv1.setText("Name: "+user.name);
+
+
+                            TableRow tr1 = new TableRow(OrganViewActivity.this);
+
+                            tr1.setLayoutParams(params);
+                            tr1.addView(tv1);
+                            tv1.setTextColor(Color.WHITE);
+                            tv1.setTextSize(getResources().getDimension(R.dimen.text_size));
+
+                            layoutINNER.addView(tr1);
+
+                            TextView tv2 = new TextView(OrganViewActivity.this);
+
+                            tv2.setText("Email: "+user.email);
+
+
+                            TableRow tr2 = new TableRow(OrganViewActivity.this);
+
+                            tr2.setLayoutParams(params);
+                            tr2.addView(tv2);
+                            tv2.setTextColor(Color.WHITE);
+                            tv2.setTextSize(getResources().getDimension(R.dimen.text_size));
+
+                            layoutINNER.addView(tr2);
+
+
+
+
+                        }
+
+                        LinearLayout main = (LinearLayout) findViewById(R.id.main_layout);
+
+                        main.addView(layoutINNER);
+
+
+
+
+
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                    }
+                });
+        FirebaseDatabase.getInstance().getReference().child("OrgTraining")
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        int totDue=0;
+                        ArrayList<Student> users=new ArrayList<Student>();
+                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                            final Student user = snapshot.getValue(Student.class);
+                            users.add(user);
+
+                        }
+
+                        TableLayout layoutINNER = new TableLayout(OrganViewActivity.this);
+                        for(final Student user:users) {
+
+
+                            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(TableLayout.LayoutParams.FILL_PARENT,
+                                    TableLayout.LayoutParams.WRAP_CONTENT);
+
+                            TextView tv1 = new TextView(OrganViewActivity.this);
+
+                            tv1.setText("Name: "+user.name);
+
+
+                            TableRow tr1 = new TableRow(OrganViewActivity.this);
+
+                            tr1.setLayoutParams(params);
+                            tr1.addView(tv1);
+                            tv1.setTextColor(Color.WHITE);
+                            tv1.setTextSize(getResources().getDimension(R.dimen.text_size));
+
+                            layoutINNER.addView(tr1);
+
+                            TextView tv2 = new TextView(OrganViewActivity.this);
+
+                            tv2.setText("Email: "+user.email);
+
+
+                            TableRow tr2 = new TableRow(OrganViewActivity.this);
+
+                            tr2.setLayoutParams(params);
+                            tr2.addView(tv2);
+                            tv2.setTextColor(Color.WHITE);
+                            tv2.setTextSize(getResources().getDimension(R.dimen.text_size));
+
+                            layoutINNER.addView(tr2);
+
+
+
+
+                        }
+
+                        LinearLayout main = (LinearLayout) findViewById(R.id.main_layout);
+
+                        main.addView(layoutINNER);
+
+
+
+
+
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                    }
+                });
 
     }
 
