@@ -87,7 +87,10 @@ public class StudentViewActivity extends AppCompatActivity {
                             tv2.setTextSize(getResources().getDimension(R.dimen.text_size));
 
                             layoutINNER.addView(tr2);
-
+                            View line = new View(StudentViewActivity.this);
+                            line.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.FILL_PARENT, 1));
+                            line.setBackgroundColor(Color.rgb(51, 51, 51));
+                            layoutINNER.addView(line);
 
 
 

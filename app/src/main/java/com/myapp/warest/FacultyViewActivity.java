@@ -73,6 +73,10 @@ public class FacultyViewActivity extends AppCompatActivity {
                             tv1.setTextSize(getResources().getDimension(R.dimen.text_size));
 
                             layoutINNER.addView(tr1);
+                            View line = new View(FacultyViewActivity.this);
+                            line.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.FILL_PARENT, 1));
+                            line.setBackgroundColor(Color.rgb(51, 51, 51));
+                            layoutINNER.addView(line);
 
                             TextView tv2 = new TextView(FacultyViewActivity.this);
 
@@ -154,6 +158,10 @@ public class FacultyViewActivity extends AppCompatActivity {
                             tv2.setTextSize(getResources().getDimension(R.dimen.text_size));
 
                             layoutINNER.addView(tr2);
+                            View line = new View(FacultyViewActivity.this);
+                            line.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.FILL_PARENT, 1));
+                            line.setBackgroundColor(Color.rgb(51, 51, 51));
+                            layoutINNER.addView(line);
 
 
 
