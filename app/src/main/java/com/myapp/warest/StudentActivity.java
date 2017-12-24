@@ -131,6 +131,10 @@ public class StudentActivity extends AppCompatActivity
                 if(menuItem.getItemId()==R.id.Updatestudentprofile) {
                     startActivity(new Intent(StudentActivity.this, UpdateStudentProfile.class));
                 }
+
+                if(menuItem.getItemId()==R.id.viewstudentprofile) {
+                    startActivity(new Intent(StudentActivity.this, ViewStudentProfile.class));
+                }
                 if(menuItem.getItemId()==R.id.videoProfile) {
                     Intent intent = new Intent();
                     intent.setType("video/mp4");
