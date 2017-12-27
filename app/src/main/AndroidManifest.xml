@@ -160,7 +160,10 @@
             android:label="@string/app_name"
             />
 
-
+        <activity
+            android:name=".StudentProfileView"
+            android:label="@string/app_name"
+            />
 
 
 
