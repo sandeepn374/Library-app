@@ -1,28 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@color/white"
-    android:gravity="center"
-    android:padding="@dimen/activity_horizontal_margin"
-    android:weightSum="1">
+    tools:context="com.myapp.warest.ViewStudentProfile"
+    android:adjustViewBounds="true">
 
 
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/white"
+        android:gravity="center"
         android:orientation="vertical"
-        >
+        android:padding="@dimen/activity_horizontal_margin"
+        android:weightSum="1">
+
 
         <TextView
+            android:id="@+id/traineename"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Name"
-            android:id="@+id/traineename"
-            android:textStyle="bold" />
+            android:hint="Name"
+            android:inputType="textPersonName"
+            android:maxLines="1"
+            android:textColor="@color/black"
+            android:textSize="25dp"/>
+
+        <TextView
+            android:id="@+id/ph"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Name"
+            android:inputType="textPersonName"
+            android:maxLines="1"
+            android:textColor="@color/black"
+            android:textSize="25dp"/>
+
+        <TextView
+            android:id="@+id/traineeemail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Name"
+            android:inputType="textPersonName"
+            android:maxLines="1"
+            android:textColor="@color/black"
+            android:textSize="25dp"/>
+
+        <TextView
+            android:id="@+id/traineeage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/age"
+            android:inputType="number"
+            android:maxLines="1"
+            android:textColor="@color/black"
+            android:textSize="25dp"
+            />
+
 
 
 
@@ -30,37 +68,45 @@
             android:id="@+id/traineegender"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.15"
-            android:text="Gender"
-            >
+            android:hint="Gender"
+            android:inputType="number"
+            android:maxLines="1"
+            android:textColor="@color/black"
+            android:textSize="25dp"
+            />
 
-        </TextView>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Age"
-            android:id="@+id/traineeage"
-            android:textStyle="bold" />
 
 
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Designation"
             android:id="@+id/designation"
-            android:textStyle="bold" />
-
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="true"
+            android:hint="@string/ongoingcourse"
+            android:maxLines="1"
+            android:textColor="@color/black"
+            android:textSize="25dp" />
 
 
         <TextView
+            android:id="@+id/qualification"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Qualification"
-            android:id="@+id/qualification"
-            android:textStyle="bold" />
+            android:focusableInTouchMode="true"
+            android:hint="@string/College"
+            android:textColor="@color/black"
+            android:textSize="25dp" />
 
 
+
+
+
+       
 
     </LinearLayout>
-</LinearLayout>
+
+
+
+</ScrollView>
+
