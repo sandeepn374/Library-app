@@ -74,6 +74,8 @@ public class StudentViewActivity extends AppCompatActivity {
                             tr2.addView(tv2);
                             tv2.setTextColor(Color.WHITE);
                             tv2.setTextSize(getResources().getDimension(R.dimen.text_size));
+
+
                             TableRow tr4 = new TableRow(StudentViewActivity.this);
 
                             Button paid = new Button(StudentViewActivity.this);
@@ -88,16 +90,24 @@ public class StudentViewActivity extends AppCompatActivity {
                             paid.setOnClickListener(new View.OnClickListener() {
                                                         @Override
                                                         public void onClick(View view) {
-                                                            startActivity(new Intent(StudentViewActivity.this, StudentProfileView.class));
+
+
+// To retrieve object in second Activity
+                                                            Intent intent=new Intent(StudentViewActivity.this,StudentProfileView.class);
+
+                                                            intent.putExtra("MyClass", user);
+                                                            startActivity(intent);
+                                                           // startActivity(new Intent(StudentViewActivity.this, StudentProfileView.class));
                                                         }
                                                     });
                             tr4.setLayoutParams(params);
                             tr4.addView(paid);
+                            layoutINNER.addView(tr4);
 
                             layoutINNER.addView(tr2);
-                            layoutINNER.addView(tr4);
+
                             View line = new View(StudentViewActivity.this);
-                            line.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.FILL_PARENT, 1));
+                            line.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.FILL_PARENT, 10));
                             line.setBackgroundColor(Color.rgb(51, 51, 51));
                             layoutINNER.addView(line);
 

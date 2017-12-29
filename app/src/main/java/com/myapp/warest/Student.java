@@ -1,10 +1,12 @@
 package com.myapp.warest;
 
+import java.io.Serializable;
+
 /**
  * Created by kshravi on 26/11/2017 AD.
  */
 
-public class Student  {
+public class Student implements Serializable {
 
     public String name;
     public String email;

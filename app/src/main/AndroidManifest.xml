@@ -165,9 +165,15 @@
             android:label="@string/app_name"
             />
 
+        <activity
+            android:name=".TraineeProfileView"
+            android:label="@string/app_name"
+            />
 
-
-
+        <activity
+            android:name=".FreelanceProfileView"
+            android:label="@string/app_name"
+            />
 
     </application>
 

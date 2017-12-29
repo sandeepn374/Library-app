@@ -1,12 +1,13 @@
 package com.myapp.warest;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by kshravi on 01/11/2017 AD.
  */
 
-public class User {
+public class User  implements Serializable{
 
     public String name;
     public String email;

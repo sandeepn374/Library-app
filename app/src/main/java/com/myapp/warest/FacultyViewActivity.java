@@ -46,15 +46,15 @@ public class FacultyViewActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         int totDue=0;
-                        ArrayList<Student> users=new ArrayList<Student>();
+                        ArrayList<FacultyTrainee> users=new ArrayList<FacultyTrainee>();
                         for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                            final Student user = snapshot.getValue(Student.class);
+                            final FacultyTrainee user = snapshot.getValue(FacultyTrainee.class);
                             users.add(user);
 
                         }
 
                         TableLayout layoutINNER = new TableLayout(FacultyViewActivity.this);
-                        for(final Student user:users) {
+                        for(final FacultyTrainee user:users) {
 
 
                             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(TableLayout.LayoutParams.FILL_PARENT,
@@ -73,10 +73,7 @@ public class FacultyViewActivity extends AppCompatActivity {
                             tv1.setTextSize(getResources().getDimension(R.dimen.text_size));
 
                             layoutINNER.addView(tr1);
-                            View line = new View(FacultyViewActivity.this);
-                            line.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.FILL_PARENT, 1));
-                            line.setBackgroundColor(Color.rgb(51, 51, 51));
-                            layoutINNER.addView(line);
+
 
                             TextView tv2 = new TextView(FacultyViewActivity.this);
 
@@ -89,10 +86,49 @@ public class FacultyViewActivity extends AppCompatActivity {
                             tr2.addView(tv2);
                             tv2.setTextColor(Color.WHITE);
                             tv2.setTextSize(getResources().getDimension(R.dimen.text_size));
+                            TableRow tr4 = new TableRow(FacultyViewActivity.this);
+
+                            Button paid = new Button(FacultyViewActivity.this);
+                            paid.setText("More");
+                            paid.setTextColor(Color.BLACK);
+                            paid.setGravity(Gravity.LEFT);
+                            int height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 40, getResources().getDisplayMetrics());
+                            int width = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 30, getResources().getDisplayMetrics());
+                            paid.setLayoutParams(new TableRow.LayoutParams(width, height));
+                            // paid.setWidth(5);
+
+                            paid.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+
+
+// To retrieve object in second Activity
+                                   // if(user.communitySub.equals("Trainee")) {
+                                        Intent intent = new Intent(FacultyViewActivity.this, TraineeProfileView.class);
+
+                                        intent.putExtra("MyClass", user);
+
+                                        startActivity(intent);
+                                   // }
+                                  //  else
+                                    //{
+
+
+                                   // }
+                                    // startActivity(new Intent(StudentViewActivity.this, StudentProfileView.class));
+                                }
+                            });
+                            tr4.setLayoutParams(params);
+                            tr4.addView(paid);
+
 
                             layoutINNER.addView(tr2);
+                            layoutINNER.addView(tr4);
 
-
+                            View line = new View(FacultyViewActivity.this);
+                            line.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.FILL_PARENT, 10));
+                            line.setBackgroundColor(Color.rgb(51, 51, 51));
+                            layoutINNER.addView(line);
 
 
                         }
@@ -117,15 +153,15 @@ public class FacultyViewActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         int totDue=0;
-                        ArrayList<Student> users=new ArrayList<Student>();
+                        ArrayList<FacultyFreelance> users=new ArrayList<FacultyFreelance>();
                         for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                            final Student user = snapshot.getValue(Student.class);
+                            final FacultyFreelance user = snapshot.getValue(FacultyFreelance.class);
                             users.add(user);
 
                         }
 
                         TableLayout layoutINNER = new TableLayout(FacultyViewActivity.this);
-                        for(final Student user:users) {
+                        for(final FacultyFreelance user:users) {
 
 
                             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(TableLayout.LayoutParams.FILL_PARENT,
@@ -156,10 +192,39 @@ public class FacultyViewActivity extends AppCompatActivity {
                             tr2.addView(tv2);
                             tv2.setTextColor(Color.WHITE);
                             tv2.setTextSize(getResources().getDimension(R.dimen.text_size));
+                            TableRow tr4 = new TableRow(FacultyViewActivity.this);
+
+                            Button paid = new Button(FacultyViewActivity.this);
+                            paid.setText("More");
+                            paid.setTextColor(Color.BLACK);
+                            paid.setGravity(Gravity.LEFT);
+                            int height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 40, getResources().getDisplayMetrics());
+                            int width = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 30, getResources().getDisplayMetrics());
+                            paid.setLayoutParams(new TableRow.LayoutParams(width, height));
+                            // paid.setWidth(5);
+
+                            paid.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+
+
+// To retrieve object in second Activity
+                                    Intent intent=new Intent(FacultyViewActivity.this,FreelanceProfileView.class);
+
+                                    intent.putExtra("MyClass", user);
+                                    startActivity(intent);
+                                    // startActivity(new Intent(StudentViewActivity.this, StudentProfileView.class));
+                                }
+                            });
+                            tr4.setLayoutParams(params);
+                            tr4.addView(paid);
+
 
                             layoutINNER.addView(tr2);
+                            layoutINNER.addView(tr4);
+
                             View line = new View(FacultyViewActivity.this);
-                            line.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.FILL_PARENT, 1));
+                            line.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.FILL_PARENT, 10));
                             line.setBackgroundColor(Color.rgb(51, 51, 51));
                             layoutINNER.addView(line);
 
