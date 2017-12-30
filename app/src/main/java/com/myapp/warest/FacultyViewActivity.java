@@ -70,7 +70,7 @@ public class FacultyViewActivity extends AppCompatActivity {
                             tr1.setLayoutParams(params);
                             tr1.addView(tv1);
                             tv1.setTextColor(Color.WHITE);
-                            tv1.setTextSize(getResources().getDimension(R.dimen.text_size));
+                            tv1.setTextSize(getResources().getDimension(R.dimen.profile_size));
 
                             layoutINNER.addView(tr1);
 
@@ -85,7 +85,7 @@ public class FacultyViewActivity extends AppCompatActivity {
                             tr2.setLayoutParams(params);
                             tr2.addView(tv2);
                             tv2.setTextColor(Color.WHITE);
-                            tv2.setTextSize(getResources().getDimension(R.dimen.text_size));
+                            tv2.setTextSize(getResources().getDimension(R.dimen.profile_size));
                             TableRow tr4 = new TableRow(FacultyViewActivity.this);
 
                             Button paid = new Button(FacultyViewActivity.this);
@@ -177,7 +177,7 @@ public class FacultyViewActivity extends AppCompatActivity {
                             tr1.setLayoutParams(params);
                             tr1.addView(tv1);
                             tv1.setTextColor(Color.WHITE);
-                            tv1.setTextSize(getResources().getDimension(R.dimen.text_size));
+                            tv1.setTextSize(getResources().getDimension(R.dimen.profile_size));
 
                             layoutINNER.addView(tr1);
 
@@ -191,7 +191,7 @@ public class FacultyViewActivity extends AppCompatActivity {
                             tr2.setLayoutParams(params);
                             tr2.addView(tv2);
                             tv2.setTextColor(Color.WHITE);
-                            tv2.setTextSize(getResources().getDimension(R.dimen.text_size));
+                            tv2.setTextSize(getResources().getDimension(R.dimen.profile_size));
                             TableRow tr4 = new TableRow(FacultyViewActivity.this);
 
                             Button paid = new Button(FacultyViewActivity.this);
