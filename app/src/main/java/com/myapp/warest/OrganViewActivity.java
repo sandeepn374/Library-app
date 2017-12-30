@@ -46,15 +46,15 @@ public class OrganViewActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         int totDue=0;
-                        ArrayList<Student> users=new ArrayList<Student>();
+                        ArrayList<OrgCollege> users=new ArrayList<OrgCollege>();
                         for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                            final Student user = snapshot.getValue(Student.class);
+                            final OrgCollege user = snapshot.getValue(OrgCollege.class);
                             users.add(user);
 
                         }
 
                         TableLayout layoutINNER = new TableLayout(OrganViewActivity.this);
-                        for(final Student user:users) {
+                        for(final OrgCollege user:users) {
 
 
                             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(TableLayout.LayoutParams.FILL_PARENT,
