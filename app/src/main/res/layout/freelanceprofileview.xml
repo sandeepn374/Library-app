@@ -62,7 +62,7 @@
             android:maxLines="1"
             android:onClick="showDatePickerDialog"
             android:textColor="@android:color/black"
-            tools:ignore="OnClick" />
+             />
 
 
         <TextView

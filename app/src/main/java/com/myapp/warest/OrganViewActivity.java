@@ -146,15 +146,15 @@ public class OrganViewActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         int totDue=0;
-                        ArrayList<Student> users=new ArrayList<Student>();
+                        ArrayList<OrgCorporate> users=new ArrayList<OrgCorporate>();
                         for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                            final Student user = snapshot.getValue(Student.class);
+                            final OrgCorporate user = snapshot.getValue(OrgCorporate.class);
                             users.add(user);
 
                         }
 
                         TableLayout layoutINNER = new TableLayout(OrganViewActivity.this);
-                        for(final Student user:users) {
+                        for(final OrgCorporate user:users) {
 
 
                             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(TableLayout.LayoutParams.FILL_PARENT,
@@ -243,15 +243,15 @@ public class OrganViewActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         int totDue=0;
-                        ArrayList<Student> users=new ArrayList<Student>();
+                        ArrayList<OrgTraining> users=new ArrayList<OrgTraining>();
                         for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                            final Student user = snapshot.getValue(Student.class);
+                            final OrgTraining user = snapshot.getValue(OrgTraining.class);
                             users.add(user);
 
                         }
 
                         TableLayout layoutINNER = new TableLayout(OrganViewActivity.this);
-                        for(final Student user:users) {
+                        for(final OrgTraining user:users) {
 
 
                             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(TableLayout.LayoutParams.FILL_PARENT,
