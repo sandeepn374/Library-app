@@ -86,10 +86,38 @@ public class OrganViewActivity extends AppCompatActivity {
                             tv2.setTextColor(Color.WHITE);
                             tv2.setTextSize(getResources().getDimension(R.dimen.text_size));
 
+                            TableRow tr4 = new TableRow(OrganViewActivity.this);
+
+                            Button paid = new Button(OrganViewActivity.this);
+                            paid.setText("More");
+                            paid.setTextColor(Color.BLACK);
+                            paid.setGravity(Gravity.LEFT);
+                            int height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 40, getResources().getDisplayMetrics());
+                            int width = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 30, getResources().getDisplayMetrics());
+                            paid.setLayoutParams(new TableRow.LayoutParams(width, height));
+                            // paid.setWidth(5);
+
+                            paid.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+
+
+// To retrieve object in second Activity
+                                    Intent intent=new Intent(OrganViewActivity.this,CollegeProfileView.class);
+
+                                    intent.putExtra("MyClass", user);
+                                    startActivity(intent);
+                                    // startActivity(new Intent(StudentViewActivity.this, StudentProfileView.class));
+                                }
+                            });
+                            tr4.setLayoutParams(params);
+                            tr4.addView(paid);
+
                             layoutINNER.addView(tr2);
+                            layoutINNER.addView(tr4);
 
                             View line = new View(OrganViewActivity.this);
-                            line.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.FILL_PARENT, 1));
+                            line.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.FILL_PARENT, 10));
                             line.setBackgroundColor(Color.rgb(51, 51, 51));
                             layoutINNER.addView(line);
 
@@ -158,9 +186,37 @@ public class OrganViewActivity extends AppCompatActivity {
                             tv2.setTextColor(Color.WHITE);
                             tv2.setTextSize(getResources().getDimension(R.dimen.text_size));
 
+                            TableRow tr4 = new TableRow(OrganViewActivity.this);
+
+                            Button paid = new Button(OrganViewActivity.this);
+                            paid.setText("More");
+                            paid.setTextColor(Color.BLACK);
+                            paid.setGravity(Gravity.LEFT);
+                            int height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 40, getResources().getDisplayMetrics());
+                            int width = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 30, getResources().getDisplayMetrics());
+                            paid.setLayoutParams(new TableRow.LayoutParams(width, height));
+                            // paid.setWidth(5);
+
+                            paid.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+
+
+// To retrieve object in second Activity
+                                    Intent intent=new Intent(OrganViewActivity.this,CorporateProfileView.class);
+
+                                    intent.putExtra("MyClass", user);
+                                    startActivity(intent);
+                                    // startActivity(new Intent(StudentViewActivity.this, StudentProfileView.class));
+                                }
+                            });
+                            tr4.setLayoutParams(params);
+                            tr4.addView(paid);
+
                             layoutINNER.addView(tr2);
+                            layoutINNER.addView(tr4);
                             View line = new View(OrganViewActivity.this);
-                            line.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.FILL_PARENT, 1));
+                            line.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.FILL_PARENT, 10));
                             line.setBackgroundColor(Color.rgb(51, 51, 51));
                             layoutINNER.addView(line);
 
@@ -227,10 +283,38 @@ public class OrganViewActivity extends AppCompatActivity {
                             tv2.setTextColor(Color.WHITE);
                             tv2.setTextSize(getResources().getDimension(R.dimen.text_size));
 
+                            TableRow tr4 = new TableRow(OrganViewActivity.this);
+
+                            Button paid = new Button(OrganViewActivity.this);
+                            paid.setText("More");
+                            paid.setTextColor(Color.BLACK);
+                            paid.setGravity(Gravity.LEFT);
+                            int height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 40, getResources().getDisplayMetrics());
+                            int width = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 30, getResources().getDisplayMetrics());
+                            paid.setLayoutParams(new TableRow.LayoutParams(width, height));
+                            // paid.setWidth(5);
+
+                            paid.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+
+
+// To retrieve object in second Activity
+                                    Intent intent=new Intent(OrganViewActivity.this,TrainingProfileView.class);
+
+                                    intent.putExtra("MyClass", user);
+                                    startActivity(intent);
+                                    // startActivity(new Intent(StudentViewActivity.this, StudentProfileView.class));
+                                }
+                            });
+                            tr4.setLayoutParams(params);
+                            tr4.addView(paid);
+
                             layoutINNER.addView(tr2);
+                            layoutINNER.addView(tr4);
 
                             View line = new View(OrganViewActivity.this);
-                            line.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.FILL_PARENT, 1));
+                            line.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.FILL_PARENT, 10));
                             line.setBackgroundColor(Color.rgb(51, 51, 51));
                             layoutINNER.addView(line);
 

@@ -1,10 +1,12 @@
 package com.myapp.warest;
 
+import java.io.Serializable;
+
 /**
  * Created by kshravi on 07/12/2017 AD.
  */
 
-public class OrgCorporate {
+public class OrgCorporate implements Serializable{
 
     public String name="";
     public String email="";

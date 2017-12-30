@@ -175,6 +175,20 @@
             android:label="@string/app_name"
             />
 
+        <activity
+            android:name=".CollegeProfileView"
+            android:label="@string/app_name"
+            />
+
+        <activity
+            android:name=".CorporateProfileView"
+            android:label="@string/app_name"
+            />
+
+        <activity
+            android:name=".TraineeProfileView"
+            android:label="@string/app_name"
+            />
     </application>
 
 </manifest>

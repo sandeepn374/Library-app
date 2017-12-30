@@ -3,11 +3,13 @@ package com.myapp.warest;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import java.io.Serializable;
+
 /**
  * Created by kshravi on 07/12/2017 AD.
  */
 
-public class OrgCollege {
+public class OrgCollege implements Serializable{
 
     public String name="";
     public String email="";

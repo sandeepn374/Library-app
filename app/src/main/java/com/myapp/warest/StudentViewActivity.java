@@ -102,9 +102,11 @@ public class StudentViewActivity extends AppCompatActivity {
                                                     });
                             tr4.setLayoutParams(params);
                             tr4.addView(paid);
-                            layoutINNER.addView(tr4);
 
                             layoutINNER.addView(tr2);
+                            layoutINNER.addView(tr4);
+
+
 
                             View line = new View(StudentViewActivity.this);
                             line.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.FILL_PARENT, 10));
