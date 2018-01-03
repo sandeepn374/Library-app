@@ -189,6 +189,37 @@
             android:name=".TrainingProfileView"
             android:label="@string/app_name"
             />
+        <activity
+            android:name=".ViewTraineeProfile"
+            android:label="@string/app_name"
+            />
+        <activity
+            android:name=".ViewFreelancerProfile"
+            android:label="@string/app_name"
+            />
+
+        <activity
+            android:name=".ViewCollegeProfile"
+            android:label="@string/app_name"
+            />
+
+        <activity
+            android:name=".ViewCorporateProfile"
+            android:label="@string/app_name"
+            />
+        <activity
+            android:name=".ViewTrainingProfile"
+            android:label="@string/app_name"
+            />
+
+
+
+
+
+
+
+
+
     </application>
 
 </manifest>

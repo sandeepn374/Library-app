@@ -11,6 +11,10 @@
             android:title="Upload Video Profile" />
 
         <item
+            android:id="@+id/viewfacultyProfile"
+            android:title="View My Profile" />
+
+        <item
             android:id="@+id/uploadtutorial"
             android:title="Upload Tutorial" />
 

@@ -54,12 +54,4 @@ public class FacultyFreelance implements Serializable{
 
 
 
-
-
-
-
-
-
-
-
 }

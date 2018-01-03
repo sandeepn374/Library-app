@@ -260,6 +260,62 @@ public class FacultyActivity extends AppCompatActivity
                 if(menuItem.getItemId()==R.id.uploadnotes) {
                     startActivity(new Intent(FacultyActivity.this, UploadTutorialActivity.class));
                 }
+
+                if(menuItem.getItemId()==R.id.viewfacultyProfile) {
+                    DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("users");
+                    mDatabase.keepSynced(true);
+                    mDatabase.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onCancelled(DatabaseError p1) {
+
+                        }
+
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            for (DataSnapshot child : dataSnapshot.getChildren()) {
+
+
+                                if (child.child("email").getValue().toString().equals(auth.getCurrentUser().getEmail())) {
+
+
+                                    //SharedPreferences app_preferences = PreferenceManager.getDefaultSharedPreferences(FacultyActivity.this);
+                                    //SharedPreferences.Editor editor = app_preferences.edit();
+
+
+
+                                    if (child.child("communitySub").getValue().toString().equals("Freelance")) {
+
+                                        // editor.putString("type", "Student");
+                                        // editor.commit();
+
+                                        //progressBar.setVisibility(View.GONE);
+                                        Intent intent = new Intent(FacultyActivity.this, ViewFreelancerProfile.class);
+                                        startActivity(intent);
+                                        finish();
+                                    } else   {
+
+
+                                        // editor.putString("type", "Faculty");
+                                        // editor.commit();
+
+
+
+                                        //progressBar.setVisibility(View.GONE);
+                                        Intent intent = new Intent(FacultyActivity.this, ViewTraineeProfile.class);
+                                        startActivity(intent);
+                                        finish();
+                                    }
+
+
+
+
+
+                                }
+
+                            }
+                        }
+                    });
+                }
                 return true;
             }
         });

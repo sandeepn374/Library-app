@@ -45,7 +45,7 @@ public class LoginActivity extends AppCompatActivity
 
 		if (auth.getCurrentUser() != null) {
 		
-			if(auth.getCurrentUser().getEmail().equals("kshravi86@gmail.com")){
+			if(auth.getCurrentUser().getEmail().equals("info@warest.org")){
 
 				Intent intent = new Intent(LoginActivity.this, AdminActivity.class);
 				startActivity(intent);

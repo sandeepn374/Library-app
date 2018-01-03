@@ -1,5 +1,6 @@
 package com.myapp.warest;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
@@ -34,7 +35,7 @@ public class ViewStudentProfile extends AppCompatActivity {
     StorageReference storageRef = storage.getReferenceFromUrl("gs://warest-77e4b.appspot.com/");
 	
 	boolean imagef,dataf;
-	ProgressDialog pd;
+	//ProgressDialog pd;
 
 	
     @Override
@@ -57,12 +58,12 @@ public class ViewStudentProfile extends AppCompatActivity {
 	
 	
 
-		pd=new ProgressDialog(this);
-		pd.setMessage("loading...");
+		//pd=new ProgressDialog(this);
+		//pd.setMessage("loading...");
 		
         auth = FirebaseAuth.getInstance();
         final FirebaseUser u=auth.getCurrentUser();
-		pd.show();
+		//pd.show();
 	
 		final StorageReference imgRef = storageRef.child(u.getEmail());
 		
@@ -79,7 +80,7 @@ public class ViewStudentProfile extends AppCompatActivity {
 					imagef=true;	
 					
 					if(imagef &&dataf) {
-						pd.dismiss();
+						//pd.dismiss();
 					}	
 				}
 			});
@@ -128,7 +129,7 @@ public class ViewStudentProfile extends AppCompatActivity {
 						dataf=true;
 						
 						if(imagef &&dataf) {
-							pd.dismiss();
+							//pd.dismiss();
 						}
 					}
 				}
@@ -136,5 +137,12 @@ public class ViewStudentProfile extends AppCompatActivity {
 		
 		
 			
-    } 
+    }
+
+	public void onBackPressed(){
+		Intent intent = new Intent(ViewStudentProfile.this, StudentActivity.class);
+		startActivity(intent);
+		finish();
+
+	}
 }

@@ -97,7 +97,12 @@ public class UpdateTraineeProfile extends AppCompatActivity{
                 Toast.LENGTH_SHORT).show();
     }
 
+    public void onBackPressed(){
+        Intent intent = new Intent(UpdateTraineeProfile.this, FacultyActivity.class);
+        startActivity(intent);
+        finish();
 
+    }
 
 
 

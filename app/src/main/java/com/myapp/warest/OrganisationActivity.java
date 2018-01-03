@@ -250,7 +250,73 @@ public class OrganisationActivity extends AppCompatActivity
                     });
                 }
 
+                if(menuItem.getItemId()==R.id.vieworgprofile) {
+                    DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("users");
+                    mDatabase.keepSynced(true);
+                    mDatabase.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onCancelled(DatabaseError p1) {
 
+                        }
+
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            for (DataSnapshot child : dataSnapshot.getChildren()) {
+
+
+                                if (child.child("email").getValue().toString().equals(auth.getCurrentUser().getEmail())) {
+
+
+                                    //SharedPreferences app_preferences = PreferenceManager.getDefaultSharedPreferences(FacultyActivity.this);
+                                    //SharedPreferences.Editor editor = app_preferences.edit();
+
+
+
+                                    if (child.child("communitySub").getValue().toString().equals("College/University")) {
+
+                                        // editor.putString("type", "Student");
+                                        // editor.commit();
+
+                                        //progressBar.setVisibility(View.GONE);
+                                        Intent intent = new Intent(OrganisationActivity.this, ViewCollegeProfile.class);
+                                        startActivity(intent);
+                                        finish();
+                                    }
+
+                                    else if (child.child("communitySub").getValue().toString().equals("Corporate")) {
+
+                                        // editor.putString("type", "Student");
+                                        // editor.commit();
+
+                                        //progressBar.setVisibility(View.GONE);
+                                        Intent intent = new Intent(OrganisationActivity.this, ViewCorporateProfile.class);
+                                        startActivity(intent);
+                                        finish();
+                                    }
+                                    else   {
+
+
+                                        // editor.putString("type", "Faculty");
+                                        // editor.commit();
+
+
+
+                                        //progressBar.setVisibility(View.GONE);
+                                        Intent intent = new Intent(OrganisationActivity.this, ViewTrainingProfile.class);
+                                        startActivity(intent);
+                                        finish();
+                                    }
+
+
+
+
+
+                                }
+
+                            }
+                        }
+                    });
+                }
 
 
 

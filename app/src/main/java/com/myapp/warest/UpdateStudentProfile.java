@@ -79,6 +79,59 @@ public class UpdateStudentProfile extends AppCompatActivity {
 	
 		pd = new ProgressDialog(this);
         pd.setMessage("Uploading....");
+
+
+        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase.keepSynced(true);
+        Query query = mDatabase.child("students");
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                for (final DataSnapshot child : dataSnapshot.getChildren()) {
+
+                    //   String email= () child.child("email").getValue();
+                    if (child.child("email").getValue().equals(auth.getCurrentUser().getEmail())){
+
+                        Student user = child.getValue(Student.class);
+                        age.setText(user.age);
+                        name.setText(user.name);
+                        if(user.gender.equals("Male"))
+                        gender.setSelection(1);
+                        else
+                            gender.setSelection(1);
+                        course.setText(user.course);
+                        college.setText(user.colName);
+                        branch.setText(user.branch);
+                        country.setText(user.country);
+                        university.setText(user.country);
+                        state.setText(user.state);
+                        city.setText(user.city);
+                        reTrain.setText(user.requiredTrain);
+
+
+
+
+                       /* child.getRef().child("colName").setValue(college.getText().toString());
+
+                        child.getRef().child("country").setValue(country.getText().toString());
+
+                        child.getRef().child("branch").setValue(branch.getText().toString());
+
+                        child.getRef().child("university").setValue(university.getText().toString());
+
+                        child.getRef().child("state").setValue(state.getText().toString());
+
+                        child.getRef().child("city").setValue(city.getText().toString());
+                        child.getRef().child("requiredTrain").setValue(reTrain.getText().toString());
+                        Toastmsg(UpdateStudentProfile.this,"Profile Updated ");*/
+                    }
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
 	
 		upload.setOnClickListener(new View.OnClickListener() {
 				@Override
@@ -194,7 +247,12 @@ public class UpdateStudentProfile extends AppCompatActivity {
 
 
 
+    public void onBackPressed(){
+        Intent intent = new Intent(UpdateStudentProfile.this, StudentActivity.class);
+        startActivity(intent);
+        finish();
 
+    }
 
 
 

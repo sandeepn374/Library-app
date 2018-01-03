@@ -9,6 +9,10 @@
         <item
             android:id="@+id/Updateorgprofile"
             android:title="Update Profile" />
+
+        <item
+            android:id="@+id/vieworgprofile"
+            android:title="View My Profile" />
         <item
             android:id="@+id/upcomingevents"
             android:title="Upcoming Events" />
