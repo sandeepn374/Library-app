@@ -97,9 +97,11 @@ public class UpdateStudentProfile extends AppCompatActivity {
                         age.setText(user.age);
                         name.setText(user.name);
                         if(user.gender.equals("Male"))
-                        gender.setSelection(1);
-                        else
                             gender.setSelection(1);
+                        else  if(user.gender.equals("Female"))
+                            gender.setSelection(2);
+                        else
+                            gender.setSelection(0);
                         course.setText(user.course);
                         college.setText(user.colName);
                         branch.setText(user.branch);
@@ -112,19 +114,6 @@ public class UpdateStudentProfile extends AppCompatActivity {
 
 
 
-                       /* child.getRef().child("colName").setValue(college.getText().toString());
-
-                        child.getRef().child("country").setValue(country.getText().toString());
-
-                        child.getRef().child("branch").setValue(branch.getText().toString());
-
-                        child.getRef().child("university").setValue(university.getText().toString());
-
-                        child.getRef().child("state").setValue(state.getText().toString());
-
-                        child.getRef().child("city").setValue(city.getText().toString());
-                        child.getRef().child("requiredTrain").setValue(reTrain.getText().toString());
-                        Toastmsg(UpdateStudentProfile.this,"Profile Updated ");*/
                     }
                 }
             }

@@ -45,6 +45,41 @@ public class UpdateTraineeProfile extends AppCompatActivity{
         auth = FirebaseAuth.getInstance();
         final FirebaseUser u=auth.getCurrentUser();
 
+        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase.keepSynced(true);
+        Query query = mDatabase.child("facultyTraineeGroup");
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                for (final DataSnapshot child : dataSnapshot.getChildren()) {
+
+                    //   String email= () child.child("email").getValue();
+                    if (child.child("email").getValue().equals(auth.getCurrentUser().getEmail())){
+
+                        FacultyTrainee user = child.getValue(FacultyTrainee.class);
+                        age.setText(user.age);
+                        name.setText(user.name);
+                        if(user.gender.equals("Male"))
+                            gender.setSelection(1);
+                        else  if(user.gender.equals("Female"))
+                            gender.setSelection(2);
+                        else
+                            gender.setSelection(0);
+                        designation.setText(user.designation);
+                        qualification.setText(user.qualification);
+
+
+
+
+                    }
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+
         update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

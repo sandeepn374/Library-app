@@ -41,6 +41,44 @@ public class CorporateProfile extends AppCompatActivity {
         update=(Button)findViewById(R.id.update);
 
         auth = FirebaseAuth.getInstance();
+        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase.keepSynced(true);
+        Query query = mDatabase.child("OrgCorporate");
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                for (final DataSnapshot child : dataSnapshot.getChildren()) {
+
+                    //   String email= () child.child("email").getValue();
+                    if (child.child("email").getValue().equals(auth.getCurrentUser().getEmail())){
+
+                        OrgCorporate user = child.getValue(OrgCorporate.class);
+
+                        name.setText(user.name);
+                        if(user.gender.equals("Male"))
+                            gender.setSelection(1);
+                        else  if(user.gender.equals("Female"))
+                            gender.setSelection(2);
+                        else
+                            gender.setSelection(0);
+                        phone.setText(user.phone);
+                        address.setText(user.address);
+                        domain.setText(user.domain);
+
+
+
+
+
+                    }
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+
+
         update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
