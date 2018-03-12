@@ -16,12 +16,12 @@
         android:padding="@dimen/activity_horizontal_margin">
 
 
-        <ImageView
+     <!--   <ImageView
             android:layout_width="@dimen/logo_w_h"
             android:layout_height="@dimen/logo_w_h"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="30dp"
-            android:src="@drawable/warest" />
+            android:src="@drawable/warest" />-->
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
