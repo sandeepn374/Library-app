@@ -12,20 +12,23 @@ public class User  implements Serializable{
     public String name;
     public String email;
     public String ph;
-    public String community;
-    public String communitySub;
-
+    public String usn;
+    public String gender;
+	public String semester;
+	public String department;
 
     public User() {
     }
 
-    public User(String name, String email,String ph,String community,String communitySub) {
+    public User(String name, String email,String ph,String usn,String gender, String semester,String department) {
 
         this.name=name;
         this.email=email;
         this.ph=ph;
-        this.community=community;
-        this.communitySub=communitySub;
+        this.usn=usn;
+        this.gender=gender;
+		this.semester=semester;
+		this.department= department;
 
 
     }

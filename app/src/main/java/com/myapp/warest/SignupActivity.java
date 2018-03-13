@@ -65,14 +65,14 @@ public class SignupActivity extends AppCompatActivity {
 				@Override
 				public void onClick(View v) {
 
-					String inputemail = email.getText().toString().trim();
+					final String inputemail = email.getText().toString().trim();
 					String inputpassword = password.getText().toString().trim();
-					String inputusn = usn.getText().toString();
-					String inputname = name.getText().toString();
-					String inputphone = phone.getText().toString();
-					String inputgender= gender.getSelectedItem().toString();
-					String inputsem= sem.getSelectedItem().toString();
-					String inputdept= dept.getSelectedItem().toString();
+					final String inputusn = usn.getText().toString();
+					final String inputname = name.getText().toString();
+					final String inputphone = phone.getText().toString();
+					final String inputgender= gender.getSelectedItem().toString();
+					final String inputsem= sem.getSelectedItem().toString();
+					final String inputdept= dept.getSelectedItem().toString();
 					
 					if (TextUtils.isEmpty(inputname)) {
 						Toast.makeText(getApplicationContext(), "Enter your name!", Toast.LENGTH_SHORT).show();
@@ -139,6 +139,12 @@ public class SignupActivity extends AppCompatActivity {
                                   //  String inputemail=email.getText().toString();
 									//String inputusn = usn.getText().toString();
 									
+									User user = new User(inputname, inputemail,inputphone,inputusn,inputgender,inputsem,inputdept);
+
+
+                                    DatabaseReference mDatabaseForUser = FirebaseDatabase.getInstance().getReference("users");
+                                    String userIdForUser = mDatabaseForUser.push().getKey();
+                                    mDatabaseForUser.child(userIdForUser).setValue(user);
 									
 									Intent intent = new Intent(SignupActivity.this, MainActivity.class);
 									startActivity(intent);
