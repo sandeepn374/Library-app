@@ -38,6 +38,17 @@
 			android:layout_height="wrap_content">
 
 
+			<EditText
+				android:id="@+id/email"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:hint="@string/email"
+				android:inputType="textEmailAddress"
+				android:maxLines="1"
+				android:textColor="@android:color/black" />
+
+
+			
 
 
 		</android.support.design.widget.TextInputLayout>
@@ -51,18 +62,7 @@
 		</android.support.design.widget.TextInputLayout>
 
 		<!-- Link to Login Screen -->
-
-		<EditText
-			android:id="@+id/email"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:hint="@string/email"
-			android:inputType="textEmailAddress"
-			android:maxLines="1"
-			android:textColor="@android:color/black" />
-
-
-		<android.support.design.widget.TextInputLayout
+<android.support.design.widget.TextInputLayout
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content">
 
@@ -76,11 +76,9 @@
 					android:layout_height="wrap_content"
 					android:focusableInTouchMode="true"
 					android:hint="@string/hint_password"
-
 					android:imeOptions="actionUnspecified"
 					android:inputType="textPassword"
 					android:maxLines="1"
-
 					android:textColor="@android:color/black" />
 
 
@@ -92,11 +90,9 @@
 				android:layout_height="wrap_content"
 				android:focusableInTouchMode="true"
 				android:hint="@string/phone"
-
 				android:imeOptions="actionUnspecified"
 				android:inputType="number"
 				android:maxLength="10"
-
 				android:textColor="@android:color/black" />
 
 
@@ -107,54 +103,70 @@
 			android:layout_height="wrap_content">
 
 
+
+			<EditText
+				android:id="@+id/confirmpwd"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:focusableInTouchMode="true"
+				android:hint="@string/hint_password1"
+				android:imeOptions="actionUnspecified"
+				android:inputType="textPassword"
+				android:maxLines="1"
+				android:textColor="@android:color/black" />
 		</android.support.design.widget.TextInputLayout>
 
 
-		<EditText
-			android:id="@+id/confirmpwd"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:focusableInTouchMode="true"
-			android:hint="@string/hint_password1"
+		<Spinner
+            android:id="@+id/gender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.15"
+            android:entries="@array/Gender"
+            android:spinnerMode="dropdown">
 
-			android:imeOptions="actionUnspecified"
-			android:inputType="textPassword"
-			android:maxLines="1"
-
-			android:textColor="@android:color/black" />
+        </Spinner>
 
 		<Spinner
-			android:id="@+id/community"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_weight="0.27"
-			android:spinnerMode="dropdown"
-			android:textColor="@android:color/black" >
+            android:id="@+id/semester"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.15"
+            android:entries="@array/Semester"
+            android:spinnerMode="dropdown">
 
-		</Spinner>
+        </Spinner>
 
 		<Spinner
-			android:id="@+id/sub"
+            android:id="@+id/department"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.15"
+            android:entries="@array/Department"
+            android:spinnerMode="dropdown">
+
+        </Spinner>
+
+		
+		<android.support.design.widget.TextInputLayout
 			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_weight="0.27"
-			android:spinnerMode="dropdown"
-			android:textColor="@android:color/black" >
-
-		</Spinner>
-
-		<Button
-			android:id="@+id/sign_in_button"
-			android:layout_width="fill_parent"
-			android:layout_height="0dp"
-			android:layout_marginTop="20dip"
-			android:background="@color/colorPrimary"
-			android:text="@string/btn_link_to_login"
-			android:textAllCaps="false"
-			android:textColor="@color/white"
-			android:textSize="15sp" />
+			android:layout_height="wrap_content">
 
 
+			<EditText
+				android:id="@+id/usn"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:hint="USN"
+				android:inputType="textPersonName"
+				android:maxLines="1"
+				android:textColor="@android:color/black" />
+
+		</android.support.design.widget.TextInputLayout>
+		
+		
+		
+		
 		<Button
 			android:id="@+id/sign_up_button"
 			style="?android:textAppearanceSmall"

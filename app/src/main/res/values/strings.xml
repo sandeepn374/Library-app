@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Smart Library Access</string>
     <string name="action_sign_in_short">Register</string>
-    <string name="email">Email</string>
+    <string name="email">Email id</string>
     <string name="minimum_password">Password too short, enter minimum 6 characters!</string>
     <string name="auth_failed">Authentication failed, check your email and password or sign up</string>
     <string name="change_email">Change Email</string>
@@ -51,6 +51,8 @@
     <string name="subject">Subject</string>
 
 
+	
+	
 
 
     <string name="Values">
@@ -109,9 +111,26 @@
         <item>Organisation</item>
     </string-array>
 
+	<string-array name="Semester">
+        <item>Select Your Semester</item>
+        <item>1</item>
+        <item>2</item>
+		<item>3</item>
+		<item>4</item>
+		<item>5</item>
+		<item>6</item>
+		<item>7</item>
+		<item>8</item>
+    </string-array>
 
-
-
+	<string-array name="Department">
+        <item>Select Your Department</item>
+        <item>ECE</item>
+        <item>CSE</item>
+		<item>TCE</item>
+		
+    </string-array>
+	
 
     <string-array name="Gender">
         <item>Select Gender</item>
