@@ -17,8 +17,7 @@ public class User  implements Serializable{
 	public String semester;
 	public String department;
 
-    public User() {
-    }
+
 
     public User(String name, String email,String ph,String usn,String gender, String semester,String department) {
 

@@ -5,15 +5,46 @@
 	
 	
 	<Button
-		android:id="@+id/button"
+		android:id="@+id/button1"
 		style="?android:textAppearanceSmall"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_marginTop="106dp"
-		
-		android:text="Hello!"
+		android:text="STN"
 		android:textColor="@android:color/black"
 		android:textStyle="bold" />
-	
-    
+
+
+
+	<Button
+		android:id="@+id/button2"
+		style="?android:textAppearanceSmall"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="10dp"
+		android:text="PM and F"
+		android:textColor="@android:color/black"
+		android:textStyle="bold" />
+
+	<Button
+		android:id="@+id/button3"
+		style="?android:textAppearanceSmall"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="10dp"
+		android:text="IPL"
+		android:textColor="@android:color/black"
+		android:textStyle="bold" />
+
+	<Button
+		android:id="@+id/button4"
+		style="?android:textAppearanceSmall"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="10dp"
+		android:text="GENERAL"
+		android:textColor="@android:color/black"
+		android:textStyle="bold" />
+
+
 </LinearLayout>
