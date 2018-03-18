@@ -146,7 +146,7 @@ public class SignupActivity extends AppCompatActivity {
                                     String userIdForUser = mDatabaseForUser.push().getKey();
                                     mDatabaseForUser.child(userIdForUser).setValue(user);
 									
-									Intent intent = new Intent(SignupActivity.this, MainActivity.class);
+									Intent intent = new Intent(SignupActivity.this, LibraryActivity.class);
 									startActivity(intent);
 									finish();
 		

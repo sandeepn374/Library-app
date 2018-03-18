@@ -2,41 +2,49 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical">
-
-
+	
+	
 	<Button
-		android:id="@+id/lib"
+		android:id="@+id/button1"
 		style="?android:textAppearanceSmall"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_marginTop="106dp"
-		android:text="Library"
+		android:text="STN"
 		android:textColor="@android:color/black"
 		android:textStyle="bold" />
 
 
 
 	<Button
-		android:id="@+id/attnd"
+		android:id="@+id/button2"
 		style="?android:textAppearanceSmall"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_marginTop="10dp"
-		android:text="Classroom Attendance"
+		android:text="PM and F"
 		android:textColor="@android:color/black"
 		android:textStyle="bold" />
 
 	<Button
-		android:id="@+id/verify"
+		android:id="@+id/button3"
 		style="?android:textAppearanceSmall"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_marginTop="10dp"
-		android:text="Id Verification"
+		android:text="IPL"
 		android:textColor="@android:color/black"
 		android:textStyle="bold" />
 
-	
+	<Button
+		android:id="@+id/button4"
+		style="?android:textAppearanceSmall"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="10dp"
+		android:text="GENERAL"
+		android:textColor="@android:color/black"
+		android:textStyle="bold" />
 
 
 </LinearLayout>
