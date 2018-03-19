@@ -24,7 +24,13 @@ public class MainActivity extends AppCompatActivity
 				}
 			});
 		
-		
+		idverify.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					//button functionality
+					startActivity(new Intent(MainActivity.this, VerificationActivity.class));
+				}
+			});
 		
 	}
 }
