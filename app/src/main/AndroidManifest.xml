@@ -51,7 +51,11 @@
 		/>
 		
 
-
+		<activity
+            android:name=".AttendanceActivity"
+            android:label="@string/app_name"
+		/>
+		
 
 
 

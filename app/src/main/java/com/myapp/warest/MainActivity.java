@@ -31,6 +31,18 @@ public class MainActivity extends AppCompatActivity
 					startActivity(new Intent(MainActivity.this, VerificationActivity.class));
 				}
 			});
+			
+		attend.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					//button functionality
+					startActivity(new Intent(MainActivity.this, AttendanceActivity.class));
+				}
+			});
+			
+			
+			
+			
 		
 	}
 }
