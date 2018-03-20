@@ -9,13 +9,13 @@ import java.util.ArrayList;
 
 public class User  implements Serializable{
 
-    public String name;
-    public String email;
-    public String ph;
-    public String usn;
-    public String gender;
-	public String semester;
-	public String department;
+    public String name="";
+    public String email="";
+    public String ph="";
+    public String usn="";
+    public String gender="";
+	public String semester="";
+	public String department="";
 
 public User(){}
 
