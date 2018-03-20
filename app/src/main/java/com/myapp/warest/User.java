@@ -17,7 +17,7 @@ public class User  implements Serializable{
 	public String semester;
 	public String department;
 
-
+public User(){}
 
     public User(String name, String email,String ph,String usn,String gender, String semester,String department) {
 
@@ -31,5 +31,20 @@ public class User  implements Serializable{
 
 
     }
+
+	public CharSequence getname()
+	{
+		// TODO: Implement this method
+		return name;
+	}
+	void setName(String name){
+        this.name=name;
+    }
+
+    void setEmail(String name){
+        this.email=name;
+    }
+	
+	
 
 }
