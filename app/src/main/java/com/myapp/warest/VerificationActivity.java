@@ -33,15 +33,17 @@ public class VerificationActivity extends AppCompatActivity
 		
 		String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
 		
-DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference().child("users").child(uid);
+
 			
 		
-		mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
+		FirebaseDatabase.getInstance().getReference().child("users").child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
 				@Override
 				public void onDataChange(DataSnapshot dataSnapshot) {
-					for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+					 String s=(String) dataSnapshot.getValue().toString();
+					 
+					
 						
-						final User user = snapshot.getValue(User.class);
+						final User user = dataSnapshot.getValue(User.class);
 						
 						LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(TableLayout.LayoutParams.FILL_PARENT,
 																						 TableLayout.LayoutParams.WRAP_CONTENT);
@@ -125,7 +127,7 @@ DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference().chil
        					LinearLayout main = (LinearLayout) findViewById(R.id.main_layout);
 						main.addView(layoutINNER);
 					}
-				}
+				
 				@Override
 				public void onCancelled(DatabaseError databaseError) {
 				}

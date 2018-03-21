@@ -140,11 +140,7 @@ public class SignupActivity extends AppCompatActivity {
 									//String inputusn = usn.getText().toString();
 									
 									User user = new User(inputname, inputemail,inputphone,inputusn,inputgender,inputsem,inputdept);
-
-
-                                    DatabaseReference mDatabaseForUser = FirebaseDatabase.getInstance().getReference("users");
-                                    String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                                    mDatabaseForUser.child(uid).setValue(user);
+                                 DatabaseReference mDatabaseForUser = FirebaseDatabase.getInstance().getReference("users");                                   String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();                                    mDatabaseForUser.child(uid).setValue(user);
 									
 									Intent intent = new Intent(SignupActivity.this, MainActivity.class);
 									startActivity(intent);
