@@ -50,7 +50,7 @@ public class AttendanceActivity extends AppCompatActivity
 					tv2.setTextSize(25);
 					
 					tv1.setText("Name - " + user.name);
-					tv2.setText("Phone - " + user.ph);
+					tv2.setText("Usn- " + user.usn);
 					
 					TableRow.LayoutParams trparams = new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT);
 					tv1.setLayoutParams(trparams);
