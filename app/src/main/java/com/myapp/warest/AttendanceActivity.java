@@ -25,43 +25,66 @@ public class AttendanceActivity extends AppCompatActivity
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_attendance);
-		name= (TextView)findViewById(R.id.name);
-		usn = (TextView)findViewById(R.id.usn);
-	
-		auth = FirebaseAuth.getInstance();
+        setContentView(R.layout.activity_verify);
+		String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
 
 
-        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("users");
-        mDatabase.keepSynced(true);
-        mDatabase.addValueEventListener(new ValueEventListener() {
 
-				@Override
-				public void onCancelled(DatabaseError p1)
-				{
-
-				}
-
-
+		FirebaseDatabase.getInstance().getReference().child("users").child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
 				@Override
 				public void onDataChange(DataSnapshot dataSnapshot) {
-					for (DataSnapshot child : dataSnapshot.getChildren()) {
-
-
-						if(child.child("email").getValue().toString().equals(auth.getCurrentUser().getEmail())){
-							name.setText("Name :  " +child.child("name").getValue().toString());
-							
-							usn.setText("usn: "+child.child("usn").getValue().toString());
+					String s=(String) dataSnapshot.getValue().toString();
 
 
 
-						}
+					final User user = dataSnapshot.getValue(User.class);
 
-					}
+					LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(TableLayout.LayoutParams.FILL_PARENT,
+																					 TableLayout.LayoutParams.WRAP_CONTENT);
+					TextView tv1 = new TextView(AttendanceActivity.this);
+					tv1.setTextSize(25);
+
+
+					TextView tv2 = new TextView(AttendanceActivity.this);
+					tv2.setTextSize(25);
+					
+					tv1.setText("Name - " + user.name);
+					tv2.setText("Phone - " + user.ph);
+					
+					TableRow.LayoutParams trparams = new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT);
+					tv1.setLayoutParams(trparams);
+					tv2.setLayoutParams(trparams);
+					
+					
+					TableLayout layoutINNER = new TableLayout(AttendanceActivity.this);
+					
+
+					layoutINNER.setLayoutParams(params);
+
+					TableRow tr = new TableRow(AttendanceActivity.this);
+					tr.setLayoutParams(params);
+					tr.addView(tv1);
+
+					TableRow tr2 = new TableRow(AttendanceActivity.this);
+					tr2.setLayoutParams(params);
+					tr2.addView(tv2);
+
+					
+					layoutINNER.addView(tr);
+
+					
+					layoutINNER.addView(tr2);
+
+					
+					LinearLayout main = (LinearLayout) findViewById(R.id.main_layout);
+					main.addView(layoutINNER);
 				}
-			});
-		
+
+				@Override
+				public void onCancelled(DatabaseError databaseError) {
+				}
+			});        
 		
 	}
 	

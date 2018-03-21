@@ -48,19 +48,21 @@ public class VerificationActivity extends AppCompatActivity
 						LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(TableLayout.LayoutParams.FILL_PARENT,
 																						 TableLayout.LayoutParams.WRAP_CONTENT);
 						TextView tv1 = new TextView(VerificationActivity.this);
+						tv1.setTextSize(25);
+				
 						
 						TextView tv2 = new TextView(VerificationActivity.this);
-
+					tv2.setTextSize(25);
 						TextView tv3 = new TextView(VerificationActivity.this);
-
+					tv3.setTextSize(25);
 						TextView tv4 = new TextView(VerificationActivity.this);
-
+					tv4.setTextSize(25);
 						TextView tv5 = new TextView(VerificationActivity.this);
-
+					tv5.setTextSize(25);
 						TextView tv0 = new TextView(VerificationActivity.this);
-					    
+					tv0.setTextSize(25);
 						TextView tv6 = new TextView(VerificationActivity.this);
-
+					tv6.setTextSize(25);
 						tv1.setText("Name - " + user.name);
 						tv2.setText("Phone - " + user.ph);
 						tv3.setText("Email - " + user.email);
@@ -69,7 +71,7 @@ public class VerificationActivity extends AppCompatActivity
 						tv5.setText("Sem  - " + user.semester);
 						tv0.setText("USN - " + user.usn);
 					
-						TableRow.LayoutParams trparams = new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.MATCH_PARENT);
+						TableRow.LayoutParams trparams = new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT);
 						tv1.setLayoutParams(trparams);
 						tv2.setLayoutParams(trparams);
 						tv3.setLayoutParams(trparams);
@@ -83,6 +85,7 @@ public class VerificationActivity extends AppCompatActivity
 						TableLayout layoutINNER = new TableLayout(VerificationActivity.this);
 						tr0.setLayoutParams(params);
 						tr0.addView(tv0);
+						
 			
 						layoutINNER.setLayoutParams(params);
 						
