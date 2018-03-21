@@ -32,18 +32,7 @@ public User(){}
 
     }
 
-	public CharSequence getname()
-	{
-		// TODO: Implement this method
-		return name;
-	}
-	void setName(String name){
-        this.name=name;
-    }
-
-    void setEmail(String name){
-        this.email=name;
-    }
+	
 	
 	
 
