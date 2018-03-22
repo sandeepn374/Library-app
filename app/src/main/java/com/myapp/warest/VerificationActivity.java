@@ -15,6 +15,10 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import android.util.TypedValue;
+import android.view.Gravity;
+
+import android.graphics.Color;
 import java.util.concurrent.*;
 import java.util.*;
 
@@ -49,20 +53,28 @@ public class VerificationActivity extends AppCompatActivity
 																						 TableLayout.LayoutParams.WRAP_CONTENT);
 						TextView tv1 = new TextView(VerificationActivity.this);
 						tv1.setTextSize(25);
-				
+					tv1.setTextColor(Color.BLACK);
 						
 						TextView tv2 = new TextView(VerificationActivity.this);
 					tv2.setTextSize(25);
+					tv2.setTextColor(Color.BLACK);
 						TextView tv3 = new TextView(VerificationActivity.this);
 					tv3.setTextSize(25);
+					tv3.setTextColor(Color.BLACK);
 						TextView tv4 = new TextView(VerificationActivity.this);
 					tv4.setTextSize(25);
+					tv4.setTextColor(Color.BLACK);
 						TextView tv5 = new TextView(VerificationActivity.this);
 					tv5.setTextSize(25);
+					tv5.setTextColor(Color.BLACK);
 						TextView tv0 = new TextView(VerificationActivity.this);
 					tv0.setTextSize(25);
+					tv0.setTextColor(Color.BLACK);
 						TextView tv6 = new TextView(VerificationActivity.this);
 					tv6.setTextSize(25);
+					tv6.setTextColor(Color.BLACK);
+					
+					
 						tv1.setText("Name - " + user.name);
 						tv2.setText("Phone - " + user.ph);
 						tv3.setText("Email - " + user.email);

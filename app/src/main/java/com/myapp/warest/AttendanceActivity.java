@@ -14,7 +14,10 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.HashMap;
+import android.util.TypedValue;
+import android.view.Gravity;
 
+import android.graphics.Color;
 import java.util.concurrent.*;
 import java.util.*;
 public class AttendanceActivity extends AppCompatActivity
@@ -43,11 +46,12 @@ public class AttendanceActivity extends AppCompatActivity
 					LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(TableLayout.LayoutParams.FILL_PARENT,
 																					 TableLayout.LayoutParams.WRAP_CONTENT);
 					TextView tv1 = new TextView(AttendanceActivity.this);
-					tv1.setTextSize(25);
-
+					tv1.setTextSize(30);
+					tv1.setTextColor(Color.BLACK);
 
 					TextView tv2 = new TextView(AttendanceActivity.this);
-					tv2.setTextSize(25);
+					tv2.setTextSize(30);
+					tv2.setTextColor(Color.BLACK);
 					
 					tv1.setText("Name - " + user.name);
 					tv2.setText("Usn- " + user.usn);
@@ -71,11 +75,30 @@ public class AttendanceActivity extends AppCompatActivity
 					tr2.addView(tv2);
 
 					
-					layoutINNER.addView(tr);
+					TableRow tr4 = new TableRow(AttendanceActivity.this);
 
+
+					Button paid = new Button(AttendanceActivity.this);
+					paid.setText("SEND");
+					paid.setTextColor(Color.BLACK);
+					paid.setGravity(Gravity.CENTER);
+					int height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 60, getResources().getDisplayMetrics());
+					int width = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 50, getResources().getDisplayMetrics());
+					paid.setLayoutParams(new TableRow.LayoutParams(width, height));
+					// paid.setWidth(5);
+					
+					
+					tr4.setLayoutParams(params);
+					tr4.addView(paid);
+					
+					
+					layoutINNER.addView(tr);
 					
 					layoutINNER.addView(tr2);
-
+					
+					
+					layoutINNER.addView(tr4);
+					
 					
 					LinearLayout main = (LinearLayout) findViewById(R.id.main_layout);
 					main.addView(layoutINNER);
@@ -87,7 +110,5 @@ public class AttendanceActivity extends AppCompatActivity
 			});        
 		
 	}
-	
-	
 	
 }
