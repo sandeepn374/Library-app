@@ -149,25 +149,3 @@ public class VerificationActivity extends AppCompatActivity
 			});        
     }}	
 
-
-/*
-```final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
-        //Getting the userId of the current user from firebase
-        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-
-        //Extracting username from firebaseDatabase with the help of userId
-        FirebaseDatabase.getInstance().getReference("UserInformation")
-                .child(uid)
-                .addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        User user = dataSnapshot.getValue(User.class);
-
-                        //Printing name on lblWelcome
-                        lblWelcome.setText("Hello " + user.getName());
-                    }
-
-                 */
-
-

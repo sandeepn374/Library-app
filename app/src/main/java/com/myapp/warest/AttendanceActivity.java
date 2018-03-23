@@ -22,7 +22,7 @@ import java.util.concurrent.*;
 import java.util.*;
 public class AttendanceActivity extends AppCompatActivity
 {
-	TextView name, usn;
+	
 	FirebaseAuth auth;
 	
 	@Override
@@ -82,8 +82,8 @@ public class AttendanceActivity extends AppCompatActivity
 					paid.setText("SEND");
 					paid.setTextColor(Color.BLACK);
 					paid.setGravity(Gravity.CENTER);
-					int height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 60, getResources().getDisplayMetrics());
-					int width = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 50, getResources().getDisplayMetrics());
+					int height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 50, getResources().getDisplayMetrics());
+					int width = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 80, getResources().getDisplayMetrics());
 					paid.setLayoutParams(new TableRow.LayoutParams(width, height));
 					// paid.setWidth(5);
 					
