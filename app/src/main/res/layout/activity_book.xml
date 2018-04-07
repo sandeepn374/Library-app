@@ -91,7 +91,7 @@
 				android:id="@+id/qtyofbooks"
 				android:text=""
 				android:textColor="@android:color/black"
-				android:layout_marginLeft="15dp"
+				android:layout_marginLeft="20dp"
                 android:textStyle="bold"
 			/>
 			
@@ -103,7 +103,7 @@
                 android:text="+"
 				android:id="@+id/btnadd"
 				android:textColor="@android:color/black"
-				android:layout_marginLeft="10dp"
+				android:layout_marginLeft="9dp"
                 
 			/>
 			
