@@ -27,6 +27,7 @@ public class BookActivity extends AppCompatActivity
 	FirebaseAuth auth;
 	Button add;
 	TextView bookqty;
+	int qtyvalue=10;
 	
 
 	@Override
@@ -36,7 +37,9 @@ public class BookActivity extends AppCompatActivity
 		add = (Button)findViewById(R.id.btnadd);
         bookqty=(TextView)findViewById(R.id.qtyofbooks);
 		
-		bookqty.setText("10");
+		
+		
+		bookqty.setText(Integer.toString(qtyvalue));
 
 
 		add.setOnClickListener(new View.OnClickListener() {
@@ -44,6 +47,9 @@ public class BookActivity extends AppCompatActivity
 				public void onClick(View v) {
 					//button functionality
 					startActivity(new Intent(BookActivity.this, ConfirmActivity.class));
+					qtyvalue--;
+					bookqty.setText(Integer.toString(qtyvalue));
+					
 				}
 			});
 
