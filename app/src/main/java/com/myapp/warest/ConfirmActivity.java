@@ -21,14 +21,30 @@ import android.graphics.Color;
 import java.util.concurrent.*;
 import java.util.*;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+
+
 
 public class ConfirmActivity extends AppCompatActivity
 {
 	
 	FirebaseAuth auth;
 
+	String time;
+
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
+		
+		Calendar c = Calendar.getInstance();
+		SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");// HH:mm:ss");
+		String reg_date = df.format(c.getTime());
+		//showtoast("Currrent Date Time : "+reg_date);
+
+		c.add(Calendar.DATE, 4);  // number of days to add
+		time = df.format(c.getTime());
+		
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirm);
 		
@@ -59,10 +75,10 @@ public class ConfirmActivity extends AppCompatActivity
 					TextView tv3 = new TextView(ConfirmActivity.this);
 					tv3.setTextSize(24);
 					tv3.setTextColor(Color.BLACK);
-					/*TextView tv4 = new TextView(ConfirmActivity.this);
-					tv4.setTextSize(27);
+					TextView tv4 = new TextView(ConfirmActivity.this);
+					tv4.setTextSize(24);
 					tv4.setTextColor(Color.BLACK);
-					TextView tv5 = new TextView(ConfirmActivity.this);
+					/*TextView tv5 = new TextView(ConfirmActivity.this);
 					tv5.setTextSize(27);
 					tv5.setTextColor(Color.BLACK);
 					TextView tv0 = new TextView(ConfirmActivity.this);
@@ -75,18 +91,18 @@ public class ConfirmActivity extends AppCompatActivity
 
 					tv1.setText("Name - " + user.name);
 					tv2.setText("Usn- " + user.usn);
-					tv3.setText("Book- The Telecom Handbook");
-					/*tv6.setText("Gender - "  + user.gender);
-					tv4.setText("Department  - " + user.department);
-					tv5.setText("Sem  - " + user.semester);
+					tv3.setText("Book - The Telecom Handbook");
+					//tv6.setText("Gender - "  + user.gender);
+					tv4.setText("Validity- " + time);
+					/*tv5.setText("Sem  - " + user.semester);
 					tv0.setText("USN - " + user.usn);*/
 
 					TableRow.LayoutParams trparams = new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT);
 					tv1.setLayoutParams(trparams);
 					tv2.setLayoutParams(trparams);
 					tv3.setLayoutParams(trparams);
-					/*tv4.setLayoutParams(trparams);
-					tv5.setLayoutParams(trparams);
+					tv4.setLayoutParams(trparams);
+					/*tv5.setLayoutParams(trparams);
 					tv0.setLayoutParams(trparams);
 					tv6.setLayoutParams(trparams);*/
 
@@ -112,8 +128,13 @@ public class ConfirmActivity extends AppCompatActivity
 					tr3.addView(tv3);
 
 					TableRow tr6 = new TableRow(ConfirmActivity.this);
-					//tr6.setLayoutParams(params);
-					//tr6.addView(tv4);
+					tr6.setLayoutParams(params);
+					tr6.addView(tv4);
+					
+
+					TableRow tr7 = new TableRow(ConfirmActivity.this);
+					//tr7.setLayoutParams(params);
+					//tr7.addView(tv5);
 					Button paid = new Button(ConfirmActivity.this);
 					paid.setText("SEND");
 					paid.setTextColor(Color.BLACK);
@@ -122,14 +143,12 @@ public class ConfirmActivity extends AppCompatActivity
 					int width = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 80, getResources().getDisplayMetrics());
 					paid.setLayoutParams(new TableRow.LayoutParams(width, height));
 					// paid.setWidth(5);
-					
-					tr6.setLayoutParams(params);
-					tr6.addView(paid);
 
-					TableRow tr7 = new TableRow(ConfirmActivity.this);
 					tr7.setLayoutParams(params);
-					//tr7.addView(tv5);
+					tr7.addView(paid);
 
+					
+					
 					TableRow tr8 = new TableRow(ConfirmActivity.this);
 					tr8.setLayoutParams(params);
 					//tr8.addView(tv6);
