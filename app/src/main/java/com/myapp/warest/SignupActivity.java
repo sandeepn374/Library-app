@@ -98,8 +98,8 @@ public class SignupActivity extends AppCompatActivity {
 						return;
 					}
 
-					if (password.length() < 6) {
-						Toast.makeText(getApplicationContext(), "Password too short, enter minimum 6 characters!", Toast.LENGTH_SHORT).show();
+					if (password.length() < 4) {
+						Toast.makeText(getApplicationContext(), "Password too short, enter minimum 4 characters!", Toast.LENGTH_SHORT).show();
 						return;
 					}
 					
