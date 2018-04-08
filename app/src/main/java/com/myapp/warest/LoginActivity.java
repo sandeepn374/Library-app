@@ -98,7 +98,7 @@ public class LoginActivity extends AppCompatActivity
 
 								if (!task.isSuccessful()) {
 									// there was an error
-									if (password.length() < 6) {
+									if (password.length() < 4) {
 										inputPassword.setError(getString(R.string.minimum_password));
 									} else {
 										Toast.makeText(LoginActivity.this, getString(R.string.auth_failed), Toast.LENGTH_LONG).show();

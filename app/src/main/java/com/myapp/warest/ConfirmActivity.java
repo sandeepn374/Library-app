@@ -76,20 +76,20 @@ public class ConfirmActivity extends AppCompatActivity
 					LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(TableLayout.LayoutParams.FILL_PARENT,
 																					 TableLayout.LayoutParams.WRAP_CONTENT);
 					TextView tv1 = new TextView(ConfirmActivity.this);
-					tv1.setTextSize(24);
+					tv1.setTextSize(15);
 					tv1.setTextColor(Color.BLACK);
 
 					TextView tv2 = new TextView(ConfirmActivity.this);
-					tv2.setTextSize(24);
+					tv2.setTextSize(15);
 					tv2.setTextColor(Color.BLACK);
 					TextView tv3 = new TextView(ConfirmActivity.this);
-					tv3.setTextSize(24);
+					tv3.setTextSize(15);
 					tv3.setTextColor(Color.BLACK);
 					TextView tv4 = new TextView(ConfirmActivity.this);
-					tv4.setTextSize(24);
+					tv4.setTextSize(15);
 					tv4.setTextColor(Color.BLACK);
 					TextView tv5 = new TextView(ConfirmActivity.this);
-					tv5.setTextSize(24);
+					tv5.setTextSize(15);
 					tv5.setTextColor(Color.BLACK);
 					/*TextView tv0 = new TextView(ConfirmActivity.this);
 					tv0.setTextSize(27);
