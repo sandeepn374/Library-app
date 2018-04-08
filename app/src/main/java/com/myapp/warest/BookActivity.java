@@ -27,7 +27,7 @@ public class BookActivity extends AppCompatActivity
 {
 	FirebaseAuth auth;
 	Button add, add2;
-	TextView bookqty, bookqty2,mLink;
+	TextView bookqty, bookqty2,mLink, textField;
 	int qtyvalue=10;
 	int qtyvalue2=9;
 	
@@ -40,6 +40,9 @@ public class BookActivity extends AppCompatActivity
         bookqty=(TextView)findViewById(R.id.qtyofbooks);
 		bookqty2=(TextView)findViewById(R.id.qtyofbooks2);
 		add2=(Button)findViewById(R.id.btnadd2);
+		textField=(TextView)findViewById(R.id.book2);
+		textField.setText("2.The Telecom Regulatory " + System.getProperty("line.separator") + "      of India");
+		
 		
 		mLink = (TextView) findViewById(R.id.link);
 		if (mLink != null) {
@@ -61,7 +64,17 @@ public class BookActivity extends AppCompatActivity
 
 
 		
+		add2.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					//button functionality
+					startActivity(new Intent(BookActivity.this, RegulatoryActivity.class));
+					qtyvalue2--;
+					bookqty2.setText(Integer.toString(qtyvalue2));
 
+				}
+			});
+		
 		
 	
 }}
