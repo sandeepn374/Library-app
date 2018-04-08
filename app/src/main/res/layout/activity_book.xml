@@ -79,8 +79,9 @@
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1.The Telecom Handbook"
+                android:id="@+id/link"
                 android:textStyle="bold"
+				android:text="@string/link" 
 				android:textColor="@android:color/black"
 			/>
 
@@ -118,7 +119,7 @@
 
 
 
- <!--       <TableRow
+        <TableRow
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"  
@@ -128,7 +129,8 @@
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2.The Telecom Handbook"
+                android:text="2.The Telecom Regulatory"
+			    android:lines="2"
                 android:textStyle="bold"
 				android:textColor="@android:color/black"
 			/>
@@ -137,9 +139,10 @@
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="10"
+                android:text=""
+				android:id="@+id/qtyofbooks2"
 				android:textColor="@android:color/black"
-				android:layout_marginLeft="15dp"
+				android:layout_marginLeft="30dp"
                 android:textStyle="bold"
 			/>
 
@@ -149,6 +152,7 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:text="+"
+				android:id="@+id/btnadd2"
 				android:textColor="@android:color/black"
 				android:layout_marginLeft="10dp"
 
@@ -160,9 +164,9 @@
        
 
 
-        </TableRow>
+       </TableRow>
 
-        <TableRow
+    <!--   <TableRow
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"           

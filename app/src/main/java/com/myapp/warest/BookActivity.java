@@ -21,13 +21,15 @@ import android.view.Gravity;
 import android.graphics.Color;
 import java.util.concurrent.*;
 import java.util.*;
+import android.text.method.*;
 
 public class BookActivity extends AppCompatActivity
 {
 	FirebaseAuth auth;
-	Button add;
-	TextView bookqty;
+	Button add, add2;
+	TextView bookqty, bookqty2,mLink;
 	int qtyvalue=10;
+	int qtyvalue2=9;
 	
 
 	@Override
@@ -36,11 +38,15 @@ public class BookActivity extends AppCompatActivity
         setContentView(R.layout.activity_book);
 		add = (Button)findViewById(R.id.btnadd);
         bookqty=(TextView)findViewById(R.id.qtyofbooks);
+		bookqty2=(TextView)findViewById(R.id.qtyofbooks2);
+		add2=(Button)findViewById(R.id.btnadd2);
 		
-		
-		
+		mLink = (TextView) findViewById(R.id.link);
+		if (mLink != null) {
+			mLink.setMovementMethod(LinkMovementMethod.getInstance());
+		}
 		bookqty.setText(Integer.toString(qtyvalue));
-
+		bookqty2.setText(Integer.toString(qtyvalue2));
 
 		add.setOnClickListener(new View.OnClickListener() {
 				@Override
