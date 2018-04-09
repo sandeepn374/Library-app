@@ -26,11 +26,12 @@ import android.text.method.*;
 public class BookActivity extends AppCompatActivity
 {
 	FirebaseAuth auth;
-	Button add, add2, add3;
-	TextView bookqty, bookqty2,bookqty3,mLink, textField, textField3;
+	Button add, add2, add3, add4;
+	TextView bookqty, bookqty2,bookqty3, bookqty4,mLink, textField, textField3, textField4;
 	int qtyvalue=10;
 	int qtyvalue2=15;
 	int qtyvalue3=20;
+	int qtyvalue4= 9;
 	
 
 	@Override
@@ -41,13 +42,16 @@ public class BookActivity extends AppCompatActivity
         bookqty=(TextView)findViewById(R.id.qtyofbooks);
 		bookqty2=(TextView)findViewById(R.id.qtyofbooks2);
 		bookqty3=(TextView)findViewById(R.id.qtyofbooks3);
+		bookqty4= (TextView)findViewById(R.id.qtyofbooks4);
 		add2=(Button)findViewById(R.id.btnadd2);
 		add3=(Button)findViewById(R.id.btnadd3);
+		add4=(Button)findViewById(R.id.btnadd4);
 		textField=(TextView)findViewById(R.id.book2);
 		textField3=(TextView)findViewById(R.id.book3);
+		textField4=(TextView)findViewById(R.id.book4);
 		textField.setText("2. The Telecom Regulatory " + System.getProperty("line.separator") + "      of India");
-		
-		textField3.setText("3. Telecommunication New " + System.getProperty("line.separator") + "    Sign Posts to Old Roads");
+		textField3.setText("3. Telecommunication New " + System.getProperty("line.separator") + "      Sign Posts to Old Roads");
+		textField4.setText("4. Telecom Management in" + System.getProperty("line.separator") + "      Emerging Economics");
 		
 		mLink = (TextView) findViewById(R.id.link);
 		if (mLink != null) {
@@ -56,6 +60,8 @@ public class BookActivity extends AppCompatActivity
 		bookqty.setText(Integer.toString(qtyvalue));
 		bookqty2.setText(Integer.toString(qtyvalue2));
 		bookqty3.setText(Integer.toString(qtyvalue3));
+		bookqty4.setText(Integer.toString(qtyvalue4));
+		
 
 		add.setOnClickListener(new View.OnClickListener() {
 				@Override
@@ -92,4 +98,17 @@ public class BookActivity extends AppCompatActivity
 				}
 			});
 	
+			
+		add4.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					//button functionality
+					startActivity(new Intent(BookActivity.this, LastActivity.class));
+					qtyvalue4--;
+					bookqty4.setText(Integer.toString(qtyvalue4));
+
+				}
+			});
+			
+			
 }}

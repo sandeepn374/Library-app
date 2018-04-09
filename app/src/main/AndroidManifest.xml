@@ -71,7 +71,11 @@
             android:label="@string/app_name"
 		/>
 		
-
+		<activity
+            android:name=".LastActivity"
+            android:label="@string/app_name"
+		/>
+		
 
 
 

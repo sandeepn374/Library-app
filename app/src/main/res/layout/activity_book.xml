@@ -99,12 +99,12 @@
 
 			<Button
 
-                android:layout_width="40dp"
+                android:layout_width="30dp"
                 android:layout_height="40dp"
                 android:text="+"
 				android:id="@+id/btnadd"
 				android:textColor="@android:color/black"
-				android:layout_marginLeft="10dp"
+				
                 
 			/>
 			
@@ -144,12 +144,12 @@
 
 			<Button
 
-                android:layout_width="40dp"
+                android:layout_width="30dp"
                 android:layout_height="40dp"
                 android:text="+"
 				android:id="@+id/btnadd2"
 				android:textColor="@android:color/black"
-				android:layout_marginLeft="10dp"
+			
 
 			/>
 			
@@ -190,12 +190,12 @@
 
 			<Button
 
-                android:layout_width="40dp"
+                android:layout_width="30dp"
                 android:layout_height="40dp"
                 android:text="+"
 				android:id="@+id/btnadd3"
 				android:textColor="@android:color/black"
-				android:layout_marginLeft="10dp"
+				
 
 			/>
 
@@ -203,7 +203,49 @@
 		</TableRow>
 	   
 	   
-	   
+		<TableRow
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"  
+            android:weightSum="1" >
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/book4"
+				android:lines="3" 
+				android:maxLines="4"
+				android:singleLine="false"
+                android:textStyle="bold"
+				android:textColor="@android:color/black"
+			/>
+
+			<TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+				android:id="@+id/qtyofbooks4"
+				android:textColor="@android:color/black"
+				android:layout_marginLeft="30dp"
+                android:textStyle="bold"
+			/>
+
+
+			<Button
+
+                android:layout_width="30dp"
+                android:layout_height="40dp"
+                android:text="+"
+				android:id="@+id/btnadd4"
+				android:textColor="@android:color/black"
+
+
+			/>
+
+
+		</TableRow>
 	   
 	   
 	</TableLayout>
