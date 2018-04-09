@@ -15,7 +15,7 @@
 
 	<string name="Book2">2.The Telecom Regulatory "\n" Authority of India</string>
     
-	<string name="link"><a href="http://aksitha.com/Engineering/The%20Telecommunications%20Handbook%20-%20Engineering%20Guidelines%20for%20Fixed,%20Mobile%20and%20Satellite%20Systems%20-%201st%20Edition%20(2015).pdf">1.The Telecom Handbook</a></string>
+	<string name="link"><a href="http://aksitha.com/Engineering/The%20Telecommunications%20Handbook%20-%20Engineering%20Guidelines%20for%20Fixed,%20Mobile%20and%20Satellite%20Systems%20-%201st%20Edition%20(2015).pdf">1. The Telecom Handbook</a></string>
 	
     <string-array name="Semester">
         <item>Select Your Semester</item>

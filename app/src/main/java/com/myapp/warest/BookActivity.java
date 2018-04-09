@@ -26,10 +26,11 @@ import android.text.method.*;
 public class BookActivity extends AppCompatActivity
 {
 	FirebaseAuth auth;
-	Button add, add2;
-	TextView bookqty, bookqty2,mLink, textField;
+	Button add, add2, add3;
+	TextView bookqty, bookqty2,bookqty3,mLink, textField, textField3;
 	int qtyvalue=10;
-	int qtyvalue2=9;
+	int qtyvalue2=15;
+	int qtyvalue3=20;
 	
 
 	@Override
@@ -39,10 +40,14 @@ public class BookActivity extends AppCompatActivity
 		add = (Button)findViewById(R.id.btnadd);
         bookqty=(TextView)findViewById(R.id.qtyofbooks);
 		bookqty2=(TextView)findViewById(R.id.qtyofbooks2);
+		bookqty3=(TextView)findViewById(R.id.qtyofbooks3);
 		add2=(Button)findViewById(R.id.btnadd2);
+		add3=(Button)findViewById(R.id.btnadd3);
 		textField=(TextView)findViewById(R.id.book2);
-		textField.setText("2.The Telecom Regulatory " + System.getProperty("line.separator") + "      of India");
+		textField3=(TextView)findViewById(R.id.book3);
+		textField.setText("2. The Telecom Regulatory " + System.getProperty("line.separator") + "      of India");
 		
+		textField3.setText("3. Telecommunication New " + System.getProperty("line.separator") + "    Sign Posts to Old Roads");
 		
 		mLink = (TextView) findViewById(R.id.link);
 		if (mLink != null) {
@@ -50,6 +55,7 @@ public class BookActivity extends AppCompatActivity
 		}
 		bookqty.setText(Integer.toString(qtyvalue));
 		bookqty2.setText(Integer.toString(qtyvalue2));
+		bookqty3.setText(Integer.toString(qtyvalue3));
 
 		add.setOnClickListener(new View.OnClickListener() {
 				@Override
@@ -75,6 +81,15 @@ public class BookActivity extends AppCompatActivity
 				}
 			});
 		
-		
+		add3.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					//button functionality
+					startActivity(new Intent(BookActivity.this, TelecomActivity.class));
+					qtyvalue3--;
+					bookqty3.setText(Integer.toString(qtyvalue3));
+
+				}
+			});
 	
 }}
