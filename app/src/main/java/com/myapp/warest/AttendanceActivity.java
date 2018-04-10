@@ -46,11 +46,11 @@ public class AttendanceActivity extends AppCompatActivity
 					LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(TableLayout.LayoutParams.FILL_PARENT,
 																					 TableLayout.LayoutParams.WRAP_CONTENT);
 					TextView tv1 = new TextView(AttendanceActivity.this);
-					tv1.setTextSize(30);
+					tv1.setTextSize(25);
 					tv1.setTextColor(Color.BLACK);
 
 					TextView tv2 = new TextView(AttendanceActivity.this);
-					tv2.setTextSize(30);
+					tv2.setTextSize(25);
 					tv2.setTextColor(Color.BLACK);
 					
 					tv1.setText("Name - " + user.name);
