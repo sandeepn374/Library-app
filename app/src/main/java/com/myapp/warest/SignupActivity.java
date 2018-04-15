@@ -133,18 +133,28 @@ public class SignupActivity extends AppCompatActivity {
                                     Toast.makeText(SignupActivity.this, "Authentication failed." + task.getException(),
 												   Toast.LENGTH_SHORT).show();
                                 } else {
+									
+									if (sem.getSelectedItem().equals("8") && (dept.getSelectedItem().equals("TCE"))) {
+										User user = new User(inputname, inputemail,inputphone,inputusn,inputgender,inputsem,inputdept);
+										DatabaseReference mDatabaseForUser = FirebaseDatabase.getInstance().getReference("users");                                   String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();                                    mDatabaseForUser.child(uid).setValue(user);
+
+										Intent intent = new Intent(SignupActivity.this, MainActivity.class);
+										startActivity(intent);
+										finish();
+									}
+									else {
+										
+										Intent intent = new Intent(SignupActivity.this, Main1Activity.class);
+										startActivity(intent);
+										finish();
+									}
 
                                   //  String inputname=name.getText().toString();
                                     //String inputph=phone.getText().toString();
                                   //  String inputemail=email.getText().toString();
 									//String inputusn = usn.getText().toString();
 									
-									User user = new User(inputname, inputemail,inputphone,inputusn,inputgender,inputsem,inputdept);
-                                 DatabaseReference mDatabaseForUser = FirebaseDatabase.getInstance().getReference("users");                                   String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();                                    mDatabaseForUser.child(uid).setValue(user);
 									
-									Intent intent = new Intent(SignupActivity.this, MainActivity.class);
-									startActivity(intent);
-									finish();
 		
 		
 }
