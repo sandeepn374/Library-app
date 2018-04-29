@@ -246,10 +246,19 @@
 
 
 		</TableRow>
-	   
+		<Button
+
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="Books Issued"
+			android:id="@+id/bookissue"
+			android:textColor="@android:color/black"
+
+
+		/>
+		
 	   
 	</TableLayout>
-	
 	
 </ScrollView>
 

@@ -17,10 +17,7 @@
 		android:weightSum="1">
 
 
-		<android.support.design.widget.TextInputLayout
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content">
-
+		
 
 			<EditText
 				android:id="@+id/fullname"
@@ -31,12 +28,9 @@
 				android:maxLines="1"
 				android:textColor="@android:color/black" />
 
-		</android.support.design.widget.TextInputLayout>
+	
 
-		<android.support.design.widget.TextInputLayout
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content">
-
+		
 
 			<EditText
 				android:id="@+id/email"
@@ -49,28 +43,23 @@
 
 
 			
-
-
-		</android.support.design.widget.TextInputLayout>
-
-
-		<android.support.design.widget.TextInputLayout
+		<EditText
+			android:id="@+id/phone"
 			android:layout_width="match_parent"
-			android:layout_height="wrap_content">
+			android:layout_height="wrap_content"
+			android:focusableInTouchMode="true"
+			android:hint="@string/phone"
+			android:imeOptions="actionUnspecified"
+			android:inputType="number"
+			android:maxLength="10"
+			android:textColor="@android:color/black" />
+		
 
+	
 
-		</android.support.design.widget.TextInputLayout>
-
+		
 		<!-- Link to Login Screen -->
-<android.support.design.widget.TextInputLayout
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content">
-
-			<android.support.design.widget.TextInputLayout
-				android:layout_width="match_parent"
-				android:layout_height="match_parent">
-
-				<EditText
+	<EditText
 					android:id="@+id/password"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
@@ -82,27 +71,11 @@
 					android:textColor="@android:color/black" />
 
 
-			</android.support.design.widget.TextInputLayout>
+		
 
-			<EditText
-				android:id="@+id/phone"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:focusableInTouchMode="true"
-				android:hint="@string/phone"
-				android:imeOptions="actionUnspecified"
-				android:inputType="number"
-				android:maxLength="10"
-				android:textColor="@android:color/black" />
+		
 
-
-		</android.support.design.widget.TextInputLayout>
-
-		<android.support.design.widget.TextInputLayout
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content">
-
-
+	
 
 			<EditText
 				android:id="@+id/confirmpwd"
@@ -114,7 +87,7 @@
 				android:inputType="textPassword"
 				android:maxLines="1"
 				android:textColor="@android:color/black" />
-		</android.support.design.widget.TextInputLayout>
+		
 
 
 		<Spinner
@@ -148,11 +121,6 @@
         </Spinner>
 
 		
-		<android.support.design.widget.TextInputLayout
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content">
-
-
 			<EditText
 				android:id="@+id/usn"
 				android:layout_width="match_parent"
@@ -162,7 +130,7 @@
 				android:maxLines="1"
 				android:textColor="@android:color/black" />
 
-		</android.support.design.widget.TextInputLayout>
+		
 		
 		
 		

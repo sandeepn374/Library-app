@@ -15,6 +15,7 @@ import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -136,17 +137,25 @@ public class SignupActivity extends AppCompatActivity {
 									
 									if (sem.getSelectedItem().equals("8") && (dept.getSelectedItem().equals("TCE"))) {
 										User user = new User(inputname, inputemail,inputphone,inputusn,inputgender,inputsem,inputdept);
-										DatabaseReference mDatabaseForUser = FirebaseDatabase.getInstance().getReference("users");                                   String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();                                    mDatabaseForUser.child(uid).setValue(user);
+										DatabaseReference mDatabaseForUser = FirebaseDatabase.getInstance().getReference("users");                                  
+										String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();                                
+										mDatabaseForUser.child(uid).setValue(user);
 
+										
+										
+										
+										
+										
+										
 										Intent intent = new Intent(SignupActivity.this, MainActivity.class);
 										startActivity(intent);
 										finish();
 									}
 									else {
 										
-										Intent intent = new Intent(SignupActivity.this, Main1Activity.class);
-										startActivity(intent);
-										finish();
+										//Intent intent = new Intent(SignupActivity.this, Main1Activity.class);
+										//startActivity(intent);
+										//finish();
 									}
 
                                   //  String inputname=name.getText().toString();

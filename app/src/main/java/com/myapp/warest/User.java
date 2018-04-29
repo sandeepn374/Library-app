@@ -16,6 +16,8 @@ public class User  implements Serializable{
     public String gender="";
 	public String semester="";
 	public String department="";
+	
+	
 
 public User(){}
 
@@ -28,6 +30,7 @@ public User(){}
         this.gender=gender;
 		this.semester=semester;
 		this.department= department;
+		
 
 
     }

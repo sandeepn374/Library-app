@@ -18,21 +18,30 @@ import java.util.HashMap;
 import android.util.TypedValue;
 import android.view.Gravity;
 
+
 import android.graphics.Color;
 import java.util.concurrent.*;
 import java.util.*;
 import android.text.method.*;
+import android.util.*;
+
 
 public class BookActivity extends AppCompatActivity
 {
+	
+	
 	FirebaseAuth auth;
-	Button add, add2, add3, add4;
+	Button add, add2, add3, add4, issue;
 	TextView bookqty, bookqty2,bookqty3, bookqty4,mLink, textField, textField3, textField4;
-	int qtyvalue=10;
+
 	int qtyvalue2=15;
 	int qtyvalue3=20;
 	int qtyvalue4= 9;
-	
+	String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+	private DatabaseReference mDatabase;
+
+
 
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,29 +62,132 @@ public class BookActivity extends AppCompatActivity
 		textField3.setText("3. Telecommunication New " + System.getProperty("line.separator") + "      Sign Posts to Old Roads");
 		textField4.setText("4. Telecom Management in" + System.getProperty("line.separator") + "      Emerging Economics");
 		
+		issue = (Button)findViewById(R.id.bookissue);
+		issue.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					//button functionality
+					startActivity(new Intent(BookActivity.this, IssueActivity.class));
+					//qtyvalue2--;
+					//bookqty2.setText(Integer.toString(qtyvalue2));
+
+				}
+			});
+		
+		
 		mLink = (TextView) findViewById(R.id.link);
 		if (mLink != null) {
 			mLink.setMovementMethod(LinkMovementMethod.getInstance());
 		}
-		bookqty.setText(Integer.toString(qtyvalue));
-		bookqty2.setText(Integer.toString(qtyvalue2));
-		bookqty3.setText(Integer.toString(qtyvalue3));
-		bookqty4.setText(Integer.toString(qtyvalue4));
 		
+					 
+		FirebaseDatabase.getInstance().getReference().child("Book1").addListenerForSingleValueEvent(new ValueEventListener() {
+				@Override
+				public void onDataChange(DataSnapshot dataSnapshot) {
+					String s=(String) dataSnapshot.getValue().toString();
 
+                   
+
+					String[] parts = s.split(",");
+					String part1 = parts[0]; // 004-
+					String part2 = parts[1]; 
+				
+					
+					String[] parts1 = part1.split("=");
+					String part3 = parts1[0]; // 004-
+					String part4 = parts1[1]; 
+					//Log.e("sand",""+part4);
+					
+					bookqty.setText(part4);
+		
+					
+					} 
+				@Override
+				public void onCancelled(DatabaseError databaseError) {
+				}
+			});        
+					 
+
+					bookqty2.setText(Integer.toString(qtyvalue2));
+					bookqty3.setText(Integer.toString(qtyvalue3));
+					bookqty4.setText(Integer.toString(qtyvalue4));
+				
+			
+			      
 		add.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					//button functionality
+				
 					startActivity(new Intent(BookActivity.this, ConfirmActivity.class));
-					qtyvalue--;
-					bookqty.setText(Integer.toString(qtyvalue));
+				
+				
+					FirebaseDatabase.getInstance().getReference().child("Book1").addListenerForSingleValueEvent(new ValueEventListener() {
+							@Override
+							public void onDataChange(DataSnapshot dataSnapshot) {
+								String s=(String) dataSnapshot.getValue().toString();
+
+
+								String[] parts = s.split(",");
+								String part1 = parts[0]; // 004-
+								String part2 = parts[1]; 
+
+
+								String[] parts1 = part1.split("=");
+								String part3 = parts1[0]; // 004-
+								String part4 = parts1[1]; 
+								
+								int result = Integer.parseInt(part4);			
+								int result1 = result-1;
+								//Log.e("sand",""+result1);
+								
+								dataSnapshot.getRef().child("Qty").setValue(result1);
+							//Log.e("ss",""+dataSnapshot);
+
+								
+
+
+							} 
+							@Override
+							public void onCancelled(DatabaseError databaseError) {
+							}
+						});        
+				
+				
+					String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
 					
+				
+					FirebaseDatabase.getInstance().getReference().child("users").child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
+							@Override
+							public void onDataChange(DataSnapshot dataSnapshot) {
+								//String s1=(String) dataSnapshot.getValue().toString();
+								//Log.e("san",""+dataSnapshot);
+								String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+								
+								
+								DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference().child("users").child(uid);
+								mDatabase.child("Book Issued").push().setValue("The Telecom Handbook");
+								
+								
+								
+								
+								}
+								
+								@Override
+							public void onCancelled(DatabaseError databaseError) {
+							}
+								
+								});
+				
+				
+				
+				
+				
+
 				}
 			});
 
 
-		
+
 		add2.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
@@ -86,7 +198,7 @@ public class BookActivity extends AppCompatActivity
 
 				}
 			});
-		
+
 		add3.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
@@ -97,8 +209,8 @@ public class BookActivity extends AppCompatActivity
 
 				}
 			});
-	
-			
+
+
 		add4.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
@@ -109,6 +221,6 @@ public class BookActivity extends AppCompatActivity
 
 				}
 			});
-			
-			
-}}
+
+
+	}}
