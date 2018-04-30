@@ -49,16 +49,20 @@ public class IssueActivity extends AppCompatActivity
 				@Override
 				public void onDataChange(DataSnapshot dataSnapshot) {
 					String s=(String) dataSnapshot.getValue().toString();
-					
+					Log.e("sand",""+s);
 					String[] parts = s.split("=");
 					String part1 = parts[0]; // 004-
 					String part2 = parts[1]; 
 					
+					
+					Log.e("sandeep1",""+part1);
+					Log.e("sandeep2",""+part2);
+					
+					
 					String[] parts1 = part2.split(",");
 					String part3 = parts1[0]; // 004-
 					String part4 = parts1[1]; 
-					Log.e("sandeep1",""+part3);
-					Log.e("sandeep2",""+part4);
+					
 					
 					
 					//final User user = dataSnapshot.getValue(User.class);
