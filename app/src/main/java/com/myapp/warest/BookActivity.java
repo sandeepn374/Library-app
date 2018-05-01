@@ -236,7 +236,8 @@ public class BookActivity extends AppCompatActivity
 								//Log.e("san",""+dataSnapshot);
 								String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
 								DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference().child("users").child(uid);
-								mDatabase.child("Book Issued").push().setValue("The Telecom Handbook");			
+								mDatabase.child("Book Issued").push().setValue("The Telecom Handbook");		
+							
 								}
 								
 								@Override
@@ -302,7 +303,7 @@ public class BookActivity extends AppCompatActivity
 		add3.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					startActivity(new Intent(BookActivity.this, RegulatoryActivity.class));
+					startActivity(new Intent(BookActivity.this, TelecomActivity.class));
 
 					FirebaseDatabase.getInstance().getReference().child("Book3").addListenerForSingleValueEvent(new ValueEventListener() {
 							@Override
@@ -353,7 +354,7 @@ public class BookActivity extends AppCompatActivity
 		add4.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					startActivity(new Intent(BookActivity.this, RegulatoryActivity.class));
+					startActivity(new Intent(BookActivity.this, LastActivity.class));
 
 					FirebaseDatabase.getInstance().getReference().child("Book4").addListenerForSingleValueEvent(new ValueEventListener() {
 							@Override

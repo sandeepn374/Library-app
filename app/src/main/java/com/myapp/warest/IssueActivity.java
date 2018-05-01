@@ -49,14 +49,17 @@ public class IssueActivity extends AppCompatActivity
 				@Override
 				public void onDataChange(DataSnapshot dataSnapshot) {
 					String s=(String) dataSnapshot.getValue().toString();
-					Log.e("sand",""+s);
+			
+					
+					
+					
 					String[] parts = s.split("=");
 					String part1 = parts[0]; // 004-
 					String part2 = parts[1]; 
 					
 					
-					Log.e("sandeep1",""+part1);
-					Log.e("sandeep2",""+part2);
+					
+					
 					
 					
 					String[] parts1 = part2.split(",");
@@ -70,14 +73,14 @@ public class IssueActivity extends AppCompatActivity
 					LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(TableLayout.LayoutParams.FILL_PARENT,
 																					 TableLayout.LayoutParams.WRAP_CONTENT);
 					TextView tv1 = new TextView(IssueActivity.this);
-					tv1.setTextSize(18);
+					tv1.setTextSize(13);
 					tv1.setTextColor(Color.BLACK);
 
 					TextView tv2 = new TextView(IssueActivity.this);
 					tv2.setTextSize(25);
 					tv2.setTextColor(Color.BLACK);
 
-					tv1.setText("Book - " + part3);
+					tv1.setText("Book-"+part3);
 					//tv2.setText("Usn- " + user.usn);
 
 					TableRow.LayoutParams trparams = new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT);
