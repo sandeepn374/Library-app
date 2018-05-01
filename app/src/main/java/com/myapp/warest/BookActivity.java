@@ -236,8 +236,8 @@ public class BookActivity extends AppCompatActivity
 								//Log.e("san",""+dataSnapshot);
 								String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
 								DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference().child("users").child(uid);
-								mDatabase.child("Book Issued").push().setValue("The Telecom Handbook");		
-							
+								mDatabase.child("Book Issued").push().setValue("The Telecom Handbook");
+
 								}
 								
 								@Override
@@ -286,10 +286,11 @@ public class BookActivity extends AppCompatActivity
 							@Override
 							public void onDataChange(DataSnapshot dataSnapshot) {
 								//String s1=(String) dataSnapshot.getValue().toString();
+
 								//Log.e("san",""+dataSnapshot);
 								String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
 								DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference().child("users").child(uid);
-								mDatabase.child("Book Issued").push().setValue("The Telecom Regulatory of India");			
+								mDatabase.child("Book Issued").push().setValue("The Telecom Regulatory of India");
 							}
 
 							@Override
@@ -340,7 +341,7 @@ public class BookActivity extends AppCompatActivity
 								//Log.e("san",""+dataSnapshot);
 								String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
 								DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference().child("users").child(uid);
-								mDatabase.child("Book Issued").push().setValue("The Telecommunication New Sign Posts to Old Roads");			
+								mDatabase.child("Book Issued").push().setValue("The Telecommunication New Sign Posts to Old Roads");
 							}
 
 							@Override
@@ -391,7 +392,7 @@ public class BookActivity extends AppCompatActivity
 								//Log.e("san",""+dataSnapshot);
 								String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
 								DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference().child("users").child(uid);
-								mDatabase.child("Book Issued").push().setValue("Telecom Management in Emerging Economics");			
+								mDatabase.child("Book Issued").push().setValue("Telecom Management in Emerging Economics");
 							}
 
 							@Override

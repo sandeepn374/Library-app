@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "33821307568",
-    "firebase_url": "https://smart-library-access.firebaseio.com",
-    "project_id": "smart-library-access",
-    "storage_bucket": "smart-library-access.appspot.com"
+    "project_number": "431076057759",
+    "firebase_url": "https://smart-library-access-6bf9d.firebaseio.com",
+    "project_id": "smart-library-access-6bf9d",
+    "storage_bucket": "smart-library-access-6bf9d.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:33821307568:android:70ff987205cba1ae",
+        "mobilesdk_app_id": "1:431076057759:android:70ff987205cba1ae",
         "android_client_info": {
           "package_name": "com.myapp.warest"
         }
       },
       "oauth_client": [
         {
-          "client_id": "33821307568-s2uneuahstrkhisdgcoec97i8el891k4.apps.googleusercontent.com",
+          "client_id": "431076057759-kke0uf3rcsud2r9vcnmbbc4co7vsoecv.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBUG3dMTCyK-5rNZBXENl6wHzK0aKVQOv4"
+          "current_key": "AIzaSyBN9fOPeJojgPLEaXeITQy3DFN7hDc094o"
         }
       ],
       "services": {

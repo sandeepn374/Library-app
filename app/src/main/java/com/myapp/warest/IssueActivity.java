@@ -45,16 +45,24 @@ public class IssueActivity extends AppCompatActivity
 
 
 
-		FirebaseDatabase.getInstance().getReference().child("users").child(uid).child("Book Issued").addListenerForSingleValueEvent(new ValueEventListener() {
+		FirebaseDatabase.getInstance().getReference().child("users").child(uid).child("Book Issued").child("").addListenerForSingleValueEvent(new ValueEventListener() {
 				@Override
 				public void onDataChange(DataSnapshot dataSnapshot) {
-					String s=(String) dataSnapshot.getValue().toString();
+
+
+
+					for (DataSnapshot chidSnap : dataSnapshot.getChildren()) {
+						Log.v("tmz", "" + chidSnap.getKey()); //displays the key for the node
+						Log.v("tmz", "" + chidSnap.getValue());   //gives the value for given keyname
+					String child = (String) chidSnap.getValue();
+					Log.i("child",""+child);
+					/*String s=(String) dataSnapshot.getValue().toString();
 			
-					
+					Log.e("sand",""+s);
 					
 					
 					String[] parts = s.split("=");
-					String part1 = parts[0]; // 004-
+					String part1 = parts[0];
 					String part2 = parts[1]; 
 					
 					
@@ -64,45 +72,45 @@ public class IssueActivity extends AppCompatActivity
 					
 					String[] parts1 = part2.split(",");
 					String part3 = parts1[0]; // 004-
-					String part4 = parts1[1]; 
+//					String part4 = parts1[1];
 					
 					
-					
-					//final User user = dataSnapshot.getValue(User.class);
+				*/
+						//final User user = dataSnapshot.getValue(User.class);
 
-					LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(TableLayout.LayoutParams.FILL_PARENT,
-																					 TableLayout.LayoutParams.WRAP_CONTENT);
-					TextView tv1 = new TextView(IssueActivity.this);
-					tv1.setTextSize(13);
-					tv1.setTextColor(Color.BLACK);
+						LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(TableLayout.LayoutParams.FILL_PARENT,
+								TableLayout.LayoutParams.WRAP_CONTENT);
+						TextView tv1 = new TextView(IssueActivity.this);
+						tv1.setTextSize(13);
+						tv1.setTextColor(Color.BLACK);
 
-					TextView tv2 = new TextView(IssueActivity.this);
-					tv2.setTextSize(25);
-					tv2.setTextColor(Color.BLACK);
+						//TextView tv2 = new TextView(IssueActivity.this);
+						//tv2.setTextSize(25);
+						//tv2.setTextColor(Color.BLACK);
 
-					tv1.setText("Book-"+part3);
-					//tv2.setText("Usn- " + user.usn);
+						tv1.setText("Book-" + chidSnap.getValue());
+						//tv2.setText("Usn- " + user.usn);
 
-					TableRow.LayoutParams trparams = new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT);
-					tv1.setLayoutParams(trparams);
-					tv2.setLayoutParams(trparams);
-
-
-					TableLayout layoutINNER = new TableLayout(IssueActivity.this);
+						TableRow.LayoutParams trparams = new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT);
+						tv1.setLayoutParams(trparams);
+						//tv2.setLayoutParams(trparams);
 
 
-					layoutINNER.setLayoutParams(params);
-
-					TableRow tr = new TableRow(IssueActivity.this);
-					tr.setLayoutParams(params);
-					tr.addView(tv1);
-
-					TableRow tr2 = new TableRow(IssueActivity.this);
-					tr2.setLayoutParams(params);
-					tr2.addView(tv2);
+						TableLayout layoutINNER = new TableLayout(IssueActivity.this);
 
 
-					TableRow tr4 = new TableRow(IssueActivity.this);
+						layoutINNER.setLayoutParams(params);
+
+						TableRow tr = new TableRow(IssueActivity.this);
+						tr.setLayoutParams(params);
+						tr.addView(tv1);
+
+						//TableRow tr2 = new TableRow(IssueActivity.this);
+						//tr2.setLayoutParams(params);
+						//tr2.addView(tv2);
+
+
+						//TableRow tr4 = new TableRow(IssueActivity.this);
 
 
 					/*Button paid = new Button(IssueActivity.this);
@@ -119,16 +127,17 @@ public class IssueActivity extends AppCompatActivity
 					tr4.addView(paid);*/
 
 
-					layoutINNER.addView(tr);
+						layoutINNER.addView(tr);
 
-					layoutINNER.addView(tr2);
-
-
-					layoutINNER.addView(tr4);
+						//layoutINNER.addView(tr2);
 
 
-					LinearLayout main = (LinearLayout) findViewById(R.id.main_layout);
-					main.addView(layoutINNER);
+						//layoutINNER.addView(tr4);
+
+
+						LinearLayout main = (LinearLayout) findViewById(R.id.main_layout);
+						main.addView(layoutINNER);
+					}
 				}
 
 				@Override
